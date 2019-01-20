@@ -1,0 +1,11 @@
+.\objects\variance.o: src\variance.c
+.\objects\variance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\variance.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\arm_math.h
+.\objects\variance.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\core_cm4.h
+.\objects\variance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\variance.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_version.h
+.\objects\variance.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_compiler.h
+.\objects\variance.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
+.\objects\variance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\variance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\variance.o: ./inc/asm_variance.h

@@ -1,0 +1,100 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             test, CODE, READONLY
+    2 00000000         
+    3 00000000                 export           asm_dot_product ; label must be
+                                                             exported if it is 
+                                                            to be used as a fun
+                                                            ction in C
+    4 00000000         asm_dot_product
+    5 00000000         
+    6 00000000 EE31 1A41       VSUB.F32         S2, S2, S2  ; result = 0
+    7 00000004         
+    8 00000004         loop
+    9 00000004 1E52            SUBS             R2, R2, #1  ; loop counter (N =
+                                                             N-1)
+   10 00000006 DB0B            BLT              done        ; loop has finished
+                                                            ?
+   11 00000008 ED90 0A00       VLDR.F32         S0, [R0]    ; Matrix 1 first in
+                                                            dex value move to S
+                                                            0
+   12 0000000C EDD1 0A00       VLDR.F32         S1, [R1]    ; Matrix 2 first in
+                                                            dex value move to S
+                                                            1
+   13 00000010 EE00 1A20       VMLA.F32         S2, S0, S1  ; multiply S0 and S
+                                                            1 and add to S2
+   14 00000014 F100 0004       ADD              R0, R0, #4
+   15 00000018 F101 0104       ADD              R1, R1, #4
+   16 0000001C DCFF            BGT              continue    ; branch loop
+   17 0000001E         
+   18 0000001E         continue
+   19 0000001E E7F1            B                loop        ; loop
+   20 00000020         
+   21 00000020         done
+   22 00000020 ED83 1A00       VSTR.F32         S2, [R3]    ; store dot product
+                                                             in the pointer (fl
+                                                            oat *dot_product) t
+                                                            hat was provided
+   23 00000024         
+   24 00000024 4770            BX               LR          ; return
+   25 00000026         
+   26 00000026                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\asm_dot_product.d -o.\objects\asm_dot_product.o -IC:\
+Users\ifaruk\Downloads\G17_Lab1\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS
+\Include -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\Device\ARM\ARMCM4\Include --pred
+efine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 515" --predefine="_RT
+E_ SETA 1" --predefine="ARMCM4_FP SETA 1" --list=.\listings\asm_dot_product.lst
+ asm\asm_dot_product.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+asm_dot_product 00000000
+
+Symbol: asm_dot_product
+   Definitions
+      At line 4 in file asm\asm_dot_product.s
+   Uses
+      At line 3 in file asm\asm_dot_product.s
+Comment: asm_dot_product used once
+continue 0000001E
+
+Symbol: continue
+   Definitions
+      At line 18 in file asm\asm_dot_product.s
+   Uses
+      At line 16 in file asm\asm_dot_product.s
+Comment: continue used once
+done 00000020
+
+Symbol: done
+   Definitions
+      At line 21 in file asm\asm_dot_product.s
+   Uses
+      At line 10 in file asm\asm_dot_product.s
+Comment: done used once
+loop 00000004
+
+Symbol: loop
+   Definitions
+      At line 8 in file asm\asm_dot_product.s
+   Uses
+      At line 19 in file asm\asm_dot_product.s
+Comment: loop used once
+test 00000000
+
+Symbol: test
+   Definitions
+      At line 1 in file asm\asm_dot_product.s
+   Uses
+      None
+Comment: test unused
+5 symbols
+340 symbols in table

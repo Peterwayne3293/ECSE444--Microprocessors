@@ -1,0 +1,88 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             test, CODE, READONLY
+    2 00000000         
+    3 00000000                 export           asm_variance ; label must be ex
+                                                            ported if it is to 
+                                                            be used as a functi
+                                                            on in C
+    4 00000000         asm_variance
+    5 00000000         
+    6 00000000 4602            MOV              R2, R0
+    7 00000002 460B            MOV              R3, R1
+    8 00000004 EE70 0AE0       VSUB.F32         S1, S1, S1
+    9 00000008         
+   10 00000008         ;total
+   11 00000008         total
+   12 00000008 1E5B            SUBS             R3, R3, #1
+   13 0000000A DB06            BLT              mean
+   14 0000000C ED92 0A00       VLDR.F32         S0, [R2]
+   15 00000010 EE70 0A00       VADD.F32         S1, S0, S0
+   16 00000014 F102 0204       ADD              R2, R2, #4
+   17 00000018 E7F6            B                total
+   18 0000001A         
+   19 0000001A         mean
+   20 0000001A         ;VDIV
+   21 0000001A         ;total
+   22 0000001A         
+   23 0000001A         ;divide
+   24 0000001A         
+   25 0000001A         ; find subtraction of data from mean
+   26 0000001A         
+   27 0000001A         ; square the result 
+   28 0000001A         
+   29 0000001A         ; sum the squares
+   30 0000001A         
+   31 0000001A         
+   32 0000001A                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\asm_variance.d -o.\objects\asm_variance.o -IC:\Users\
+ifaruk\Downloads\G17_Lab1\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Inclu
+de -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\Device\ARM\ARMCM4\Include --predefine=
+"__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 515" --predefine="_RTE_ SET
+A 1" --predefine="ARMCM4_FP SETA 1" --list=.\listings\asm_variance.lst asm\asm_
+variance.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+asm_variance 00000000
+
+Symbol: asm_variance
+   Definitions
+      At line 4 in file asm\asm_variance.s
+   Uses
+      At line 3 in file asm\asm_variance.s
+Comment: asm_variance used once
+mean 0000001A
+
+Symbol: mean
+   Definitions
+      At line 19 in file asm\asm_variance.s
+   Uses
+      At line 13 in file asm\asm_variance.s
+Comment: mean used once
+test 00000000
+
+Symbol: test
+   Definitions
+      At line 1 in file asm\asm_variance.s
+   Uses
+      None
+Comment: test unused
+total 00000008
+
+Symbol: total
+   Definitions
+      At line 11 in file asm\asm_variance.s
+   Uses
+      At line 17 in file asm\asm_variance.s
+Comment: total used once
+4 symbols
+339 symbols in table
