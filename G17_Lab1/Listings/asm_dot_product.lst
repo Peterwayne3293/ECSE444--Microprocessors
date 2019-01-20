@@ -19,16 +19,18 @@ ARM Macro Assembler    Page 1
                                                              N-1)
    10 00000006 DB0B            BLT              done        ; loop has finished
                                                             ?
-   11 00000008 ED90 0A00       VLDR.F32         S0, [R0]    ; Matrix 1 first in
-                                                            dex value move to S
-                                                            0
-   12 0000000C EDD1 0A00       VLDR.F32         S1, [R1]    ; Matrix 2 first in
-                                                            dex value move to S
-                                                            1
+   11 00000008 ED90 0A00       VLDR.F32         S0, [R0]    ; Matrix 1 index va
+                                                            lue move to S0
+   12 0000000C EDD1 0A00       VLDR.F32         S1, [R1]    ; Matrix 2 index va
+                                                            lue move to S1
    13 00000010 EE00 1A20       VMLA.F32         S2, S0, S1  ; multiply S0 and S
                                                             1 and add to S2
-   14 00000014 F100 0004       ADD              R0, R0, #4
-   15 00000018 F101 0104       ADD              R1, R1, #4
+   14 00000014 F100 0004       ADD              R0, R0, #4  ; go to the address
+                                                             of next index in f
+                                                            irst array
+   15 00000018 F101 0104       ADD              R1, R1, #4  ; go to the address
+                                                             of next index in s
+                                                            econd array
    16 0000001C DCFF            BGT              continue    ; branch loop
    17 0000001E         
    18 0000001E         continue

@@ -12,33 +12,75 @@ ARM Macro Assembler    Page 1
                                                             on in C
     4 00000000         asm_variance
     5 00000000         
-    6 00000000 4602            MOV              R2, R0
-    7 00000002 460B            MOV              R3, R1
-    8 00000004 EE70 0AE0       VSUB.F32         S1, S1, S1
-    9 00000008         
-   10 00000008         ;total
-   11 00000008         total
-   12 00000008 1E5B            SUBS             R3, R3, #1
-   13 0000000A DB06            BLT              mean
-   14 0000000C ED92 0A00       VLDR.F32         S0, [R2]
-   15 00000010 EE70 0A00       VADD.F32         S1, S0, S0
-   16 00000014 F102 0204       ADD              R2, R2, #4
-   17 00000018 E7F6            B                total
-   18 0000001A         
-   19 0000001A         mean
-   20 0000001A         ;VDIV
-   21 0000001A         ;total
-   22 0000001A         
-   23 0000001A         ;divide
-   24 0000001A         
-   25 0000001A         ; find subtraction of data from mean
-   26 0000001A         
-   27 0000001A         ; square the result 
-   28 0000001A         
-   29 0000001A         ; sum the squares
-   30 0000001A         
-   31 0000001A         
-   32 0000001A                 END
+    6 00000000 4603            MOV              R3, R0      ; move R0 to R2, to
+                                                             preserve R0 - base
+                                                             address
+    7 00000002 460C            MOV              R4, R1      ; move R1 to R3, to
+                                                             preserve R1 - size
+                                                            
+    8 00000004 EE70 0AE0       VSUB.F32         S1, S1, S1  ;
+    9 00000008 EE31 1A41       VSUB.F32         S2, S2, S2
+   10 0000000C EE71 1AE1       VSUB.F32         S3, S3, S3
+   11 00000010         
+   12 00000010         total
+   13 00000010 1E64            SUBS             R4, R4, #1  ; loop counter (N =
+                                                             N-1)
+   14 00000012 DB06            BLT              mean        ; loop has finished
+                                                            ? branch mean
+   15 00000014 ED93 0A00       VLDR.F32         S0, [R3]    ; move matrix value
+                                                             to S0
+   16 00000018 EE70 0A80       VADD.F32         S1, S1, S0  ; Sum S0 to S1 get 
+                                                            total
+   17 0000001C F103 0304       ADD              R3, R3, #4  ; go to the address
+                                                             of next index in t
+                                                            he array
+   18 00000020 E7F6            B                total       ; branch total
+   19 00000022         
+   20 00000022         mean
+   21 00000022 EE00 1A10       VMOV.F32         S0, R1      ; move size of arra
+                                                            y(N) to S0
+   22 00000026 EEB8 0A40       VCVT.F32.U32     S0, S0      ; convert N to floa
+                                                            t
+   23 0000002A EEC0 0A80       VDIV.F32         S1, S1, S0  ; divide to get tot
+                                                            al by N to get mean
+                                                            
+   24 0000002E         
+   25 0000002E         variance
+   26 0000002E 1E49            SUBS             R1, R1, #1  ; loop counter (N =
+                                                             N-1)
+   27 00000030 DB08            BLT              divide      ; loop has finished
+                                                            ? branch done
+   28 00000032 ED90 1A00       VLDR.F32         S2, [R0]    ; move matrix value
+                                                             to S2 
+   29 00000036 EE31 1A60       VSUB.F32         S2, S2, S1  ; subtract matrix v
+                                                            alue from mean
+   30 0000003A EE41 1A01       VMLA.F32         S3, S2, S2  ; multiply to get (
+                                                            matrixVal-mean)^2
+   31 0000003E F100 0004       ADD              R0, R0, #4  ; go to next index 
+                                                            in the array
+   32 00000042 E7F4            B                variance    ; branch variance
+   33 00000044         
+   34 00000044         divide
+   35 00000044         ;VLDR.F32 S4, =1.0       ; use if TA wants to see
+   36 00000044         ;VSUB.F32 S0, S0, S4      ; use if TA wants to see
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   37 00000044 EEC1 1A80       VDIV.F32         S3, S3, S0  ; Divide to get (ma
+                                                            trixVal-mean)^2/N
+   38 00000048         
+   39 00000048         done
+   40 00000048 EDC2 1A00       VSTR.F32         S3, [R2]    ; store dot product
+                                                             in the pointer (fl
+                                                            oat *dot_product) t
+                                                            hat was provided
+   41 0000004C         
+   42 0000004C 4770            BX               LR          ; return
+   43 0000004E         
+   44 0000004E                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\asm_variance.d -o.\objects\asm_variance.o -IC:\Users\
 ifaruk\Downloads\G17_Lab1\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Inclu
@@ -60,13 +102,29 @@ Symbol: asm_variance
    Uses
       At line 3 in file asm\asm_variance.s
 Comment: asm_variance used once
-mean 0000001A
+divide 00000044
+
+Symbol: divide
+   Definitions
+      At line 34 in file asm\asm_variance.s
+   Uses
+      At line 27 in file asm\asm_variance.s
+Comment: divide used once
+done 00000048
+
+Symbol: done
+   Definitions
+      At line 39 in file asm\asm_variance.s
+   Uses
+      None
+Comment: done unused
+mean 00000022
 
 Symbol: mean
    Definitions
-      At line 19 in file asm\asm_variance.s
+      At line 20 in file asm\asm_variance.s
    Uses
-      At line 13 in file asm\asm_variance.s
+      At line 14 in file asm\asm_variance.s
 Comment: mean used once
 test 00000000
 
@@ -76,13 +134,21 @@ Symbol: test
    Uses
       None
 Comment: test unused
-total 00000008
+total 00000010
 
 Symbol: total
    Definitions
-      At line 11 in file asm\asm_variance.s
+      At line 12 in file asm\asm_variance.s
    Uses
-      At line 17 in file asm\asm_variance.s
+      At line 18 in file asm\asm_variance.s
 Comment: total used once
-4 symbols
-339 symbols in table
+variance 0000002E
+
+Symbol: variance
+   Definitions
+      At line 25 in file asm\asm_variance.s
+   Uses
+      At line 32 in file asm\asm_variance.s
+Comment: variance used once
+7 symbols
+342 symbols in table

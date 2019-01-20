@@ -10,12 +10,13 @@ void dot_product(float *f1_array, float *f2_array, int N) {
 	
 	float DSP_dot_product;
 	
-	/* LOOP TO FIND DOT PRODUCT*/
+	//----C variance function-----
 	int i;
 	dot_product = 0;
 	for(i=0; i<N ; i++) {
 		dot_product += f1_array[i]*f2_array[i];
 	}
+	//---------------------------
 	
 	/* Assembly dot product function */
 	asm_dot_product(f1_array, f2_array, N, &a_dot_product);

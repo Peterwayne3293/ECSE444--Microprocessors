@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\G17_Lab1.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\G17_Lab1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Sat Jan 19 22:45:23 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Sun Jan 20 18:22:54 2019
 <BR><P>
 <H3>Maximum Stack Usage =        320 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -14,7 +14,7 @@ Functions with no stack information
 </H3><UL>
  <LI><a href="#[94]">asm_max</a>
  <LI><a href="#[8e]">asm_dot_product</a>
- <LI><a href="#[97]">asm_variance</a>
+ <LI><a href="#[98]">asm_variance</a>
 </UL>
 </UL>
 <P>
@@ -416,7 +416,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;max
 </UL>
 
-<P><STRONG><a name="[98]"></a>arm_var_f32</STRONG> (Thumb, 424 bytes, Stack size 16 bytes, arm_var_f32.o(.text))
+<P><STRONG><a name="[97]"></a>arm_var_f32</STRONG> (Thumb, 424 bytes, Stack size 16 bytes, arm_var_f32.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = arm_var_f32
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;variance
@@ -705,7 +705,7 @@ Global Symbols
 <P><STRONG><a name="[7c]"></a>_fp_trap</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, _fptrap.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGFPE
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
 </UL>
 
 <P><STRONG><a name="[70]"></a>_fseek</STRONG> (Thumb, 242 bytes, Stack size 24 bytes, fseek.o(.text))
@@ -1006,14 +1006,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[93]"></a>variance</STRONG> (Thumb, 212 bytes, Stack size 48 bytes, variance.o(i.variance))
+<P><STRONG><a name="[93]"></a>variance</STRONG> (Thumb, 210 bytes, Stack size 48 bytes, variance.o(i.variance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = variance &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asm_variance
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_var_f32
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asm_variance
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_var_f32
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1034,24 +1034,21 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dot_product
 </UL>
 
-<P><STRONG><a name="[97]"></a>asm_variance</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, asm_variance.o(test))
-<BR><BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dflt_normalise
-</UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;variance
+<P><STRONG><a name="[98]"></a>asm_variance</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, asm_variance.o(test))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;variance
 </UL>
 
-<P><STRONG><a name="[99]"></a>__dflt_normalise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltn))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asm_variance
+<P><STRONG><a name="[9d]"></a>__dflt_normalise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltn), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 </UL>
 
 <P><STRONG><a name="[9f]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 </UL>
 
-<P><STRONG><a name="[9a]"></a>__fpl_exception</STRONG> (Thumb, 454 bytes, Stack size 16 bytes, except.o(x$fpl$exception), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+<P><STRONG><a name="[99]"></a>__fpl_exception</STRONG> (Thumb, 454 bytes, Stack size 16 bytes, except.o(x$fpl$exception), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
@@ -1065,17 +1062,17 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dot_product
 </UL>
 
-<P><STRONG><a name="[9d]"></a>_f2d</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
+<P><STRONG><a name="[9c]"></a>_f2d</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dflt_normalise
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dflt_normalise
 </UL>
 
 <P><STRONG><a name="[9e]"></a>__fpl_fnaninf</STRONG> (Thumb, 242 bytes, Stack size 8 bytes, fnaninf.o(x$fpl$fnaninf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder_d
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 </UL>
 
 <P><STRONG><a name="[39]"></a>_fp_init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
@@ -1087,11 +1084,11 @@ Global Symbols
 <P><STRONG><a name="[db]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 
 <P><STRONG><a name="[a1]"></a>__funder</STRONG> (Thumb, 254 bytes, Stack size 0 bytes, funder_clz.o(x$fpl$funder), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
+<BR><BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 </UL>
 
 <P><STRONG><a name="[a0]"></a>__funder_d</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, funder_clz.o(x$fpl$funder), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
@@ -1109,21 +1106,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_f
 </UL>
 
-<P><STRONG><a name="[9c]"></a>__fpl_return_NaN</STRONG> (Thumb, 178 bytes, Stack size 0 bytes, retnan.o(x$fpl$retnan), UNUSED)
+<P><STRONG><a name="[9b]"></a>__fpl_return_NaN</STRONG> (Thumb, 178 bytes, Stack size 0 bytes, retnan.o(x$fpl$retnan), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 </UL>
 
-<P><STRONG><a name="[9b]"></a>_fp_trapveneer</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, trapv.o(x$fpl$trapveneer), UNUSED)
+<P><STRONG><a name="[9a]"></a>_fp_trapveneer</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, trapv.o(x$fpl$trapveneer), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trap
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder_d
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 </UL>
 
 <P><STRONG><a name="[a2]"></a>__fpl_cmpreturn</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
 <P>
 <H3>
