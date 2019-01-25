@@ -2,12 +2,13 @@
 	
 	export asm_variance          ; label must be exported if it is to be used as a function in C
 asm_variance
-
+	
+	PUSH{R4}												; saving context according to calling convention
 	MOV R3, R0											; move R0 to R2, to preserve R0 - base address
 	MOV R4, R1									 		; move R1 to R3, to preserve R1 - size
-	VSUB.F32 S1, S1, S1					 		;
-	VSUB.F32 S2, S2, S2					 		
-	VSUB.F32 S3, S3, S3					
+	VSUB.F32 S1, S1, S1					 		; Clear register
+	VSUB.F32 S2, S2, S2					 		; Clear register
+	VSUB.F32 S3, S3, S3							; Clear register
 	
 total
 	SUBS R4, R4, #1							 		;	loop counter (N = N-1)
@@ -32,13 +33,16 @@ variance
 	B variance											; branch variance
 	
 divide
-	;VLDR.F32 S4, =1.0							;	use if TA wants to see
-	;VSUB.F32 S0, S0, S4						;	use if TA wants to see
+	VLDR.F32 S4, =1.0							;	use if TA wants to see
+	VSUB.F32 S0, S0, S4						;	use if TA wants to see
 	VDIV.F32 S3, S3, S0							; Divide to get (matrixVal-mean)^2/N
 	
 done	
 	VSTR.F32 S3, [R2]               ; store dot product in the pointer (float *dot_product) that was provided
 	
+	POP{R4}													; restore context
+	
 	BX LR                           ; return
 
+	
 	END

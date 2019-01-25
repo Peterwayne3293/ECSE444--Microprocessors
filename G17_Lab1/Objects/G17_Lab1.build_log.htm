@@ -21,23 +21,26 @@ Target DLL:      UL2CM3.DLL V1.155.8.0
 Dialog DLL:      TCM.DLL V1.14.5.0
  
 <h2>Project:</h2>
-C:\Users\ifaruk\Downloads\G17_Lab1\G17_Lab1.uvprojx
+C:\Users\ifaruk\Downloads\ECSE444\G17_Lab1\G17_Lab1.uvprojx
 Project File Date:  01/19/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'G17'
+compiling variance.c...
+linking...
+Program Size: Code=11320 RO-data=424 RW-data=4056 ZI-data=4448  
 ".\Objects\G17_Lab1.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.3.0.pack
-                ARM::Device:Startup:1.0.1
+                ARM::CMSIS:DSP:1.5.2
                 CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: DSP Version: 1.5.2
    * Component: Startup Version: 1.0.1
    * Component: CORE Version: 5.1.1
-   * Component: DSP Version: 1.5.2
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.ARM_Compiler.1.4.0.pack
@@ -46,21 +49,21 @@ Package Vendor: Keil
    * Component: STDOUT Variant: ITM Version: 1.4.0
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\ifaruk\Downloads\G17_Lab1\RTE
+  C:\Users\ifaruk\Downloads\ECSE444\G17_Lab1\RTE
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\Device\ARM\ARMCM4\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::Device:Startup:1.0.1
-      Source file:   Device\ARM\ARMCM4\Source\system_ARMCM4.c
-      Source file:   Device\ARM\ARMCM4\Source\ARM\startup_ARMCM4.s
-
-   * Component: ARM::CMSIS:CORE:5.1.1
-
    * Component: ARM::CMSIS:DSP:1.5.2
       Library file:  CMSIS\Lib\ARM\arm_cortexM4lf_math.lib
       Include file:  CMSIS\Include\arm_math.h
+
+   * Component: ARM::Device:Startup:1.0.1
+      Source file:   Device\ARM\ARMCM4\Source\ARM\startup_ARMCM4.s
+      Source file:   Device\ARM\ARMCM4\Source\system_ARMCM4.c
+
+   * Component: ARM::CMSIS:CORE:5.1.1
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:ITM:1.4.0
       Source file:   Source\retarget_io.c

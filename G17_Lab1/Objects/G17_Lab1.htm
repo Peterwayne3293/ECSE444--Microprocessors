@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\G17_Lab1.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\G17_Lab1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Sun Jan 20 18:22:54 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue Jan 22 15:16:45 2019
 <BR><P>
 <H3>Maximum Stack Usage =        320 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -14,7 +14,7 @@ Functions with no stack information
 </H3><UL>
  <LI><a href="#[94]">asm_max</a>
  <LI><a href="#[8e]">asm_dot_product</a>
- <LI><a href="#[98]">asm_variance</a>
+ <LI><a href="#[97]">asm_variance</a>
 </UL>
 </UL>
 <P>
@@ -416,7 +416,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;max
 </UL>
 
-<P><STRONG><a name="[97]"></a>arm_var_f32</STRONG> (Thumb, 424 bytes, Stack size 16 bytes, arm_var_f32.o(.text))
+<P><STRONG><a name="[98]"></a>arm_var_f32</STRONG> (Thumb, 424 bytes, Stack size 16 bytes, arm_var_f32.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = arm_var_f32
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;variance
@@ -1006,14 +1006,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[93]"></a>variance</STRONG> (Thumb, 210 bytes, Stack size 48 bytes, variance.o(i.variance))
+<P><STRONG><a name="[93]"></a>variance</STRONG> (Thumb, 212 bytes, Stack size 48 bytes, variance.o(i.variance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = variance &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asm_variance
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_var_f32
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asm_variance
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_var_f32
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1034,7 +1034,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dot_product
 </UL>
 
-<P><STRONG><a name="[98]"></a>asm_variance</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, asm_variance.o(test))
+<P><STRONG><a name="[97]"></a>asm_variance</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, asm_variance.o(test))
 <BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;variance
 </UL>
 

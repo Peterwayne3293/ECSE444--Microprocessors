@@ -27,15 +27,17 @@ void variance(float *f_array, int N){
 	//find variance
 	variance = 0;
 	for(i=0 ; i<N; i++){
-		variance+= (f_array[i]-mean)*(f_array[i]-mean)/N;
+		variance+= (f_array[i]-mean)*(f_array[i]-mean)/(N-1);
 	}
 	//-----------------------------
+	
+	/* Assembly variance function */
+	asm_variance(f_array, N, &a_variance);
 	
 	/* CMSIS-DSP variance function */
 	arm_var_f32(f_array, N, &DSP_variance);
 	
-	/* Assembly variance function */
-	asm_variance(f_array, N, &a_variance);
+	
 		
 	printf("Pure C   : Variance = %f\n", variance);
 	printf("Assembly : Variance = %f\n", a_variance);
