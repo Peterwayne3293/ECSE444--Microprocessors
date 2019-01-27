@@ -23,22 +23,44 @@ int main(void)
   /* Initialize all configured peripherals (GPIO and DAC) */
   MX_GPIO_Init();
   MX_DAC1_Init();
-
 	
+	int valueDAC;
+	int maxValue;
+	
+	maxValue = 4095;	//max Value is 4095 or 255, depending on whether 8 or 12 bit precision was chosen, 4200
 	/* Turn on LED */
-	//HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET  );
+	//HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
 	
-  /* Infinite loop */
+	valueDAC = 0;
+	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);	//hdac1 is the DAC_HandleTypeDef *hdac
+	HAL_DAC_Start(&hdac1, DAC_CHANNEL_2);
+
+	/* Infinite loop */
   while (1)
   {
+		
 		//********** Student code here *************//
-		if(!HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13)){				//if USER button depressed, return 0
+		//Using GPIO’s in digital mode: Push-button and LED
+		if(!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)){				//if USER button depressed, return 0
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
 		}
 		else{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
 		}
+		
+		//Using GPIO’s in analog mode: DAC
+		printf ("%d\n", valueDAC);
+		valueDAC = valueDAC % maxValue;
+		HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, valueDAC);
+		HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, valueDAC);
+		valueDAC+= 63;
+		
+		//Clipped Triangle Wave Generation
+		//generate triangle wave
+		//clip
+		//output
 	}
+	
 }
 
 /**
