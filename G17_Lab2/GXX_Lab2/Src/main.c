@@ -27,6 +27,17 @@ int main(void)
 	int valueDAC;
 	int maxValue;
 	
+	int triClipMax;
+	int triClipMin;
+	int triMid;
+	int triMax;
+	int triMin;
+	
+	int triLeft;
+	int triRight;
+	int semaphore;
+
+	
 	maxValue = 4095;	//max Value is 4095 or 255, depending on whether 8 or 12 bit precision was chosen, 4200
 	/* Turn on LED */
 	//HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
@@ -34,11 +45,20 @@ int main(void)
 	valueDAC = 0;
 	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);	//hdac1 is the DAC_HandleTypeDef *hdac
 	HAL_DAC_Start(&hdac1, DAC_CHANNEL_2);
+	
+	triClipMax = 4095;	//4095 approximated to get smooth wave
+	triClipMin = 0;
+	triMid = 2048;
+	triMax = triClipMax + triLeft;
+	triMin = -triMid;		//-2048 approximated to get smooth wave
+	
+	triLeft = triMid;
+	triRight = 0;
+	semaphore = 0;
 
 	/* Infinite loop */
   while (1)
   {
-		
 		//********** Student code here *************//
 		//Using GPIO’s in digital mode: Push-button and LED
 		if(!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)){				//if USER button depressed, return 0
@@ -52,15 +72,40 @@ int main(void)
 		printf ("%d\n", valueDAC);
 		valueDAC = valueDAC % maxValue;
 		HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, valueDAC);
-		HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, valueDAC);
+		//HAL_DACEx_SetUserTrimming(hdac1, DAC_ChannelConfTypeDef * sConfig, uint32_t Channel, uint32_t NewTrimmingValue)
+		
+		//HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, valueDAC);
 		valueDAC+= 63;
 		
 		//Clipped Triangle Wave Generation
-		//generate triangle wave
-		//clip
-		//output
+		if (triLeft < triMax && semaphore == 0){
+			if (triLeft >= triClipMax){
+				HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, triClipMax);
+			}
+			else{
+				HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, triLeft);
+			}
+			triLeft+= 63;
+			triRight = 4095;
+		}
+		else {
+			semaphore = 1;
+		}
+		
+		if (triRight > triMin && semaphore == 1) {
+			if (triRight <= triClipMin){
+				HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, triClipMin);
+			}
+			else{
+				HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, triRight);
+			}
+			triRight-= 63;
+			triLeft = 0;
+		}
+		else{
+			semaphore = 0;
+		}
 	}
-	
 }
 
 /**
