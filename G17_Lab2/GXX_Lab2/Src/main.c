@@ -49,10 +49,10 @@ int main(void)
 	triClipMax = 4095;	//4095 approximated to get smooth wave
 	triClipMin = 0;
 	triMid = 2048;
-	triMax = triClipMax + triLeft;
+	triMax = triClipMax + triMid;
 	triMin = -triMid;		//-2048 approximated to get smooth wave
 	
-	triLeft = triMid;
+	triLeft = triClipMin;
 	triRight = 0;
 	semaphore = 0;
 
@@ -72,10 +72,10 @@ int main(void)
 		printf ("%d\n", valueDAC);
 		valueDAC = valueDAC % maxValue;
 		HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, valueDAC);
-		//HAL_DACEx_SetUserTrimming(hdac1, DAC_ChannelConfTypeDef * sConfig, uint32_t Channel, uint32_t NewTrimmingValue)
-		
+				
 		//HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, valueDAC);
 		valueDAC+= 63;
+		
 		
 		//Clipped Triangle Wave Generation
 		if (triLeft < triMax && semaphore == 0){
@@ -86,7 +86,7 @@ int main(void)
 				HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, triLeft);
 			}
 			triLeft+= 63;
-			triRight = 4095;
+			triRight = triClipMax;
 		}
 		else {
 			semaphore = 1;
@@ -100,7 +100,7 @@ int main(void)
 				HAL_DAC_SetValue (&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, triRight);
 			}
 			triRight-= 63;
-			triLeft = 0;
+			triLeft = triClipMin;
 		}
 		else{
 			semaphore = 0;
