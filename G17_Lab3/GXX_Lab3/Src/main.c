@@ -8,10 +8,12 @@ DMA_HandleTypeDef hdma_usart1_tx;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
+int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size);
 
 int main(void)
 {
 	char ch[5] = {'j','o','b','s','\n'};
+	char out[5];
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
@@ -24,12 +26,21 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-
 		HAL_Delay(100);
+		
 		HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
-
-  }
+		
+		HAL_UART_Receive (&huart1, (uint8_t *)&out[0], 5, 30000);
+		
+		//UART_Print_String(&huart1, (uint8_t *)&out[0], 5);
+	}
 }
+
+int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
+	HAL_UART_Transmit(huart, pData, size, 30000);
+	
+	
+} 
 
 void SystemClock_Config(void)
 {
