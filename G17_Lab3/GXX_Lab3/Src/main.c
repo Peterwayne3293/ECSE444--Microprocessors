@@ -14,10 +14,12 @@ int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size
 static void MX_ADC1_ADC_Init(void);
 
 int main(void)
-{
+{	
 	char ch[5] = {'j','o','b','s','\n'};
 	char x[1];
 	char y[1] = {'Y'};
+	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ',' ',' ',' ','C','\n'};
+	uint32_t temp;
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
@@ -27,12 +29,11 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
 	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
-
+	
+	HAL_ADC_Start(&hadc1);	//Enable ADC, start conversion of regular group
   /* Infinite loop */
   while (1)
   {
-		HAL_Delay(100);	//delays 100 ms
-		
 		/*
 		//------receive 'X', transmit 'Y'------//
 		HAL_UART_Receive (&huart1, (uint8_t *)&x[0], 1, 30000);
@@ -40,14 +41,17 @@ int main(void)
 			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
 		}
 		*/
+		HAL_Delay(100);	//delays 100 ms
 		
-		//HAL_ADC_Start();
-		//HAL_ADC_PollForConversion();
-		//HAL_ADC_GetValue();
+		HAL_ADC_PollForConversion(&hadc1, 30000);
+		
+		temp = HAL_ADC_GetValue(&hadc1);
+		
+		//tempArray[15] = (char)temp/10;
+		tempArray[16] = (char)temp%10;
+		
 		//AADC_CHANNEL_TEMPSENSOR //ADC temperature sensor channel 
-		UART_Print_String(&huart1, (uint8_t *)&ch[0], 5);		//returns 1 if transmission successful, else returns 0
-		
-		
+		UART_Print_String(&huart1, (uint8_t *)&tempArray[0], 19);		//returns 1 if transmission successful, else returns 0
 	}
 }
 
@@ -102,7 +106,7 @@ void MX_ADC1_ADC_Init(void){
 	
 	channelConfig.Channel = ADC_CHANNEL_TEMPSENSOR; //ADC temperature sensor channel 
   channelConfig.Rank = ADC_REGULAR_RANK_1;	//The only ADC being used
-	//channelConfig.SamplingTime = //refer to temp sensor
+	channelConfig.SamplingTime = ADC_SAMPLETIME_24CYCLES_5;	//refer to temp sensor
 	channelConfig.SingleDiff = ADC_SINGLE_ENDED;	//ADC channel set in single-ended input mode 
 	channelConfig.OffsetNumber = ADC_OFFSET_NONE;	//No offset correction 
 	channelConfig.Offset = 0;	//Zero Offset, maybe redundant
