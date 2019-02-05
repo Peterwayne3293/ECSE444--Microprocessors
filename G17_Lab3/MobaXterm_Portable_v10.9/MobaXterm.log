@@ -1,0 +1,2613 @@
+[17:29.32.505]  BEGIN AddMobaConsoleFont
+[17:29.32.508]  END AddMobaConsoleFont
+[17:29.32.538]  - MobaXterm version: 10.9 Build 3656
+[17:29.32.538]  - Command line: "C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm_Personal_10.9.exe"
+[17:29.32.539]  - Date: 2019-02-04
+[17:29.32.539]  - Win32 version: 10.0.2.17134.
+[17:29.32.539]  - Windows architecture: 64-bits
+[17:29.32.539]  - Detected DPI: 96
+[17:29.32.539]  - Current DPI: 96
+[17:29.32.540]  - CurDir: C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\
+[17:29.32.540]  - PersonalDir: \\campus.mcgill.ca\EMF\ELE\ifaruk\My Documents\
+[17:29.32.540]  - AppDataDir: \\expo.campus.mcgill.ca\Profiles$\ifaruk\Application Data\
+[17:29.32.540]  - LocalAppDataDir: \\expo.campus.mcgill.ca\Profiles$\ifaruk\Application Data\
+[17:29.32.540]  - DesktopDir: \\campus.mcgill.ca\EMF\ELE\ifaruk\Desktop\
+[17:29.32.540]  - MobaProfileDir: \\campus.mcgill.ca\EMF\ELE\ifaruk\My Documents\
+[17:29.32.540]  - Free space in MobaProfileDir folder: 0MB
+[17:29.32.540]  - TempDir: C:\Users\ifaruk\AppData\Local\Temp\
+[17:29.32.541]  - Free space in TempDir folder: 768771MB
+[17:29.32.541]  - Monitor #0: 1680x1050
+[17:29.32.541]  - User name: ifaruk
+[17:29.32.541]  - Computer name: 156TR4160-10
+[17:29.32.541]  - CygUtils: C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\CygUtils.plugin
+[17:29.32.541]  - Uptime: 24 days, 13:03:18
+[17:29.32.541]  - Windows PATH: C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps;C:\Users\ifaruk\AppData\Local\GitHubDesktop\bin
+[17:29.32.541]  
+[17:29.32.541]  BEGIN Form1.FormCreate
+[17:29.32.542]      Detecting installed/portable version
+[17:29.32.542]      --> portable version
+[17:29.32.542]      
+[17:29.32.542]      Detecting IniSettings
+[17:29.32.542]      MobaXterm will take its configuration from file "C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini".
+[17:29.32.543]      (selected ini file seems to be writeable)
+[17:29.32.543]      --> IniSettings= C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini
+[17:29.32.543]      
+[17:29.32.543]      Detecting MobaXVTDir
+[17:29.32.543]      BEGIN IsFolderRW(C:\Users\ifaruk\AppData\Local\Temp\Mxt109)
+[17:29.32.545]          CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\cygdrive);
+[17:29.32.551]          CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mnt);
+[17:29.32.555]          CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\media);
+[17:29.32.559]          CreateSymbolicLink(/proc/registry, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\registry);
+[17:29.32.567]          CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\cygdrive);
+[17:29.32.571]          CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\mnt);
+[17:29.32.575]          CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\media);
+[17:29.32.580]          CreateSymbolicLink(/proc/registry, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mx86_64b\registry);
+[17:29.32.589]      END IsFolderRW(C:\Users\ifaruk\AppData\Local\Temp\Mxt109) --> OK
+[17:29.32.589]      --> MobaXVTDir= C:\Users\ifaruk\AppData\Local\Temp\Mxt109
+[17:29.32.590]      
+[17:29.32.590]      Detecting BinExeDir
+[17:29.32.590]      --> BinExeDir= C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\
+[17:29.32.590]      --> SessionsDir= C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions
+[17:29.32.590]      
+[17:29.32.590]      Detecting MobaXVTHomeDir
+[17:29.32.590]      --> MobaXVTHomeDir= C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\home_ifaruk
+[17:29.32.590]      
+[17:29.32.590]      Skin detection
+[17:29.32.590]      Skin selected:
+[17:29.32.591]      Set Application Title
+[17:29.32.610]      - Cygwin1.dll not detected in running applications.
+[17:29.32.611]      
+[17:29.32.611]      Process list:  Registry, fontdrvhost.exe, Memory Compression, igfxCUIService.exe, CTskMstr.exe, IntelCpHDCPSvc.exe, hasplms.exe, jtagserver.exe, sqlwriter.exe, IpOverUsbSvc.exe, sqlbrowser.exe, SecurityHealthService.exe, sqlservr.exe, IntelCpHeciSvc.exe, sfc.exe, hasplmv.exe, WmiPrvSE.exe, AdaptiveSleepService.exe, armsvc.exe, WmiPrvSE.exe, WmiPrvSE.exe, WmiPrvSE.exe, WmiPrvSE.exe, lkads.exe, sshd.exe, nimxs.exe, TestStandService.exe, nipalsm.exe, ssh-agent.exe, niauth_daemon.exe, niDAQmxRemoteService.exe, SgrmBroker.exe, uaPLUSx86.Net4.exe, nscp.exe, nisvcloc.exe, server_eventlog.exe, niroco.exe, nidmsrv.exe, lktsrv.exe, nicitdl5.exe, lkcitdl.exe, tagsrv.exe, nipalsm.exe, nidevldu.exe, keysvc.exe, server_runtime.exe, niusrpriorpc.exe, niusrpmonitor.exe, nipalsm.exe, SystemWebServer.exe, nipxism.exe, NIWebServiceContainer.exe, nimdnsResponder.exe, NIWebServiceContainer.exe, niDiscSvc.exe, niLxiDiscovery.exe, NIWebServiceContainer.exe, ApplicationWebServer.exe, NIWebServiceContainer.exe, NIWebServiceContainer.exe, NIWebServiceContainer.exe, NIWebServiceContainer.exe, PresentationFontCache.exe, OfficeClickToRun.exe, AppVShNotify.exe, MsMpEng.exe, NisSrv.exe, fontdrvhost.exe, CcmExec.exe, sihost.exe, taskhostw.exe, igfxEM.exe, WmiPrvSE.exe, ShellExperienceHost.exe, SearchUI.exe, RuntimeBroker.exe, dllhost.exe, RuntimeBroker.exe, ApplicationFrameHost.exe, MicrosoftEdge.exe, OpenWith.exe, browser_broker.exe, RuntimeBroker.exe, SCNotification.exe, MicrosoftEdgeCP.exe, MicrosoftEdgeCP.exe, MSASCuiL.exe, RuntimeBroker.exe, cnext.exe, proquota.exe, ni_usbmon.exe, DataFinder.exe, DeviceMonitor.exe, iptray.exe, Microsoft.Photos.exe, OneDrive.exe, server_admin.exe, SkypeApp.exe, RuntimeBroker.exe, SkypeBackgroundHost.exe, dllhost.exe, RuntimeBroker.exe, fontdrvhost.exe, C:\Windows\System32\sihost.exe, C:\Windows\System32\DriverStore\FileRepository\ki127171.inf_amd64_368f8c7337214025\igfxEM.exe, WmiPrvSE.exe, C:\Windows\System32\taskhostw.exe, C:\Windows\System32\dllhost.exe, C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe, C:\Windows\SystemApps\Microsoft.Windows.Cortana_cw5n1h2txyewy\SearchUI.exe, C:\Windows\System32\RuntimeBroker.exe, C:\Windows\System32\RuntimeBroker.exe, C:\Windows\System32\smartscreen.exe, C:\Windows\System32\backgroundTaskHost.exe, C:\Windows\System32\RuntimeBroker.exe, C:\Windows\CCM\SCNotification.exe, C:\Program Files\Windows Defender\MSASCuiL.exe, C:\Program Files\AMD\CNext\CNext\cnext.exe, C:\Program Files (x86)\National Instruments\Shared\myRIO\ni_usbmon.exe, C:\Program Files (x86)\National Instruments\NI Device Monitor\DeviceMonitor.exe, C:\Program Files\Cisco\AMP\6.2.3\iptray.exe, C:\Windows\System32\proquota.exe, C:\Keil_v5\UV4\UV4.exe, C:\Windows\System32\dllhost.exe, C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm_Personal_10.9.exe
+[17:29.32.611]      
+[17:29.32.649]      BEGIN ReadCustomIcons
+[17:29.32.649]          No custom icon found.
+[17:29.32.649]      END ReadCustomIcons
+[17:29.32.650]      Generating icons list (size 16)
+[17:29.32.961]      Generating icons list (size 22)
+
+[17:29.33.373]      Generating icons list (size 64)
+[17:29.33.558]  END Form1.Create
+[17:29.33.558]  
+[17:29.33.559]  
+[17:29.33.559]  CREATING Form4
+[17:29.33.689]  BEGIN Form4.Create
+[17:29.33.693]      NbPingus = 4
+[17:29.33.694]      BEGIN LoadBookmarksFromIni
+[17:29.33.694]          FindOrCreateTreeFolders() (1)
+[17:29.33.694]          FindOrCreateTreeFolders(PuTTY sessions) (1)
+[17:29.33.696]      END LoadBookmarksFromIni
+[17:29.33.697]      BEGIN LoadMacrosFromIni
+[17:29.33.697]      END LoadMacrosFromIni
+[17:29.33.708]      Form4Create1
+[17:29.33.708]      Form4Create2
+[17:29.33.712]      BEGIN AdaptSidebarArrows
+[17:29.33.712]      END AdaptSidebarArrows
+[17:29.33.714]      Form4Create3
+[17:29.33.714]      GetMinWidth = 924
+[17:29.33.714]      GetMinHeight = 529
+[17:29.33.716]      Form4Create4
+[17:29.33.716]      IsNTFS(C:\) --> NTFS
+[17:29.33.716]      Slash drive is NTFS.
+[17:29.33.716]      Form4Create5
+[17:29.33.716]      Form4Create6
+[17:29.33.716]      Displaysidebarontheleft1Click: FormClick
+[17:29.33.718]      BEGIN AdaptSidebarArrows
+[17:29.33.718]      END AdaptSidebarArrows
+[17:29.33.718]      Form4Create7
+[17:29.33.719]      Form4Create8
+[17:29.33.719]      Form4Create9
+[17:29.33.719]      ShowButtonsbar1Click: FormClick
+[17:29.33.719]      Form4Create10
+[17:29.33.719]      Form4Create12
+[17:29.33.719]      SmallButtons1Click: FormClick
+[17:29.33.720]      GetMinWidth = 924
+[17:29.33.721]      GetMinHeight = 525
+[17:29.33.721]      Form4Create13
+[17:29.33.721]      Form4Create14
+[17:29.33.721]  END Form4.Create
+[17:29.33.721]  
+[17:29.33.721]  
+[17:29.33.722]  CREATING FormParams
+[17:29.33.934]  BEGIN TFormParams.FormCreate
+[17:29.33.938]  END TFormParams.FormCreate
+[17:29.33.938]  
+[17:29.33.938]  
+[17:29.33.938]  CREATING FormSessionEdit
+[17:29.34.216]  BEGIN FormSessionEdit.Create
+[17:29.34.250]      BEGIN TFormSessionEdit.FindIP
+[17:29.34.256]      END TFormSessionEdit.FindIP
+[17:29.34.257]      BEGIN SetupEnumAvailableComPorts
+[17:29.34.257]          SetupEnumAvailableComPorts: SetupDiClassGuidsFromName
+[17:29.34.260]          SetupEnumAvailableComPorts: SetupDiGetClassDevs
+[17:29.34.261]          SetupEnumAvailableComPorts: SetupDiEnumDeviceInfo
+[17:29.34.261]          SetupEnumAvailableComPorts: SetupDiGetDeviceRegistryProperty
+[17:29.34.261]          SetupEnumAvailableComPorts: SetupDiGetDeviceRegistryProperty
+[17:29.34.262]          SetupEnumAvailableComPorts: SetupDiEnumDeviceInfo
+[17:29.34.262]          SetupEnumAvailableComPorts: SetupDiGetDeviceRegistryProperty
+[17:29.34.262]          SetupEnumAvailableComPorts: SetupDiGetDeviceRegistryProperty
+[17:29.34.263]          SetupEnumAvailableComPorts: SetupDiEnumDeviceInfo
+[17:29.34.263]          SetupEnumAvailableComPorts: SetupDiGetDeviceRegistryProperty
+[17:29.34.263]          SetupEnumAvailableComPorts: SetupDiGetDeviceRegistryProperty
+[17:29.34.264]          SetupEnumAvailableComPorts: SetupDiEnumDeviceInfo
+[17:29.34.264]          SetupEnumAvailableComPorts: SetupDiDestroyDeviceInfoList
+[17:29.34.265]      END SetupEnumAvailableComPorts
+[17:29.34.267]  END FormSessionEdit.Create
+[17:29.34.267]  
+[17:29.34.267]  
+[17:29.34.267]  CREATING FormTransparente
+[17:29.34.270]  
+[17:29.34.270]  
+[17:29.34.270]  CREATING FormHotKeys
+[17:29.34.305]  BEGIN TFormHotKeys.FormCreate
+[17:29.34.306]  END TFormHotKeys.FormCreate
+[17:29.34.306]  
+[17:29.34.306]  
+[17:29.34.306]  CREATING FormDownloadBloquant
+[17:29.34.310]  
+[17:29.34.310]  
+[17:29.34.311]  CREATING FormStorePasswords
+[17:29.34.319]  
+[17:29.34.319]  
+[17:29.34.320]  CREATING FormInputDialog
+[17:29.34.324]  
+[17:29.34.324]  
+[17:29.34.324]  CREATING FormMsgDialog
+[17:29.34.327]  
+[17:29.34.327]  
+[17:29.34.327]  CREATING FormSyntax
+[17:29.34.353]  
+[17:29.34.353]  
+[17:29.34.353]  CREATING FormMasterPassword
+[17:29.34.359]  
+[17:29.34.359]  
+[17:29.34.359]  CREATING FormTermConfirmClose
+[17:29.34.363]  
+[17:29.34.363]  
+[17:29.34.363]  CREATING FormManagePasswords
+[17:29.34.378]  BEGIN TFormManagePasswords.FormCreate
+[17:29.34.378]  END TFormManagePasswords.FormCreate
+[17:29.34.379]  
+[17:29.34.379]  
+[17:29.34.379]  DONE CREATING FORMS
+[17:29.34.379]  
+[17:29.34.379]  
+[17:29.34.379]  
+[17:29.34.379]  
+[17:29.34.380]  BEGIN Form1.Show
+[17:29.34.380]  END Form1.Show
+[17:29.34.402]  
+[17:29.34.403]  Launching Form1.Timer1Timer
+[17:29.34.403]  
+[17:29.34.403]  
+[17:29.34.403]  
+[17:29.34.403]  
+[17:29.34.403]  ================================================================================
+[17:29.34.403]  ~    INI file content (C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini)    ~
+[17:29.34.403]  ================================================================================
+[17:29.34.403]  
+[17:29.34.404]  
+[Misc]
+PuTTYSessionsAlreadyImported=1
+LastSession=COM3  (Intel(R) Active Management Technology - SOL (COM3))| #131#8%1%3%3%0%0%1%2#MobaFont%10%0%0%0%15%236,236,236%0,0,0%180,180,192%0%-1%0%%xterm%-1%0%0,0,0%54,54,54%255,96,96%255,128,128%96,255,96%128,255,128%255,255,54%255,255,128%96,96,255%128,128,255%255,54,255%255,128,255%54,255,255%128,255,255%236,236,236%255,255,255%80%24%0%1%-1%<none>%%0#0#
+
+[WindowPos_156TR4160-10_1_1680]
+CompactMode=0
+MonitorCount=1
+Left=378
+Top=260
+Width=924
+Height=529
+Maximized=0
+SidebarVisible=1
+SidebarWidth=240
+
+[Display]
+SidebarRight=0
+C10Checked=1
+C11Checked=1
+C12Checked=1
+C13Checked=0
+C14Checked=0
+VisibleTabNum=1
+VisibleTabClose=1
+MenuAndButtons=2
+BtnType2=2
+
+[SSH]
+SFTPShowDotFiles=1
+SFTPAsciiMode=0
+
+[Recently started]
+16=
+15=
+14=
+13=
+12=
+11=
+10=
+9=
+8=
+7=
+6=
+5=
+4=
+3=
+2=
+1=COM3  (Intel(R) Active Management Technology - SOL (COM3))
+
+[Bookmarks]
+SubRep=
+ImgNum=42
+
+[Bookmarks_1]
+SubRep=PuTTY sessions
+ImgNum=63
+cs310.cs.mcgill.ca=#109#0%cs310.cs.mcgill.ca%22%% %-1%-1% %%22%%0%-1%Interactive shell%
+
+[17:29.34.409]  
+[17:29.34.409]  
+[17:29.34.409]  ================================================================================
+[17:29.34.409]  
+[17:29.34.409]  
+[17:29.34.409]  
+[17:29.34.409]  
+[17:29.34.409]  BEGIN CreerFstab
+[17:29.34.410]      CreerFstab: RootDirectory = C:/Users/ifaruk/AppData/Local/Temp/Mxt109
+[17:29.34.410]      CreerFstab: HomeDirectory = C:/Users/ifaruk/AppData/Local/Temp/Mxt109/tmp/home_ifaruk
+[17:29.34.415]  END CreerFstab
+[17:29.34.415]  BEGIN extraireFichiers1
+[17:29.34.415]      BEGIN CreerProfile
+[17:29.34.464]      END CreerProfile
+[17:29.34.465]      BEGIN CreerSshConfig
+[17:29.34.471]      END CreerSshConfig
+[17:29.34.471]      BEGIN CreerBaseProfile
+[17:29.34.471]          NEW PLUGIN: mobase
+[17:29.34.471]          BEGIN ProcessPlugin(mobase)
+[17:29.34.474]          END ProcessPlugin(mobase)
+[17:29.34.474]          NEW PLUGIN: C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\CygUtils.plugin
+[17:29.34.474]          BEGIN ProcessPlugin(C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\CygUtils.plugin)
+[17:29.34.510]              
+[17:29.34.510]              --> CygUtils version: 1.68
+[17:29.34.511]              
+[17:29.34.514]          END ProcessPlugin(C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\CygUtils.plugin)
+[17:29.34.578]      END CreerBaseProfile
+[17:29.34.578]      BEGIN MkGroupFile
+[17:29.34.578]          BEGIN GetLocalGroups
+[17:29.34.581]          END GetLocalGroups
+[17:29.34.589]          SaveStringListToUnixFile(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\group)
+[17:29.34.596]          MkGroupFile OK
+[17:29.34.596]      END MkGroupFile
+[17:29.34.596]      BEGIN MkPasswdFile
+[17:29.34.597]          Current Domain: CAMPUS.MCGILL.CA
+[17:29.34.597]          BEGIN Bui_GetWindowsUsersAccount
+[17:29.34.598]          END Bui_GetWindowsUsersAccount
+[17:29.34.604]          MkPasswdFile OK
+[17:29.34.605]      END MkPasswdFile
+[17:29.34.605]      BEGIN CreerNsswitch
+[17:29.34.610]      END CreerNsswitch
+[17:29.34.611]      Request for file extraction: /bin/scrdaemons
+[17:29.34.612]      File scrdaemons extracted from CygUtils.plugin.
+[17:29.34.612]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\tftp);
+[17:29.34.617]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\ftp);
+[17:29.34.622]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\http);
+[17:29.34.626]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\ssh);
+[17:29.34.631]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\telnet);
+[17:29.34.636]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\nfs);
+[17:29.34.640]      CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\scrdaemons, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\init.d\vnc);
+[17:29.34.644]      Request for file extraction: /bin/cygtermd.exe
+[17:29.34.645]      File cygtermd.exe extracted from CygUtils.plugin.
+[17:29.34.645]      Request for file extraction: /bin/cygz.dll
+[17:29.34.645]      File cygz.dll extracted from CygUtils.plugin.
+[17:29.34.646]      Request for file extraction: /bin/cyggcc_s-1.dll
+[17:29.34.646]      File cyggcc_s-1.dll extracted from CygUtils.plugin.
+[17:29.34.647]      Request for file extraction: /bin/cygwin-console-helper.exe
+[17:29.34.647]      File cygwin-console-helper.exe extracted from CygUtils.plugin.
+[17:29.34.647]      Request for file extraction: /bin/ssh.exe
+[17:29.34.648]      File ssh.exe extracted from CygUtils.plugin.
+[17:29.34.648]      Request for file extraction: /etc/bash.bash_logout
+[17:29.34.649]      Request for file extraction: /etc/profile.d
+[17:29.34.649]      Request for file extraction: /etc/profile.d/*
+[17:29.34.650]      CreerRaccourciVersMobaXterm(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\MobaListPorts, -listports);
+[17:29.34.656]      CreerRaccourciVersMobaXterm(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\MobaPictureViewer, -picview);
+[17:29.34.663]      CreerRaccourciVersMobaXterm(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\MobaCalc, -calc);
+[17:29.34.670]      CreerRaccourciVersMobaXterm(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\MobaTextEditor, -edit);
+[17:29.34.676]      CreerRaccourciVersMobaXterm(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\MobaCompareFiles, -compfiles);
+[17:29.34.682]      CreerRaccourciVersMobaXterm(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\MobaCompareFolders, -compfolders);
+[17:29.34.688]      Request for file extraction: /usr/share/terminfo/78/xterm
+[17:29.34.688]      File xterm extracted from CygUtils.plugin.
+[17:29.34.689]      Request for file extraction: /usr/share/terminfo/63/cygwin
+[17:29.34.689]      File cygwin extracted from CygUtils.plugin.
+[17:29.34.690]      Request for file extraction: /etc/bash_completion
+[17:29.34.690]      File bash_completion extracted from CygUtils.plugin.
+[17:29.34.691]      Request for file extraction: /usr/share/zoneinfo/posixrules
+[17:29.34.691]      File posixrules extracted successfully.
+[17:29.34.692]      Request for file extraction: /etc/inputrc
+[17:29.34.692]      File inputrc extracted from CygUtils.plugin.
+[17:29.34.692]  END extraireFichiers1
+[17:29.34.692]  CreateSymbolicLink(/proc/registry, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\registry);
+[17:29.34.696]  CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\sh);
+[17:29.34.702]  CreateSymbolicLink(C:\Windows\system32\drivers\etc\hosts, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\hosts);
+[17:29.34.708]  CreateSymbolicLink(C:\Windows\system32\drivers\etc\networks, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\networks);
+[17:29.34.713]  CreateSymbolicLink(C:\Windows\system32\drivers\etc\protocol, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\protocol);
+[17:29.34.717]  CreateSymbolicLink(C:\Windows\system32\drivers\etc\services, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\etc\services);
+[17:29.34.727]  CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\cygdrive);
+[17:29.34.731]  CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\mnt);
+[17:29.34.737]  CreateSymbolicLink(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\drives, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\media);
+[17:29.34.744]  BEGIN LoadSharedSessions
+[17:29.34.744]      BEGIN TFormManagePasswords.sRadioButton4Click
+[17:29.34.745]      END TFormManagePasswords.sRadioButton4Click
+[17:29.34.745]  END LoadSharedSessions
+[17:29.34.745]  BEGIN LoadSharedSessions
+[17:29.34.745]  END LoadSharedSessions
+[17:29.34.748]  BEGIN RecreateBookmarksMenus
+[17:29.34.748]      RecreateBookmarksMenus: FreeBookmarksMenuItems(Form1.Xserver3)
+[17:29.34.748]      RecreateBookmarksMenus: FreeBookmarksMenuItems(Bookmarks1)
+[17:29.34.748]      sTreeView1.assign(Treesessions)
+[17:29.34.748]      Detecting SheetSessions width
+[17:29.34.749]      Create session menu items
+[17:29.34.750]      Create aliases
+[17:29.34.765]      TreeSessions.Expand
+[17:29.34.765]  END RecreateBookmarksMenus
+[17:29.34.766]  BEGIN WaitForAllThreads
+[17:29.34.767]  END WaitForAllThreads
+[17:29.34.768]  
+[17:29.34.768]  BEGIN Form4.FormActivate
+[17:29.34.768]      Form4.FormActivate0: First time window activation
+[17:29.34.776]      Form4.FormActivate1
+[17:29.34.779]      Form4.FormActivate2
+[17:29.34.784]      Form4.FormActivate3
+[17:29.34.789]      Form4.FormActivate4
+[17:29.34.789]      Form4.FormActivate5
+[17:29.34.789]      Registering global show/hide hotkey
+[17:29.34.789]      Registering global show/hide popup terminal
+[17:29.34.789]      BEGIN LoadParamsFromIni: C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini
+[17:29.34.790]          LoadParamsFromIni: ComboFontName.Font.Name:=MobaFont
+[17:29.34.790]          LoadParamsFromIni: ComboFontName.ItemIndex:=14
+[17:29.34.791]          LoadParamsFromIni: ComboFontName.Font.Charset:=0
+[17:29.34.791]          LoadParamsFromIni1
+[17:29.34.793]          LoadParamsFromIni2
+[17:29.34.796]          LoadParamsFromIni9
+[17:29.34.796]          LoadParamsFromIni10
+[17:29.34.798]          LoadParamsFromIni11
+[17:29.34.798]          LoadParamsFromIni12
+[17:29.34.798]          LoadParamsFromIni13
+[17:29.34.798]          LoadParamsFromIni14
+[17:29.34.822]          LoadParamsFromIni15
+[17:29.34.822]          LoadParamsFromIni16
+[17:29.34.822]      END LoadParamsFromIni
+[17:29.34.822]      Form4.FormActivate: OldMaximized:=Form4.WindowState
+[17:29.34.822]      Form4.FormActivate: TermImage.Canvas.Font.Assign(MobaFont)
+[17:29.34.822]      Form4.FormActivate: TermImage.Canvas.Font.Size:=10
+[17:29.34.823]      Form4.FormActivate: TermImage.Canvas.Font.Name:=MobaFont
+[17:29.34.823]      Form4.FormActivate: Starting "GetMinHeight"
+[17:29.34.823]      GetMinHeight = 525
+[17:29.34.823]      Form4.FormActivate: Form4.Constraints.MinHeight:=525
+[17:29.34.824]      GetMinWidth = 924
+[17:29.34.824]      Form4.FormActivate: Form4.Constraints.MinWidth:=924
+[17:29.34.824]      Form4.FormActivate: Form4.Left:=378
+[17:29.34.824]      BEGIN GetNextAvailableX
+[17:29.34.828]      END GetNextAvailableX = 0
+[17:29.34.828]      
+[17:29.34.828]      CurrentX = 0
+[17:29.34.828]      ChDir(Form1.BaseDir): C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\
+[17:29.34.828]      FirstParam:
+[17:29.34.829]      Launching NewTab
+[17:29.34.829]      
+[17:29.34.829]      BEGIN NEWTAB(home, 135, 0)
+[17:29.34.841]          NEWTAB: Application.ProcessMessages
+[17:29.34.841]          NEWTAB: Timer1_Disable
+[17:29.34.848]          
+[17:29.34.848]          BEGIN Form4.FormActivate
+[17:29.34.848]          END Form4.FormActivate
+[17:29.34.848]          
+[17:29.34.850]          BEGIN TFormXterm.FormResize
+[17:29.34.851]              TFormXterm.FormResize: CenterBtnReattachTab
+[17:29.34.851]              TFormXterm.FormResize: SplitModeResize
+[17:29.34.851]              TFormXterm.FormResize: TabMax<=0. Exiting...
+[17:29.34.851]          END TFormXterm.FormResize
+[17:29.34.851]          BEGIN WMSize
+[17:29.34.851]              BEGIN AdaptSidebarArrows
+[17:29.34.851]              END AdaptSidebarArrows
+[17:29.34.851]          END WMSize
+[17:29.34.851]          NEWTAB: Verifying if max number of tabs has been reached...
+[17:29.34.851]          NEWTAB: Creating SFTPRecord...
+[17:29.34.855]          NEWTAB: Creating menu items and popup entries for new tab...
+[17:29.34.855]          NEWTAB: Trying to find OldIndice...
+[17:29.34.855]          NEWTAB: Cts1.BeginUpdate;
+[17:29.34.855]          NEWTAB: Creating new tab...
+[17:29.34.855]          NEWTAB:        Tab index: 0
+[17:29.34.855]          NEWTAB:        NumTerm  : 1
+[17:29.34.855]          NEWTAB:        Title    : Home
+[17:29.34.855]          NEWTAB:        Command  : home
+[17:29.34.855]          Cts1ActiveTabChanged: New index = 0
+[17:29.34.855]          NEWTAB: Cts1.EndUpdates
+[17:29.34.867]          NEWTAB: Changing tab index A = 0
+[17:29.34.867]          BEGIN WaitForAllThreads
+[17:29.34.867]          END WaitForAllThreads
+[17:29.34.867]          
+[17:29.34.867]          LaunchTabContent(home, Home);
+[17:29.34.867]          
+[17:29.34.867]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[17:29.34.868]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[17:29.34.868]          Enabling MOBANOACL
+[17:29.34.868]          
+[17:29.34.868]          ShellExecute: motty.exe
+[17:29.34.869]          
+[17:29.34.869]          CreerSessionMoTTY(1, home, Home)
+[17:29.34.869]          Setting LOCALE=en_CA.UTF-8
+[17:29.34.877]          CreerSessionMoTTY(-1, TCPCapture, TCPCapture)
+[17:29.34.877]          Setting LOCALE=en_CA.UTF-8
+[17:29.34.925]          
+[17:29.34.925]          FindWindow()
+[17:29.34.925]          Moxt2.SetParent
+[17:29.34.990]          NEWTAB: Application.OnMessage:=AppMessage
+[17:29.34.993]          NEWTAB: Changing tab index C = 0
+[17:29.34.994]          NEWTAB: Launching DisplayCurrentTab...
+[17:29.34.994]          BEGIN DisplayCurrentTab
+[17:29.34.994]              DisplayCurrentTab: FormClick
+[17:29.34.994]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[17:29.34.994]              (SSH-Browser) BEGIN ActiverPanel14
+[17:29.34.994]              (SSH-Browser) BEGIN DesactiverPanel14
+[17:29.34.994]              (SSH-Browser) END DesactiverPanel14
+[17:29.34.995]              (SSH-Browser) END ActiverPanel14;
+[17:29.35.015]              DisplayCurrentTab: Cts1.BeginUpdate;
+[17:29.35.015]              DisplayCurrentTab: Cts1.EndUpdates
+[17:29.35.015]              DisplayCurrentTab: Show selected tab
+[17:29.35.015]              BEGIN ResizeTerminal
+[17:29.35.015]              END ResizeTerminal
+[17:29.35.015]              DisplayCurrentTab: Hide other tabs
+[17:29.35.015]              DisplayCurrentTab: Adapting buttons enable/disable states
+[17:29.35.016]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[17:29.35.016]              DisplayCurrentTab: DistribuerLeFocus
+[17:29.35.017]              BEGIN WMNewTab: 0
+[17:29.35.017]                  WMNewTab: FormClick
+[17:29.35.017]                  WMNewTab: LooseFocus
+[17:29.35.017]              END WMNewTab: 0
+[17:29.35.017]              BEGIN WMNewTab: 0
+[17:29.35.017]                  WMNewTab: FormClick
+[17:29.35.017]                  WMNewTab: LooseFocus
+[17:29.35.017]              END WMNewTab: 0
+[17:29.35.018]              BEGIN WMNewTab: 0
+[17:29.35.018]                  WMNewTab: FormClick
+[17:29.35.018]                  WMNewTab: LooseFocus
+[17:29.35.018]              END WMNewTab: 0
+[17:29.35.018]              BEGIN WMNewTab: 0
+[17:29.35.018]                  WMNewTab: FormClick
+[17:29.35.018]                  WMNewTab: LooseFocus
+[17:29.35.018]              END WMNewTab: 0
+[17:29.35.021]          END DisplayCurrentTab
+[17:29.35.021]          NEWTAB: NewTab_ReEnable_Timer1
+[17:29.35.021]          NEWTAB: MajVerticalTabs
+[17:29.35.021]          NEWTAB: Cts1.Resize;
+[17:29.35.023]      END NEWTAB(home, 135, 0)
+[17:29.35.023]      
+[17:29.35.023]      
+[17:29.35.023]      Launching bookmarks();
+[17:29.35.024]      Launching sBitBtn7Click(sBitBtn7);
+[17:29.35.024]      
+[17:29.35.024]      BEGIN LaunchX11();
+[17:29.35.026]          Request for file extraction: /usr/share/X11/xkb/symbols/keypad
+[17:29.35.026]          File keypad extracted successfully.
+[17:29.35.026]          Request for file extraction: /usr/share/X11/xkb/symbols/pc
+[17:29.35.027]          File pc extracted successfully.
+[17:29.35.029]          Request for file extraction: /usr/share/fonts/misc/7x13-iso8859-1.pcf
+[17:29.35.030]          File 7x13-iso8859-1.pcf extracted successfully.
+[17:29.35.030]          Request for file extraction: /usr/share/fonts/misc/6x13-ISO8859-1.pcf
+[17:29.35.030]          File 6x13-ISO8859-1.pcf extracted successfully.
+[17:29.35.030]          Request for file extraction: /usr/share/fonts/misc/cursor.pcf
+[17:29.35.031]          File cursor.pcf extracted successfully.
+[17:29.35.031]          Request for file extraction: /usr/share/icons/default/cursors/left_ptr
+[17:29.35.031]          Request for file extraction: /usr/share/icons/default/index.theme
+[17:29.35.032]          Request for file extraction: /usr/share/pixmaps/default/cursors/left_ptr
+[17:29.35.032]          Request for file extraction: /usr/share/pixmaps/default/index.theme
+[17:29.35.032]          Request for file extraction: /usr/share/fonts/misc/fonts.dir
+[17:29.35.032]          File fonts.dir extracted successfully.
+[17:29.35.033]          Request for file extraction: /usr/share/fonts/misc/fonts.alias
+[17:29.35.033]          File fonts.alias extracted successfully.
+[17:29.35.033]          Request for file extraction: /usr/share/fonts/75dpi/fonts.dir
+[17:29.35.033]          Request for file extraction: /usr/share/fonts/75dpi/fonts.alias
+[17:29.35.034]          Request for file extraction: /usr/share/fonts/100dpi/fonts.dir
+[17:29.35.034]          Request for file extraction: /usr/share/fonts/100dpi/fonts.alias
+[17:29.35.034]          Request for file extraction: /usr/share/fonts/Speedo/fonts.dir
+[17:29.35.035]          Request for file extraction: /usr/share/fonts/Speedo/fonts.alias
+[17:29.35.035]          Request for file extraction: /usr/share/fonts/OTF/fonts.dir
+[17:29.35.035]          Request for file extraction: /usr/share/fonts/OTF/fonts.alias
+[17:29.35.035]          Request for file extraction: /usr/share/fonts/TTF/fonts.dir
+[17:29.35.036]          Request for file extraction: /usr/share/fonts/TTF/fonts.alias
+[17:29.35.036]          Request for file extraction: /usr/share/fonts/cyrillic/fonts.dir
+[17:29.35.036]          Request for file extraction: /usr/share/fonts/cyrillic/fonts.alias
+[17:29.35.037]          Request for file extraction: /usr/share/fonts/Type1/fonts.dir
+[17:29.35.037]          Request for file extraction: /usr/share/fonts/Type1/fonts.alias
+[17:29.35.038]          Request for file extraction: /usr/share/X11/rgb.txt
+[17:29.35.038]          Request for file extraction: /usr/share/X11/XErrorDB
+[17:29.35.038]          Request for file extraction: /usr/share/X11/XKeysymDB
+[17:29.35.039]          BEGIN WaitForAllThreads
+[17:29.35.039]          END WaitForAllThreads
+[17:29.35.039]          BEGIN WaitForAllThreads
+[17:29.35.039]          END WaitForAllThreads
+[17:29.35.040]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[17:29.35.040]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[17:29.35.040]          Enabling MOBANOACL
+[17:29.35.040]          
+[17:29.35.040]          XWin Exec: C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe -l -i -c "XWin_MobaX.exe  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset  -fp /usr/share/fonts/misc,/usr/share/fonts/75dpi,/usr/share/fonts/100dpi,/usr/share/fonts/Speedo,/usr/share/fonts/OTF,/usr/share/fonts/TTF,/usr/share/fonts/cyrillic,/usr/share/fonts/Type1  :0"
+[17:29.35.041]          
+[17:29.35.041]          BEGIN ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[17:29.35.042]              ShellExecuteA: ShellExecuteEx succeeded.
+[17:29.35.042]          END ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[17:29.35.042]      END LaunchX11();
+[17:29.35.042]  END Form4.FormActivate
+[17:29.35.042]  
+[17:29.35.042]  Form1.Timer1Timer finished.
+[17:29.35.042]  
+
+
+
+[17:29.52.432]  BEGIN BtnNewSessionClick
+[17:29.52.432]      BtnNewSessionClick: FormClick
+[17:29.52.458]      BEGIN ChargerLaSession
+[17:29.52.579]          ChargerLaSession1
+[17:29.52.594]          ChargerLaSession2
+
+
+[17:29.54.271]          BEGIN FormSessions.Btn0Click: 8
+[17:29.54.271]              BEGIN LockControl(FormSessionEdit, Btn0Click)
+[17:29.54.272]              END LockControl(FormSessionEdit, Btn0Click)
+[17:29.54.292]              BEGIN UnlockControl(FormSessionEdit, Btn0Click)
+[17:29.54.292]              END UnlockControl(FormSessionEdit, Btn0Click)
+[17:29.54.292]          END FormSessions.Btn0Click
+
+
+
+[5:31:08 PM]          BEGIN SessionCLickOK
+[5:31:08 PM]              BEGIN SauverSession
+[5:31:08 PM]                  During SauverSession
+[5:31:08 PM]                  BEGIN RecreateBookmarksMenus
+[5:31:08 PM]                      RecreateBookmarksMenus: FreeBookmarksMenuItems(Form1.Xserver3)
+[5:31:08 PM]                      RecreateBookmarksMenus: FreeBookmarksMenuItems(Bookmarks1)
+[5:31:08 PM]                      sTreeView1.assign(Treesessions)
+[5:31:08 PM]                      Detecting SheetSessions width
+[5:31:08 PM]                      Create session menu items
+[5:31:08 PM]                      Create aliases
+[5:31:08 PM]                      TreeSessions.Expand
+[5:31:08 PM]                  END RecreateBookmarksMenus
+[5:31:08 PM]                  BEGIN SaveBookmarksToIni
+[5:31:08 PM]                      BEGIN SaveBookmarksFromFolder(User sessions,0)
+[5:31:08 PM]                          BEGIN SaveBookmarksFromFolder(PuTTY sessions,1)
+[5:31:08 PM]                          END SaveBookmarksFromFolder
+[5:31:08 PM]                      END SaveBookmarksFromFolder
+[5:31:08 PM]                      TFormXterm.SaveBookmarksToIni: Ini36.UpdateFile(C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini)
+[5:31:08 PM]                  END SaveBookmarksToIni
+[5:31:08 PM]              END SauverSession
+[5:31:08 PM]              LaunchSession0
+[5:31:08 PM]              LaunchSession1
+[5:31:08 PM]              LaunchSession4
+[5:31:08 PM]              LaunchSession5
+[5:31:08 PM]              
+[5:31:08 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:31:08 PM]                  NEWTAB: Application.ProcessMessages
+[5:31:08 PM]                  NEWTAB: Timer1_Disable
+[5:31:08 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:31:08 PM]                  NEWTAB: Creating SFTPRecord...
+[5:31:08 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:31:08 PM]                  NEWTAB: Trying to find OldIndice...
+[5:31:08 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:31:08 PM]                  NEWTAB: Creating new tab...
+[5:31:08 PM]                  NEWTAB:        Tab index: 1
+[5:31:08 PM]                  NEWTAB:        NumTerm  : 2
+[5:31:08 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:31:08 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:31:08 PM]                  Cts1ActiveTabChanged: New index = 1
+[5:31:08 PM]                  NEWTAB: Cts1.EndUpdates
+[5:31:08 PM]                  NEWTAB: Changing tab index A = 1
+[5:31:08 PM]                  BEGIN WaitForAllThreads
+[5:31:08 PM]                  END WaitForAllThreads
+[5:31:08 PM]                  
+[5:31:08 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:31:08 PM]                  
+[5:31:08 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:31:08 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:31:08 PM]                  Enabling MOBANOACL
+[5:31:08 PM]                  
+[5:31:08 PM]                  ShellExecute: motty.exe
+[5:31:08 PM]                  
+[5:31:08 PM]                  CreerSessionMoTTY(2, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:31:08 PM]                  Request for file extraction: /bin/motty.exe
+[5:31:08 PM]                  File motty.exe extracted successfully.
+[5:31:08 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:31:08 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:31:08 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:31:08 PM]                  Enabling MOBANOACL
+[5:31:08 PM]                  Request for file extraction: /bin/cygtermd.exe
+[5:31:08 PM]                  File cygtermd.exe extracted from CygUtils.plugin.
+[5:31:08 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\cygwin1.dll
+[5:31:08 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe
+[5:31:08 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\busybox.exe
+[5:31:08 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675502")
+[5:31:08 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:31:08 PM]                      SetTitle(1, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:31:08 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:31:08 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675502")
+[5:31:08 PM]                  
+[5:31:08 PM]                  FindWindow(CMoTTY)
+[5:31:08 PM]                  Potential window 68970 successfully passed 2nd verification.
+[5:31:08 PM]                  --> succeeded
+[5:31:08 PM]                  Moxt2.SetParent
+[5:31:08 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:31:08 PM]                  
+[5:31:08 PM]                  BEGIN Form4.FormActivate
+[5:31:08 PM]                  END Form4.FormActivate
+[5:31:08 PM]                  
+[5:31:08 PM]                  NEWTAB: Changing tab index C = 1
+[5:31:08 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:31:08 PM]                  BEGIN DisplayCurrentTab
+[5:31:08 PM]                      DisplayCurrentTab: FormClick
+[5:31:08 PM]                      (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:31:08 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:31:08 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:31:08 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:31:08 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:31:08 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:31:08 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:31:08 PM]                      DisplayCurrentTab: Show selected tab
+[5:31:08 PM]                      DisplayCurrentTab: Hide other tabs
+[5:31:08 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:31:08 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:31:08 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:31:08 PM]                  END DisplayCurrentTab
+[5:31:08 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:31:08 PM]                  NEWTAB: MajVerticalTabs
+[5:31:08 PM]                  NEWTAB: Cts1.Resize;
+[5:31:08 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:31:08 PM]              
+[5:31:08 PM]              LaunchSession6
+[5:31:08 PM]          END SessionCLickOK
+[5:31:08 PM]          BEGIN TFormSessionEdit.FormClose
+[5:31:08 PM]          END TFormSessionEdit.FormClose
+[5:31:08 PM]      END BtnNewSessionClick
+
+
+
+[5:31:28 PM]      BEGIN WMNewTab: 0
+[5:31:28 PM]          WMNewTab: FormClick
+[5:31:28 PM]          WMNewTab: LooseFocus
+[5:31:28 PM]      END WMNewTab: 0
+[5:31:28 PM]      BEGIN WMNewTab: 0
+[5:31:28 PM]          WMNewTab: FormClick
+[5:31:28 PM]          WMNewTab: LooseFocus
+[5:31:28 PM]      END WMNewTab: 0
+
+
+
+[5:32:38 PM]      Cts1MouseDown: FormClick
+
+
+[5:32:43 PM]      
+[5:32:43 PM]      BEGIN LaunchX11();
+
+
+[5:32:49 PM]      END LaunchX11();
+
+
+[5:32:52 PM]      
+[5:32:52 PM]      BEGIN LaunchX11();
+[5:32:52 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/keypad
+[5:32:52 PM]          File keypad extracted successfully.
+[5:32:52 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/pc
+[5:32:52 PM]          File pc extracted successfully.
+[5:32:52 PM]          BEGIN WaitForAllThreads
+[5:32:52 PM]          END WaitForAllThreads
+[5:32:52 PM]          BEGIN WaitForAllThreads
+[5:32:52 PM]          END WaitForAllThreads
+[5:32:52 PM]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:32:52 PM]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:32:52 PM]          Enabling MOBANOACL
+[5:32:52 PM]          
+[5:32:52 PM]          XWin Exec: C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe -l -i -c "XWin_MobaX.exe  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset  -fp /usr/share/fonts/misc,/usr/share/fonts/75dpi,/usr/share/fonts/100dpi,/usr/share/fonts/Speedo,/usr/share/fonts/OTF,/usr/share/fonts/TTF,/usr/share/fonts/cyrillic,/usr/share/fonts/Type1  :0"
+[5:32:52 PM]          
+[5:32:52 PM]          BEGIN ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:32:52 PM]              ShellExecuteA: ShellExecuteEx succeeded.
+[5:32:52 PM]          END ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:32:52 PM]      END LaunchX11();
+
+
+[5:32:54 PM]      
+[5:32:54 PM]      BEGIN LaunchX11();
+[5:32:54 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/keypad
+[5:32:54 PM]          File keypad extracted successfully.
+[5:32:54 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/pc
+[5:32:54 PM]          File pc extracted successfully.
+[5:32:54 PM]          BEGIN WaitForAllThreads
+[5:32:54 PM]          END WaitForAllThreads
+[5:32:54 PM]          BEGIN WaitForAllThreads
+[5:32:54 PM]          END WaitForAllThreads
+[5:32:54 PM]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:32:54 PM]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:32:54 PM]          Enabling MOBANOACL
+[5:32:54 PM]          
+[5:32:54 PM]          XWin Exec: C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe -l -i -c "XWin_MobaX.exe  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset  -fp /usr/share/fonts/misc,/usr/share/fonts/75dpi,/usr/share/fonts/100dpi,/usr/share/fonts/Speedo,/usr/share/fonts/OTF,/usr/share/fonts/TTF,/usr/share/fonts/cyrillic,/usr/share/fonts/Type1  :0"
+[5:32:54 PM]          
+[5:32:54 PM]          BEGIN ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:32:54 PM]              ShellExecuteA: ShellExecuteEx succeeded.
+[5:32:54 PM]          END ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:32:54 PM]      END LaunchX11();
+
+
+[5:33:00 PM]      BEGIN ExecuteSessionTree
+[5:33:00 PM]          ExecuteSessionTree: FormClick
+[5:33:00 PM]          BEGIN ExecuteSelectedSession
+[5:33:00 PM]              ExecuteSelectedSession: FormClick
+[5:33:00 PM]              ExecuteSelectedSession0
+[5:33:00 PM]              ExecuteSelectedSession1
+[5:33:00 PM]              ExecuteSelectedSession2
+[5:33:00 PM]              ExecuteSelectedSession3
+[5:33:00 PM]              BEGIN ChargerLaSession
+[5:33:00 PM]                  ChargerLaSession1
+[5:33:00 PM]                  ChargerLaSession2
+[5:33:00 PM]                  ChargerLaSession3
+[5:33:00 PM]                  ChargerLaSession4
+[5:33:00 PM]                  ChargerLaSession5
+[5:33:00 PM]                  ChargerLaSession6
+[5:33:00 PM]                  ChargerLaSession7
+[5:33:00 PM]                  ChargerLaSession8
+[5:33:00 PM]                  ChargerLaSession9
+[5:33:00 PM]                  ChargerLaSession10
+[5:33:00 PM]              END ChargerLaSession
+[5:33:00 PM]              ExecuteSelectedSession4
+[5:33:00 PM]              LaunchSession0
+[5:33:00 PM]              LaunchSession1
+[5:33:00 PM]              LaunchSession4
+[5:33:00 PM]              LaunchSession5
+[5:33:00 PM]              
+[5:33:00 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:33:00 PM]                  NEWTAB: Application.ProcessMessages
+[5:33:00 PM]                  NEWTAB: Timer1_Disable
+[5:33:00 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:33:00 PM]                  NEWTAB: Creating SFTPRecord...
+[5:33:00 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:33:00 PM]                  NEWTAB: Trying to find OldIndice...
+[5:33:00 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:33:00 PM]                  NEWTAB: Creating new tab...
+[5:33:00 PM]                  NEWTAB:        Tab index: 2
+[5:33:00 PM]                  NEWTAB:        NumTerm  : 3
+[5:33:00 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:33:00 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:33:00 PM]                  Cts1ActiveTabChanged: New index = 2
+[5:33:00 PM]                  NEWTAB: Cts1.EndUpdates
+[5:33:00 PM]                  NEWTAB: Changing tab index A = 2
+[5:33:00 PM]                  BEGIN WaitForAllThreads
+[5:33:00 PM]                  END WaitForAllThreads
+[5:33:00 PM]                  
+[5:33:00 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:33:00 PM]                  
+[5:33:00 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:33:00 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:33:00 PM]                  Enabling MOBANOACL
+[5:33:00 PM]                  
+[5:33:00 PM]                  ShellExecute: motty.exe
+[5:33:00 PM]                  
+[5:33:00 PM]                  CreerSessionMoTTY(3, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:33:00 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:33:00 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:33:00 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:33:00 PM]                  Enabling MOBANOACL
+[5:33:00 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\cygwin1.dll
+[5:33:00 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe
+[5:33:00 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\busybox.exe
+[5:33:00 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675503")
+[5:33:00 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:33:00 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:33:00 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675503")
+[5:33:00 PM]                  
+[5:33:00 PM]                  FindWindow(CMoTTY)
+[5:33:00 PM]                  Potential window 199958 successfully passed 2nd verification.
+[5:33:00 PM]                  --> succeeded
+[5:33:00 PM]                  Moxt2.SetParent
+[5:33:00 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:33:01 PM]                  NEWTAB: Changing tab index C = 2
+[5:33:01 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:33:01 PM]                  BEGIN DisplayCurrentTab
+[5:33:01 PM]                      DisplayCurrentTab: FormClick
+[5:33:01 PM]                      (SSH-Browser) DisplayCurrentTab(2): ActiverPanel14
+[5:33:01 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:33:01 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:33:01 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:33:01 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:33:01 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:33:01 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:33:01 PM]                      DisplayCurrentTab: Show selected tab
+[5:33:01 PM]                      DisplayCurrentTab: Hide other tabs
+[5:33:01 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:33:01 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:33:01 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:33:01 PM]                  END DisplayCurrentTab
+[5:33:01 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:33:01 PM]                  NEWTAB: MajVerticalTabs
+[5:33:01 PM]                  NEWTAB: Cts1.Resize;
+[5:33:01 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:33:01 PM]              
+[5:33:01 PM]              LaunchSession6
+[5:33:01 PM]              ExecuteSelectedSession5
+[5:33:01 PM]          END ExecuteSelectedSession
+[5:33:01 PM]      END ExecuteSessionTree
+
+[5:33:01 PM]      BEGIN WMNewTab: 60
+[5:33:01 PM]      END WMNewTab: 60
+
+[5:33:02 PM]      BEGIN WMNewTab: 60
+[5:33:02 PM]      END WMNewTab: 60
+
+[5:33:03 PM]      BEGIN WMNewTab: 60
+[5:33:03 PM]      END WMNewTab: 60
+
+[5:33:03 PM]      BEGIN WMNewTab: 60
+[5:33:03 PM]      END WMNewTab: 60
+
+[5:33:04 PM]      
+[5:33:04 PM]      Timer1: CloseTab(2);
+[5:33:04 PM]      
+[5:33:04 PM]      BEGIN CloseTab(2)
+[5:33:04 PM]          CloseTab:  Tab is external app
+[5:33:04 PM]          CloseTab:  Delete MobaScript file
+[5:33:04 PM]          CloseTab:  Close TFormDetachedTab
+[5:33:04 PM]          CloseTab: Cts1.BeginUpdate;
+[5:33:04 PM]          CloseTab: Cts1.Tabs.Delete(2);
+[5:33:04 PM]          Cts1ActiveTabChanged: New index = 1
+[5:33:04 PM]          CloseTab: Cts1.Tabs.Delete(2);
+[5:33:04 PM]          (SSH-Browser) TabSFTP[2].Free;
+[5:33:04 PM]          Freeing object TMobaThread
+[5:33:04 PM]          Freeing object TElSftpClient
+[5:33:04 PM]          Freeing object TElSSHClient
+[5:33:04 PM]          Freeing object TElSocket
+[5:33:04 PM]          Freeing object TListView
+[5:33:04 PM]          Freeing object TElSSHTunnelList
+[5:33:04 PM]          Freeing object TElSubsystemSSHTunnel
+[5:33:04 PM]          Freeing object TList
+[5:33:04 PM]          Freeing object TTimer
+[5:33:04 PM]          BEGIN DisplayCurrentTab
+[5:33:04 PM]              DisplayCurrentTab: FormClick
+[5:33:04 PM]              (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:33:04 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:33:04 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:33:04 PM]              (SSH-Browser) END DesactiverPanel14
+[5:33:04 PM]              (SSH-Browser) END ActiverPanel14;
+[5:33:04 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:33:04 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:33:04 PM]              DisplayCurrentTab: Show selected tab
+[5:33:04 PM]              DisplayCurrentTab: Hide other tabs
+[5:33:04 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:33:04 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:33:04 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:33:04 PM]          END DisplayCurrentTab
+[5:33:04 PM]      END CloseTab(2)
+[5:33:04 PM]      
+[5:33:04 PM]      BEGIN WMNewTab: 62
+[5:33:04 PM]      END WMNewTab: 62
+
+
+[5:33:05 PM]      Cts1MouseDown: FormClick
+
+[5:33:06 PM]      Cts1MouseDown: FormClick
+[5:33:06 PM]      BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[5:33:06 PM]          
+[5:33:06 PM]          BEGIN CloseTab(1)
+[5:33:06 PM]              CloseTab:  Tab is external app
+[5:33:06 PM]              CloseTab:  Send WM_CLOSE (0) to external app
+[5:33:06 PM]              Form4.Closing = false
+[5:33:06 PM]          END CloseTab(1)
+[5:33:06 PM]          
+[5:33:06 PM]      END TFormXterm.Cts1ButtonCloseTabClick
+[5:33:06 PM]      BEGIN WMNewTab: 36
+[5:33:06 PM]          WMNewTab: FormClick
+[5:33:06 PM]          WMNewTab: LooseFocus
+[5:33:06 PM]          Changing tab index G = 1
+[5:33:06 PM]      END WMNewTab: 36
+
+[5:33:07 PM]      
+[5:33:07 PM]      BEGIN Form4.FormActivate
+[5:33:07 PM]      END Form4.FormActivate
+[5:33:07 PM]      
+
+[5:33:08 PM]      
+[5:33:08 PM]      Timer1: CloseTab(1);
+[5:33:08 PM]      
+[5:33:08 PM]      BEGIN CloseTab(1)
+[5:33:08 PM]          CloseTab:  Tab is external app
+[5:33:08 PM]          CloseTab:  Delete MobaScript file
+[5:33:08 PM]          CloseTab:  Close TFormDetachedTab
+[5:33:08 PM]          CloseTab: Cts1.BeginUpdate;
+[5:33:08 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:33:08 PM]          Cts1ActiveTabChanged: New index = 0
+[5:33:08 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:33:08 PM]          (SSH-Browser) TabSFTP[1].Free;
+[5:33:08 PM]          Freeing object TMobaThread
+[5:33:08 PM]          Freeing object TElSftpClient
+[5:33:08 PM]          Freeing object TElSSHClient
+[5:33:08 PM]          Freeing object TElSocket
+[5:33:08 PM]          Freeing object TListView
+[5:33:08 PM]          Freeing object TElSSHTunnelList
+[5:33:08 PM]          Freeing object TElSubsystemSSHTunnel
+[5:33:08 PM]          Freeing object TList
+[5:33:08 PM]          Freeing object TTimer
+[5:33:08 PM]          BEGIN DisplayCurrentTab
+[5:33:08 PM]              DisplayCurrentTab: FormClick
+[5:33:08 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[5:33:08 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:33:08 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:33:08 PM]              (SSH-Browser) END DesactiverPanel14
+[5:33:08 PM]              (SSH-Browser) END ActiverPanel14;
+[5:33:08 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:33:08 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:33:08 PM]              DisplayCurrentTab: Show selected tab
+[5:33:08 PM]              BEGIN ResizeTerminal
+[5:33:08 PM]              END ResizeTerminal
+[5:33:08 PM]              DisplayCurrentTab: Hide other tabs
+[5:33:08 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:33:08 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:33:08 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:33:08 PM]              BEGIN WMNewTab: 0
+[5:33:08 PM]                  WMNewTab: FormClick
+[5:33:08 PM]                  WMNewTab: LooseFocus
+[5:33:08 PM]              END WMNewTab: 0
+[5:33:08 PM]              BEGIN WMNewTab: 0
+[5:33:08 PM]                  WMNewTab: FormClick
+[5:33:08 PM]                  WMNewTab: LooseFocus
+[5:33:08 PM]              END WMNewTab: 0
+[5:33:08 PM]              BEGIN WMNewTab: 0
+[5:33:08 PM]                  WMNewTab: FormClick
+[5:33:08 PM]                  WMNewTab: LooseFocus
+[5:33:08 PM]              END WMNewTab: 0
+[5:33:08 PM]              BEGIN WMNewTab: 0
+[5:33:08 PM]                  WMNewTab: FormClick
+[5:33:08 PM]                  WMNewTab: LooseFocus
+[5:33:08 PM]              END WMNewTab: 0
+[5:33:08 PM]          END DisplayCurrentTab
+[5:33:08 PM]      END CloseTab(1)
+[5:33:08 PM]      
+
+
+[5:33:10 PM]      BEGIN ExecuteSessionTree
+[5:33:10 PM]          ExecuteSessionTree: FormClick
+[5:33:10 PM]          BEGIN ExecuteSelectedSession
+[5:33:10 PM]              ExecuteSelectedSession: FormClick
+[5:33:10 PM]              ExecuteSelectedSession0
+[5:33:10 PM]              ExecuteSelectedSession1
+[5:33:10 PM]              ExecuteSelectedSession2
+[5:33:10 PM]              ExecuteSelectedSession3
+[5:33:10 PM]              BEGIN ChargerLaSession
+[5:33:10 PM]                  ChargerLaSession1
+[5:33:10 PM]                  ChargerLaSession2
+[5:33:10 PM]                  ChargerLaSession3
+[5:33:10 PM]                  ChargerLaSession4
+[5:33:10 PM]                  ChargerLaSession5
+[5:33:10 PM]                  ChargerLaSession6
+[5:33:10 PM]                  ChargerLaSession7
+[5:33:10 PM]                  ChargerLaSession8
+[5:33:10 PM]                  ChargerLaSession9
+[5:33:10 PM]                  ChargerLaSession10
+[5:33:10 PM]              END ChargerLaSession
+[5:33:10 PM]              ExecuteSelectedSession4
+[5:33:10 PM]              LaunchSession0
+[5:33:10 PM]              LaunchSession1
+[5:33:10 PM]              LaunchSession4
+[5:33:10 PM]              LaunchSession5
+[5:33:10 PM]              
+[5:33:10 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:33:10 PM]                  NEWTAB: Application.ProcessMessages
+[5:33:10 PM]                  NEWTAB: Timer1_Disable
+[5:33:10 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:33:10 PM]                  NEWTAB: Creating SFTPRecord...
+[5:33:10 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:33:10 PM]                  NEWTAB: Trying to find OldIndice...
+[5:33:10 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:33:10 PM]                  NEWTAB: Creating new tab...
+[5:33:10 PM]                  NEWTAB:        Tab index: 1
+[5:33:10 PM]                  NEWTAB:        NumTerm  : 4
+[5:33:10 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:33:10 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:33:10 PM]                  Cts1ActiveTabChanged: New index = 1
+[5:33:10 PM]                  NEWTAB: Cts1.EndUpdates
+[5:33:10 PM]                  NEWTAB: Changing tab index A = 1
+[5:33:10 PM]                  BEGIN WaitForAllThreads
+[5:33:10 PM]                  END WaitForAllThreads
+[5:33:10 PM]                  
+[5:33:10 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:33:10 PM]                  
+[5:33:10 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:33:10 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:33:10 PM]                  Enabling MOBANOACL
+[5:33:10 PM]                  
+[5:33:10 PM]                  ShellExecute: motty.exe
+[5:33:10 PM]                  
+[5:33:10 PM]                  CreerSessionMoTTY(4, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:33:10 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:33:10 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:33:10 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:33:10 PM]                  Enabling MOBANOACL
+[5:33:10 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\cygwin1.dll
+[5:33:10 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe
+[5:33:10 PM]                  File not found:  C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\busybox.exe
+[5:33:10 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675504")
+[5:33:10 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:33:10 PM]                      SetTitle(1, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:33:10 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:33:10 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675504")
+[5:33:10 PM]                  
+[5:33:10 PM]                  FindWindow(CMoTTY)
+[5:33:10 PM]                  BEGIN WMNewTab: 60
+[5:33:10 PM]                  END WMNewTab: 60
+[5:33:10 PM]                  Potential window 134506 successfully passed 2nd verification.
+[5:33:10 PM]                  --> succeeded
+[5:33:10 PM]                  Moxt2.SetParent
+[5:33:10 PM]                  BEGIN WMNewTab: 62
+[5:33:10 PM]                  END WMNewTab: 62
+[5:33:10 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:33:10 PM]                  NEWTAB: Changing tab index C = 1
+[5:33:10 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:33:10 PM]                  BEGIN DisplayCurrentTab
+[5:33:10 PM]                      DisplayCurrentTab: FormClick
+[5:33:10 PM]                      (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:33:10 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:33:10 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:33:10 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:33:10 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:33:10 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:33:10 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:33:10 PM]                      DisplayCurrentTab: Show selected tab
+[5:33:10 PM]                      DisplayCurrentTab: Hide other tabs
+[5:33:10 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:33:10 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:33:10 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:33:10 PM]                  END DisplayCurrentTab
+[5:33:10 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:33:10 PM]                  NEWTAB: MajVerticalTabs
+[5:33:10 PM]                  NEWTAB: Cts1.Resize;
+[5:33:10 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:33:10 PM]              
+[5:33:10 PM]              LaunchSession6
+[5:33:10 PM]              ExecuteSelectedSession5
+[5:33:10 PM]          END ExecuteSelectedSession
+[5:33:10 PM]      END ExecuteSessionTree
+
+
+
+
+[5:35:10 PM]      Cts1MouseDown: FormClick
+[5:35:10 PM]      BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[5:35:10 PM]          
+[5:35:10 PM]          BEGIN CloseTab(1)
+[5:35:10 PM]              CloseTab:  Tab is external app
+[5:35:10 PM]              CloseTab:  Send WM_CLOSE (0) to external app
+[5:35:10 PM]              Form4.Closing = false
+[5:35:10 PM]          END CloseTab(1)
+[5:35:10 PM]          
+[5:35:10 PM]      END TFormXterm.Cts1ButtonCloseTabClick
+[5:35:10 PM]      BEGIN WMNewTab: 36
+[5:35:10 PM]          WMNewTab: FormClick
+[5:35:10 PM]          WMNewTab: LooseFocus
+[5:35:10 PM]          Changing tab index G = 1
+[5:35:10 PM]      END WMNewTab: 36
+
+[5:35:11 PM]      
+[5:35:11 PM]      BEGIN Form4.FormActivate
+[5:35:11 PM]      END Form4.FormActivate
+[5:35:11 PM]      
+
+[5:35:12 PM]      
+[5:35:12 PM]      Timer1: CloseTab(1);
+[5:35:12 PM]      
+[5:35:12 PM]      BEGIN CloseTab(1)
+[5:35:12 PM]          CloseTab:  Tab is external app
+[5:35:12 PM]          CloseTab:  Delete MobaScript file
+[5:35:12 PM]          CloseTab:  Close TFormDetachedTab
+[5:35:12 PM]          CloseTab: Cts1.BeginUpdate;
+[5:35:12 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:35:12 PM]          Cts1ActiveTabChanged: New index = 0
+[5:35:12 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:35:12 PM]          (SSH-Browser) TabSFTP[1].Free;
+[5:35:12 PM]          Freeing object TMobaThread
+[5:35:12 PM]          Freeing object TElSftpClient
+[5:35:12 PM]          Freeing object TElSSHClient
+[5:35:12 PM]          Freeing object TElSocket
+[5:35:12 PM]          Freeing object TListView
+[5:35:12 PM]          Freeing object TElSSHTunnelList
+[5:35:12 PM]          Freeing object TElSubsystemSSHTunnel
+[5:35:12 PM]          Freeing object TList
+[5:35:12 PM]          Freeing object TTimer
+[5:35:12 PM]          BEGIN DisplayCurrentTab
+[5:35:12 PM]              DisplayCurrentTab: FormClick
+[5:35:12 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[5:35:12 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:35:12 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:35:12 PM]              (SSH-Browser) END DesactiverPanel14
+[5:35:12 PM]              (SSH-Browser) END ActiverPanel14;
+[5:35:12 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:35:12 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:35:12 PM]              DisplayCurrentTab: Show selected tab
+[5:35:12 PM]              BEGIN ResizeTerminal
+[5:35:12 PM]              END ResizeTerminal
+[5:35:12 PM]              DisplayCurrentTab: Hide other tabs
+[5:35:12 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:35:12 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:35:12 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:35:12 PM]              BEGIN WMNewTab: 0
+[5:35:12 PM]                  WMNewTab: FormClick
+[5:35:12 PM]                  WMNewTab: LooseFocus
+[5:35:12 PM]              END WMNewTab: 0
+[5:35:12 PM]              BEGIN WMNewTab: 0
+[5:35:12 PM]                  WMNewTab: FormClick
+[5:35:12 PM]                  WMNewTab: LooseFocus
+[5:35:12 PM]              END WMNewTab: 0
+[5:35:12 PM]              BEGIN WMNewTab: 0
+[5:35:12 PM]                  WMNewTab: FormClick
+[5:35:12 PM]                  WMNewTab: LooseFocus
+[5:35:12 PM]              END WMNewTab: 0
+[5:35:12 PM]              BEGIN WMNewTab: 0
+[5:35:12 PM]                  WMNewTab: FormClick
+[5:35:12 PM]                  WMNewTab: LooseFocus
+[5:35:12 PM]              END WMNewTab: 0
+[5:35:12 PM]          END DisplayCurrentTab
+[5:35:12 PM]      END CloseTab(1)
+[5:35:12 PM]      
+
+
+
+
+[5:38:07 PM]      BEGIN WMNewTab: 0
+[5:38:07 PM]          WMNewTab: FormClick
+[5:38:07 PM]          WMNewTab: LooseFocus
+[5:38:07 PM]      END WMNewTab: 0
+[5:38:07 PM]      BEGIN WMNewTab: 0
+[5:38:07 PM]          WMNewTab: FormClick
+[5:38:07 PM]          WMNewTab: LooseFocus
+[5:38:07 PM]      END WMNewTab: 0
+[5:38:07 PM]      BEGIN WMNewTab: 0
+[5:38:07 PM]          WMNewTab: FormClick
+[5:38:07 PM]          WMNewTab: LooseFocus
+[5:38:07 PM]      END WMNewTab: 0
+[5:38:07 PM]      BEGIN WMNewTab: 0
+[5:38:07 PM]          WMNewTab: FormClick
+[5:38:07 PM]          WMNewTab: LooseFocus
+[5:38:07 PM]      END WMNewTab: 0
+[5:38:08 PM]      
+[5:38:08 PM]      BEGIN NEWTAB(, 97, 0)
+[5:38:08 PM]          NEWTAB: Application.ProcessMessages
+[5:38:08 PM]          NEWTAB: Timer1_Disable
+[5:38:08 PM]          NEWTAB: Verifying if max number of tabs has been reached...
+[5:38:08 PM]          NEWTAB: Creating SFTPRecord...
+[5:38:08 PM]          NEWTAB: Creating menu items and popup entries for new tab...
+[5:38:08 PM]          NEWTAB: Trying to find OldIndice...
+[5:38:08 PM]          NEWTAB: Cts1.BeginUpdate;
+[5:38:08 PM]          NEWTAB: Creating new tab...
+[5:38:08 PM]          NEWTAB:        Tab index: 1
+[5:38:08 PM]          NEWTAB:        NumTerm  : 5
+[5:38:08 PM]          NEWTAB:        Title    : /home/mobaxterm
+[5:38:08 PM]          NEWTAB:        Command  :
+[5:38:08 PM]          Cts1ActiveTabChanged: New index = 1
+[5:38:08 PM]          NEWTAB: Cts1.EndUpdates
+[5:38:08 PM]          NEWTAB: Changing tab index A = 1
+[5:38:08 PM]          BEGIN WaitForAllThreads
+[5:38:08 PM]          END WaitForAllThreads
+[5:38:08 PM]          
+[5:38:08 PM]          LaunchTabContent(, /home/mobaxterm);
+[5:38:08 PM]          
+[5:38:08 PM]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:38:08 PM]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:38:08 PM]          Enabling MOBANOACL
+[5:38:08 PM]          
+[5:38:08 PM]          ShellExecute: motty.exe
+[5:38:08 PM]          
+[5:38:08 PM]          CreerSessionMoTTY(5, , /home/mobaxterm)
+[5:38:08 PM]          Setting LOCALE=en_CA.UTF-8
+[5:38:08 PM]          Request for file extraction: /bin/cygwin1.dll
+[5:38:08 PM]          File cygwin1.dll extracted from CygUtils.plugin.
+[5:38:08 PM]          Request for file extraction: /bin/bash.exe
+[5:38:08 PM]          File bash.exe extracted from CygUtils.plugin.
+[5:38:08 PM]          Request for file extraction: /bin/busybox.exe
+[5:38:08 PM]          File busybox.exe extracted from CygUtils.plugin.
+[5:38:08 PM]          Request for file extraction: /bin/grep.exe
+[5:38:08 PM]          Request for file extraction: /bin/cygintl-8.dll
+[5:38:08 PM]          Request for file extraction: /bin/cygiconv-2.dll
+[5:38:08 PM]          File cygiconv-2.dll extracted from CygUtils.plugin.
+[5:38:08 PM]          File cygintl-8.dll extracted from CygUtils.plugin.
+[5:38:08 PM]          File grep.exe extracted from CygUtils.plugin.
+[5:38:08 PM]          BEGIN WaitForAllThreads
+[5:38:08 PM]          END WaitForAllThreads
+[5:38:08 PM]          
+[5:38:08 PM]          Execute (C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675505"
+[5:38:08 PM]          BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675505")
+[5:38:09 PM]              ShellExecuteS: ShellExecuteEx succeeded.
+[5:38:09 PM]              SetTitle(1, /home/mobaxterm);
+[5:38:09 PM]              ShellExecuteS: WaitForInputIdle succeeded.
+[5:38:09 PM]          END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675505")
+[5:38:09 PM]          Executed (C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675505"
+[5:38:09 PM]          
+[5:38:09 PM]          
+[5:38:09 PM]          FindWindow(CMoTTY)
+[5:38:09 PM]          Potential window 396648 successfully passed 2nd verification.
+[5:38:09 PM]          --> succeeded
+[5:38:09 PM]          Moxt2.SetParent
+[5:38:09 PM]          NEWTAB: Application.OnMessage:=AppMessage
+[5:38:09 PM]          NEWTAB: Changing tab index C = 1
+[5:38:09 PM]          NEWTAB: Launching DisplayCurrentTab...
+[5:38:09 PM]          BEGIN DisplayCurrentTab
+[5:38:09 PM]              DisplayCurrentTab: FormClick
+[5:38:09 PM]              (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:38:09 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:38:09 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:38:09 PM]              (SSH-Browser) END DesactiverPanel14
+[5:38:09 PM]              (SSH-Browser) END ActiverPanel14;
+[5:38:09 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:38:09 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:38:09 PM]              DisplayCurrentTab: Show selected tab
+[5:38:09 PM]              DisplayCurrentTab: Hide other tabs
+[5:38:09 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:38:09 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:38:09 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:38:09 PM]          END DisplayCurrentTab
+[5:38:09 PM]          NEWTAB: NewTab_ReEnable_Timer1
+[5:38:09 PM]          NEWTAB: MajVerticalTabs
+[5:38:09 PM]          NEWTAB: Cts1.Resize;
+[5:38:09 PM]      END NEWTAB(, 97, 0)
+[5:38:09 PM]      
+
+[5:38:10 PM]      SetTitle(1, /home/mobaxterm);
+
+
+[5:38:12 PM]      Cts1MouseDown: FormClick
+[5:38:12 PM]      BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[5:38:12 PM]          
+[5:38:12 PM]          BEGIN CloseTab(1)
+[5:38:12 PM]              CloseTab:  Tab is external app
+[5:38:12 PM]              CloseTab:  Send WM_CLOSE (0) to external app
+[5:38:12 PM]              Form4.Closing = false
+[5:38:12 PM]          END CloseTab(1)
+[5:38:12 PM]          
+[5:38:12 PM]      END TFormXterm.Cts1ButtonCloseTabClick
+
+[5:38:13 PM]      
+[5:38:13 PM]      Timer1: CloseTab(1);
+[5:38:13 PM]      
+[5:38:13 PM]      BEGIN CloseTab(1)
+[5:38:13 PM]          CloseTab:  Tab is external app
+[5:38:13 PM]          CloseTab:  Delete MobaScript file
+[5:38:13 PM]          CloseTab:  Close TFormDetachedTab
+[5:38:13 PM]          CloseTab: Cts1.BeginUpdate;
+[5:38:13 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:38:13 PM]          Cts1ActiveTabChanged: New index = 0
+[5:38:13 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:38:13 PM]          (SSH-Browser) TabSFTP[1].Free;
+[5:38:13 PM]          Freeing object TMobaThread
+[5:38:13 PM]          Freeing object TElSftpClient
+[5:38:13 PM]          Freeing object TElSSHClient
+[5:38:13 PM]          Freeing object TElSocket
+[5:38:13 PM]          Freeing object TListView
+[5:38:13 PM]          Freeing object TElSSHTunnelList
+[5:38:13 PM]          Freeing object TElSubsystemSSHTunnel
+[5:38:13 PM]          Freeing object TList
+[5:38:13 PM]          Freeing object TTimer
+[5:38:13 PM]          BEGIN DisplayCurrentTab
+[5:38:13 PM]              DisplayCurrentTab: FormClick
+[5:38:13 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[5:38:13 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:38:13 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:38:13 PM]              (SSH-Browser) END DesactiverPanel14
+[5:38:13 PM]              (SSH-Browser) END ActiverPanel14;
+[5:38:13 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:38:13 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:38:13 PM]              DisplayCurrentTab: Show selected tab
+[5:38:13 PM]              BEGIN ResizeTerminal
+[5:38:13 PM]              END ResizeTerminal
+[5:38:13 PM]              DisplayCurrentTab: Hide other tabs
+[5:38:13 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:38:13 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:38:13 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:38:13 PM]              BEGIN WMNewTab: 0
+[5:38:13 PM]                  WMNewTab: FormClick
+[5:38:13 PM]                  WMNewTab: LooseFocus
+[5:38:13 PM]              END WMNewTab: 0
+[5:38:13 PM]              BEGIN WMNewTab: 0
+[5:38:13 PM]                  WMNewTab: FormClick
+[5:38:13 PM]                  WMNewTab: LooseFocus
+[5:38:13 PM]              END WMNewTab: 0
+[5:38:13 PM]              BEGIN WMNewTab: 0
+[5:38:13 PM]                  WMNewTab: FormClick
+[5:38:13 PM]                  WMNewTab: LooseFocus
+[5:38:13 PM]              END WMNewTab: 0
+[5:38:13 PM]              BEGIN WMNewTab: 0
+[5:38:13 PM]                  WMNewTab: FormClick
+[5:38:13 PM]                  WMNewTab: LooseFocus
+[5:38:13 PM]              END WMNewTab: 0
+[5:38:13 PM]          END DisplayCurrentTab
+[5:38:13 PM]      END CloseTab(1)
+[5:38:13 PM]      
+
+
+[5:38:16 PM]      BEGIN ExecuteSessionTree
+[5:38:16 PM]          ExecuteSessionTree: FormClick
+[5:38:16 PM]          BEGIN ExecuteSelectedSession
+[5:38:16 PM]              ExecuteSelectedSession: FormClick
+[5:38:16 PM]              ExecuteSelectedSession0
+[5:38:16 PM]              ExecuteSelectedSession1
+[5:38:16 PM]              ExecuteSelectedSession2
+[5:38:16 PM]              ExecuteSelectedSession3
+[5:38:16 PM]              BEGIN ChargerLaSession
+[5:38:16 PM]                  ChargerLaSession1
+[5:38:16 PM]                  ChargerLaSession2
+[5:38:16 PM]                  ChargerLaSession3
+[5:38:16 PM]                  ChargerLaSession4
+[5:38:16 PM]                  ChargerLaSession5
+[5:38:16 PM]                  ChargerLaSession6
+[5:38:16 PM]                  ChargerLaSession7
+[5:38:16 PM]                  ChargerLaSession8
+[5:38:16 PM]                  ChargerLaSession9
+[5:38:16 PM]                  ChargerLaSession10
+[5:38:16 PM]              END ChargerLaSession
+[5:38:16 PM]              ExecuteSelectedSession4
+[5:38:16 PM]              LaunchSession0
+[5:38:16 PM]              LaunchSession1
+[5:38:16 PM]              LaunchSession4
+[5:38:16 PM]              LaunchSession5
+[5:38:16 PM]              
+[5:38:16 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:38:16 PM]                  NEWTAB: Application.ProcessMessages
+[5:38:16 PM]                  NEWTAB: Timer1_Disable
+[5:38:16 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:38:16 PM]                  NEWTAB: Creating SFTPRecord...
+[5:38:16 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:38:16 PM]                  NEWTAB: Trying to find OldIndice...
+[5:38:16 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:38:16 PM]                  NEWTAB: Creating new tab...
+[5:38:16 PM]                  NEWTAB:        Tab index: 1
+[5:38:16 PM]                  NEWTAB:        NumTerm  : 6
+[5:38:16 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:38:16 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:38:16 PM]                  Cts1ActiveTabChanged: New index = 1
+[5:38:16 PM]                  NEWTAB: Cts1.EndUpdates
+[5:38:16 PM]                  NEWTAB: Changing tab index A = 1
+[5:38:16 PM]                  BEGIN WaitForAllThreads
+[5:38:16 PM]                  END WaitForAllThreads
+[5:38:16 PM]                  
+[5:38:16 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:38:16 PM]                  
+[5:38:16 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:38:16 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:38:16 PM]                  Enabling MOBANOACL
+[5:38:16 PM]                  
+[5:38:16 PM]                  ShellExecute: motty.exe
+[5:38:16 PM]                  
+[5:38:16 PM]                  CreerSessionMoTTY(6, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:38:16 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:38:16 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:38:16 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:38:16 PM]                  Enabling MOBANOACL
+[5:38:16 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675506")
+[5:38:16 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:38:17 PM]                      SetTitle(1, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:38:17 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:38:17 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675506")
+[5:38:17 PM]                  
+[5:38:17 PM]                  FindWindow(CMoTTY)
+[5:38:17 PM]                  BEGIN WMNewTab: 60
+[5:38:17 PM]                  END WMNewTab: 60
+[5:38:17 PM]                  Potential window 396668 successfully passed 2nd verification.
+[5:38:17 PM]                  --> succeeded
+[5:38:17 PM]                  Moxt2.SetParent
+[5:38:17 PM]                  BEGIN WMNewTab: 62
+[5:38:17 PM]                  END WMNewTab: 62
+[5:38:17 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:38:17 PM]                  NEWTAB: Changing tab index C = 1
+[5:38:17 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:38:17 PM]                  BEGIN DisplayCurrentTab
+[5:38:17 PM]                      DisplayCurrentTab: FormClick
+[5:38:17 PM]                      (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:38:17 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:38:17 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:38:17 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:38:17 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:38:17 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:38:17 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:38:17 PM]                      DisplayCurrentTab: Show selected tab
+[5:38:17 PM]                      DisplayCurrentTab: Hide other tabs
+[5:38:17 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:38:17 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:38:17 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:38:17 PM]                  END DisplayCurrentTab
+[5:38:17 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:38:17 PM]                  NEWTAB: MajVerticalTabs
+[5:38:17 PM]                  NEWTAB: Cts1.Resize;
+[5:38:17 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:38:17 PM]              
+[5:38:17 PM]              LaunchSession6
+[5:38:17 PM]              ExecuteSelectedSession5
+[5:38:17 PM]          END ExecuteSelectedSession
+[5:38:17 PM]      END ExecuteSessionTree
+
+
+
+[5:38:43 PM]      BEGIN WMSysCommand (minimize/restore)
+[5:38:43 PM]          BEGIN WMSize
+[5:38:43 PM]          END WMSize
+[5:38:43 PM]      END WMSysCommand
+
+
+[5:38:53 PM]      BEGIN WMSysCommand (minimize/restore)
+[5:38:53 PM]          BEGIN WMNewTab: 0
+[5:38:53 PM]              WMNewTab: FormClick
+[5:38:53 PM]              WMNewTab: LooseFocus
+[5:38:53 PM]          END WMNewTab: 0
+[5:38:53 PM]          BEGIN WMSize
+[5:38:53 PM]              BEGIN AdaptSidebarArrows
+[5:38:53 PM]              END AdaptSidebarArrows
+[5:38:53 PM]          END WMSize
+[5:38:53 PM]      END WMSysCommand
+
+
+
+
+
+
+
+[5:58:08 PM]      Cts1MouseDown: FormClick
+[5:58:08 PM]      BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[5:58:08 PM]          
+[5:58:08 PM]          BEGIN CloseTab(1)
+[5:58:08 PM]              CloseTab:  Tab is external app
+[5:58:08 PM]              CloseTab:  Send WM_CLOSE (0) to external app
+[5:58:08 PM]              Form4.Closing = false
+[5:58:08 PM]          END CloseTab(1)
+[5:58:08 PM]          
+[5:58:08 PM]      END TFormXterm.Cts1ButtonCloseTabClick
+[5:58:08 PM]      BEGIN WMNewTab: 36
+[5:58:08 PM]          WMNewTab: FormClick
+[5:58:08 PM]          WMNewTab: LooseFocus
+[5:58:08 PM]          Changing tab index G = 1
+[5:58:08 PM]      END WMNewTab: 36
+
+[5:58:09 PM]      
+[5:58:09 PM]      BEGIN Form4.FormActivate
+[5:58:09 PM]      END Form4.FormActivate
+[5:58:09 PM]      
+
+[5:58:10 PM]      
+[5:58:10 PM]      Timer1: CloseTab(1);
+[5:58:10 PM]      
+[5:58:10 PM]      BEGIN CloseTab(1)
+[5:58:10 PM]          CloseTab:  Tab is external app
+[5:58:10 PM]          CloseTab:  Delete MobaScript file
+[5:58:10 PM]          CloseTab:  Close TFormDetachedTab
+[5:58:10 PM]          CloseTab: Cts1.BeginUpdate;
+[5:58:10 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:58:10 PM]          Cts1ActiveTabChanged: New index = 0
+[5:58:10 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:58:10 PM]          (SSH-Browser) TabSFTP[1].Free;
+[5:58:10 PM]          Freeing object TMobaThread
+[5:58:10 PM]          Freeing object TElSftpClient
+[5:58:10 PM]          Freeing object TElSSHClient
+[5:58:10 PM]          Freeing object TElSocket
+[5:58:10 PM]          Freeing object TListView
+[5:58:10 PM]          Freeing object TElSSHTunnelList
+[5:58:10 PM]          Freeing object TElSubsystemSSHTunnel
+[5:58:10 PM]          Freeing object TList
+[5:58:10 PM]          Freeing object TTimer
+[5:58:10 PM]          BEGIN DisplayCurrentTab
+[5:58:10 PM]              DisplayCurrentTab: FormClick
+[5:58:10 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[5:58:10 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:58:10 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:58:10 PM]              (SSH-Browser) END DesactiverPanel14
+[5:58:10 PM]              (SSH-Browser) END ActiverPanel14;
+[5:58:10 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:58:10 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:58:10 PM]              DisplayCurrentTab: Show selected tab
+[5:58:10 PM]              BEGIN ResizeTerminal
+[5:58:10 PM]              END ResizeTerminal
+[5:58:10 PM]              DisplayCurrentTab: Hide other tabs
+[5:58:10 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:58:10 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:58:10 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:58:10 PM]              BEGIN WMNewTab: 0
+[5:58:10 PM]                  WMNewTab: FormClick
+[5:58:10 PM]                  WMNewTab: LooseFocus
+[5:58:10 PM]              END WMNewTab: 0
+[5:58:10 PM]              BEGIN WMNewTab: 0
+[5:58:10 PM]                  WMNewTab: FormClick
+[5:58:10 PM]                  WMNewTab: LooseFocus
+[5:58:10 PM]              END WMNewTab: 0
+[5:58:10 PM]              BEGIN WMNewTab: 0
+[5:58:10 PM]                  WMNewTab: FormClick
+[5:58:10 PM]                  WMNewTab: LooseFocus
+[5:58:10 PM]              END WMNewTab: 0
+[5:58:10 PM]              BEGIN WMNewTab: 0
+[5:58:10 PM]                  WMNewTab: FormClick
+[5:58:10 PM]                  WMNewTab: LooseFocus
+[5:58:10 PM]              END WMNewTab: 0
+[5:58:10 PM]          END DisplayCurrentTab
+[5:58:10 PM]      END CloseTab(1)
+[5:58:10 PM]      
+
+
+[5:58:13 PM]      BEGIN ExecuteSessionTree
+[5:58:13 PM]          ExecuteSessionTree: FormClick
+[5:58:13 PM]          BEGIN ExecuteSelectedSession
+[5:58:13 PM]              ExecuteSelectedSession: FormClick
+[5:58:13 PM]              ExecuteSelectedSession0
+[5:58:13 PM]              ExecuteSelectedSession1
+[5:58:13 PM]              ExecuteSelectedSession2
+[5:58:13 PM]              ExecuteSelectedSession3
+[5:58:13 PM]              BEGIN ChargerLaSession
+[5:58:13 PM]                  ChargerLaSession1
+[5:58:13 PM]                  ChargerLaSession2
+[5:58:13 PM]                  ChargerLaSession3
+[5:58:13 PM]                  ChargerLaSession4
+[5:58:13 PM]                  ChargerLaSession5
+[5:58:13 PM]                  ChargerLaSession6
+[5:58:13 PM]                  ChargerLaSession7
+[5:58:13 PM]                  ChargerLaSession8
+[5:58:13 PM]                  ChargerLaSession9
+[5:58:13 PM]                  ChargerLaSession10
+[5:58:13 PM]              END ChargerLaSession
+[5:58:13 PM]              ExecuteSelectedSession4
+[5:58:13 PM]              LaunchSession0
+[5:58:13 PM]              LaunchSession1
+[5:58:13 PM]              LaunchSession4
+[5:58:13 PM]              LaunchSession5
+[5:58:13 PM]              
+[5:58:13 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:58:13 PM]                  NEWTAB: Application.ProcessMessages
+[5:58:13 PM]                  NEWTAB: Timer1_Disable
+[5:58:13 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:58:13 PM]                  NEWTAB: Creating SFTPRecord...
+[5:58:13 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:58:13 PM]                  NEWTAB: Trying to find OldIndice...
+[5:58:13 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:58:13 PM]                  NEWTAB: Creating new tab...
+[5:58:13 PM]                  NEWTAB:        Tab index: 1
+[5:58:13 PM]                  NEWTAB:        NumTerm  : 7
+[5:58:13 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:58:13 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:58:13 PM]                  Cts1ActiveTabChanged: New index = 1
+[5:58:13 PM]                  NEWTAB: Cts1.EndUpdates
+[5:58:13 PM]                  NEWTAB: Changing tab index A = 1
+[5:58:13 PM]                  BEGIN WaitForAllThreads
+[5:58:13 PM]                  END WaitForAllThreads
+[5:58:13 PM]                  
+[5:58:13 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:58:13 PM]                  
+[5:58:13 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:58:13 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:58:13 PM]                  Enabling MOBANOACL
+[5:58:13 PM]                  
+[5:58:13 PM]                  ShellExecute: motty.exe
+[5:58:13 PM]                  
+[5:58:13 PM]                  CreerSessionMoTTY(7, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:58:13 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:58:13 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:58:13 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:58:13 PM]                  Enabling MOBANOACL
+[5:58:13 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675507")
+[5:58:13 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:58:13 PM]                      SetTitle(1, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:58:13 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:58:13 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675507")
+[5:58:13 PM]                  
+[5:58:13 PM]                  FindWindow(CMoTTY)
+[5:58:13 PM]                  Potential window 920932 successfully passed 2nd verification.
+[5:58:13 PM]                  --> succeeded
+[5:58:13 PM]                  Moxt2.SetParent
+[5:58:13 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:58:13 PM]                  NEWTAB: Changing tab index C = 1
+[5:58:13 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:58:13 PM]                  BEGIN DisplayCurrentTab
+[5:58:13 PM]                      DisplayCurrentTab: FormClick
+[5:58:13 PM]                      (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:58:13 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:58:13 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:58:13 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:58:13 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:58:14 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:58:14 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:58:14 PM]                      DisplayCurrentTab: Show selected tab
+[5:58:14 PM]                      DisplayCurrentTab: Hide other tabs
+[5:58:14 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:58:14 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:58:14 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:58:14 PM]                  END DisplayCurrentTab
+[5:58:14 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:58:14 PM]                  NEWTAB: MajVerticalTabs
+[5:58:14 PM]                  NEWTAB: Cts1.Resize;
+[5:58:14 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:58:14 PM]              
+[5:58:14 PM]              LaunchSession6
+[5:58:14 PM]              ExecuteSelectedSession5
+[5:58:14 PM]          END ExecuteSelectedSession
+[5:58:14 PM]      END ExecuteSessionTree
+
+
+[5:58:15 PM]      
+[5:58:15 PM]      BEGIN LaunchX11();
+
+
+[5:58:17 PM]      END LaunchX11();
+
+
+[5:58:19 PM]      
+[5:58:19 PM]      BEGIN LaunchX11();
+[5:58:19 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/keypad
+[5:58:19 PM]          File keypad extracted successfully.
+[5:58:19 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/pc
+[5:58:19 PM]          File pc extracted successfully.
+[5:58:19 PM]          BEGIN WaitForAllThreads
+[5:58:19 PM]          END WaitForAllThreads
+[5:58:19 PM]          BEGIN WaitForAllThreads
+[5:58:19 PM]          END WaitForAllThreads
+[5:58:19 PM]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:58:19 PM]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:58:19 PM]          Enabling MOBANOACL
+[5:58:19 PM]          
+[5:58:19 PM]          XWin Exec: C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe -l -i -c "XWin_MobaX.exe  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset  -fp /usr/share/fonts/misc,/usr/share/fonts/75dpi,/usr/share/fonts/100dpi,/usr/share/fonts/Speedo,/usr/share/fonts/OTF,/usr/share/fonts/TTF,/usr/share/fonts/cyrillic,/usr/share/fonts/Type1  :0"
+[5:58:19 PM]          
+[5:58:19 PM]          BEGIN ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:58:19 PM]              ShellExecuteA: ShellExecuteEx succeeded.
+[5:58:19 PM]          END ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:58:19 PM]      END LaunchX11();
+
+
+[5:58:22 PM]      BEGIN WMNewTab: 0
+[5:58:22 PM]          WMNewTab: FormClick
+[5:58:22 PM]          WMNewTab: LooseFocus
+[5:58:22 PM]      END WMNewTab: 0
+[5:58:22 PM]      BEGIN WMNewTab: 0
+[5:58:22 PM]          WMNewTab: FormClick
+[5:58:22 PM]          WMNewTab: LooseFocus
+[5:58:22 PM]      END WMNewTab: 0
+
+
+
+[5:58:36 PM]      BEGIN WMNCLButtonDown
+[5:58:36 PM]          BEGIN WMSysCommand (minimize/restore)
+
+[5:58:37 PM]              BEGIN UnlockControl(FormXterm, WMExitSizeMove)
+[5:58:37 PM]              END UnlockControl(FormXterm, WMExitSizeMove)
+[5:58:37 PM]          END WMSysCommand
+[5:58:37 PM]      END WMNCLButtonDown
+[5:58:37 PM]      BEGIN WMNCLButtonDown
+[5:58:37 PM]          BEGIN WMSysCommand (minimize/restore)
+[5:58:37 PM]          END WMSysCommand
+[5:58:37 PM]      END WMNCLButtonDown
+[5:58:37 PM]      BtnColorClick: FormClick
+
+
+[5:58:40 PM]      BEGIN WMNCLButtonDown
+[5:58:40 PM]          BEGIN WMSysCommand (minimize/restore)
+[5:58:40 PM]              BEGIN UnlockControl(FormXterm, WMExitSizeMove)
+[5:58:40 PM]              END UnlockControl(FormXterm, WMExitSizeMove)
+[5:58:40 PM]          END WMSysCommand
+[5:58:40 PM]      END WMNCLButtonDown
+
+
+
+[5:59:05 PM]      BEGIN ExecuteSessionTree
+[5:59:05 PM]          ExecuteSessionTree: FormClick
+[5:59:05 PM]          BEGIN ExecuteSelectedSession
+[5:59:05 PM]              ExecuteSelectedSession: FormClick
+[5:59:05 PM]              ExecuteSelectedSession0
+[5:59:05 PM]              ExecuteSelectedSession1
+[5:59:05 PM]              ExecuteSelectedSession2
+[5:59:05 PM]              ExecuteSelectedSession3
+[5:59:05 PM]              BEGIN ChargerLaSession
+[5:59:05 PM]                  ChargerLaSession1
+[5:59:05 PM]                  ChargerLaSession2
+[5:59:05 PM]                  ChargerLaSession3
+[5:59:05 PM]                  ChargerLaSession4
+[5:59:05 PM]                  ChargerLaSession5
+[5:59:05 PM]                  ChargerLaSession6
+[5:59:05 PM]                  ChargerLaSession7
+[5:59:05 PM]                  ChargerLaSession8
+[5:59:05 PM]                  ChargerLaSession9
+[5:59:05 PM]                  ChargerLaSession10
+[5:59:05 PM]              END ChargerLaSession
+[5:59:05 PM]              ExecuteSelectedSession4
+[5:59:05 PM]              LaunchSession0
+[5:59:05 PM]              LaunchSession1
+[5:59:05 PM]              LaunchSession4
+[5:59:05 PM]              LaunchSession5
+[5:59:05 PM]              
+[5:59:05 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:59:05 PM]                  NEWTAB: Application.ProcessMessages
+[5:59:05 PM]                  NEWTAB: Timer1_Disable
+[5:59:05 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:59:05 PM]                  NEWTAB: Creating SFTPRecord...
+[5:59:05 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:59:05 PM]                  NEWTAB: Trying to find OldIndice...
+[5:59:05 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:59:05 PM]                  NEWTAB: Creating new tab...
+[5:59:05 PM]                  NEWTAB:        Tab index: 2
+[5:59:05 PM]                  NEWTAB:        NumTerm  : 8
+[5:59:05 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:59:05 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:59:05 PM]                  Cts1ActiveTabChanged: New index = 2
+[5:59:05 PM]                  NEWTAB: Cts1.EndUpdates
+[5:59:05 PM]                  NEWTAB: Changing tab index A = 2
+[5:59:05 PM]                  BEGIN WaitForAllThreads
+[5:59:05 PM]                  END WaitForAllThreads
+[5:59:05 PM]                  
+[5:59:05 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:59:05 PM]                  
+[5:59:05 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:05 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:59:05 PM]                  Enabling MOBANOACL
+[5:59:05 PM]                  
+[5:59:05 PM]                  ShellExecute: motty.exe
+[5:59:05 PM]                  
+[5:59:05 PM]                  CreerSessionMoTTY(8, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:59:05 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:59:05 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:05 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:59:05 PM]                  Enabling MOBANOACL
+[5:59:05 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675508")
+[5:59:06 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:59:06 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:59:06 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675508")
+[5:59:06 PM]                  
+[5:59:06 PM]                  FindWindow(CMoTTY)
+[5:59:06 PM]                  Potential window 526614 successfully passed 2nd verification.
+[5:59:06 PM]                  --> succeeded
+[5:59:06 PM]                  Moxt2.SetParent
+[5:59:06 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:59:06 PM]                  NEWTAB: Changing tab index C = 2
+[5:59:06 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:59:06 PM]                  BEGIN DisplayCurrentTab
+[5:59:06 PM]                      DisplayCurrentTab: FormClick
+[5:59:06 PM]                      (SSH-Browser) DisplayCurrentTab(2): ActiverPanel14
+[5:59:06 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:59:06 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:59:06 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:59:06 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:59:06 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:59:06 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:59:06 PM]                      DisplayCurrentTab: Show selected tab
+[5:59:06 PM]                      DisplayCurrentTab: Hide other tabs
+[5:59:06 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:59:06 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:59:06 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:59:06 PM]                  END DisplayCurrentTab
+[5:59:06 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:59:06 PM]                  NEWTAB: MajVerticalTabs
+[5:59:06 PM]                  NEWTAB: Cts1.Resize;
+[5:59:06 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:59:06 PM]              
+[5:59:06 PM]              LaunchSession6
+[5:59:06 PM]              ExecuteSelectedSession5
+[5:59:06 PM]          END ExecuteSelectedSession
+[5:59:06 PM]      END ExecuteSessionTree
+
+
+[5:59:07 PM]      Cts1MouseDown: FormClick
+[5:59:07 PM]      BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[5:59:07 PM]          
+[5:59:07 PM]          BEGIN CloseTab(1)
+[5:59:07 PM]              CloseTab:  Tab is external app
+[5:59:07 PM]              CloseTab:  Send WM_CLOSE (0) to external app
+[5:59:07 PM]              Form4.Closing = false
+[5:59:07 PM]          END CloseTab(1)
+[5:59:07 PM]          
+[5:59:07 PM]      END TFormXterm.Cts1ButtonCloseTabClick
+[5:59:07 PM]      BEGIN WMNewTab: 36
+[5:59:07 PM]          WMNewTab: FormClick
+[5:59:07 PM]          WMNewTab: LooseFocus
+[5:59:07 PM]          Changing tab index G = 1
+[5:59:07 PM]      END WMNewTab: 36
+
+[5:59:08 PM]      
+[5:59:08 PM]      Timer1: CloseTab(2);
+[5:59:08 PM]      
+[5:59:08 PM]      BEGIN CloseTab(2)
+[5:59:08 PM]          CloseTab:  Tab is external app
+[5:59:08 PM]          CloseTab:  Delete MobaScript file
+[5:59:08 PM]          CloseTab:  Close TFormDetachedTab
+[5:59:08 PM]          CloseTab: Cts1.BeginUpdate;
+[5:59:08 PM]          CloseTab: Cts1.Tabs.Delete(2);
+[5:59:08 PM]          Cts1ActiveTabChanged: New index = 1
+[5:59:08 PM]          CloseTab: Cts1.Tabs.Delete(2);
+[5:59:08 PM]          (SSH-Browser) TabSFTP[2].Free;
+[5:59:08 PM]          Freeing object TMobaThread
+[5:59:08 PM]          Freeing object TElSftpClient
+[5:59:08 PM]          Freeing object TElSSHClient
+[5:59:08 PM]          Freeing object TElSocket
+[5:59:08 PM]          Freeing object TListView
+[5:59:08 PM]          Freeing object TElSSHTunnelList
+[5:59:08 PM]          Freeing object TElSubsystemSSHTunnel
+[5:59:08 PM]          Freeing object TList
+[5:59:08 PM]          Freeing object TTimer
+[5:59:08 PM]          BEGIN DisplayCurrentTab
+[5:59:08 PM]              DisplayCurrentTab: FormClick
+[5:59:08 PM]              (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:59:08 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:59:08 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:59:08 PM]              (SSH-Browser) END DesactiverPanel14
+[5:59:08 PM]              (SSH-Browser) END ActiverPanel14;
+[5:59:08 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:59:08 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:59:08 PM]              DisplayCurrentTab: Show selected tab
+[5:59:08 PM]              DisplayCurrentTab: Hide other tabs
+[5:59:08 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:59:08 PM]              
+[5:59:08 PM]              BEGIN Form4.FormActivate
+[5:59:08 PM]              END Form4.FormActivate
+[5:59:08 PM]              
+[5:59:08 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:59:08 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:59:08 PM]          END DisplayCurrentTab
+[5:59:08 PM]      END CloseTab(2)
+[5:59:08 PM]      
+
+[5:59:09 PM]      Cts1MouseDown: FormClick
+[5:59:09 PM]      
+[5:59:09 PM]      Timer1: CloseTab(1);
+[5:59:09 PM]      
+[5:59:09 PM]      BEGIN CloseTab(1)
+[5:59:09 PM]          CloseTab:  Tab is external app
+[5:59:09 PM]          CloseTab:  Delete MobaScript file
+[5:59:09 PM]          CloseTab:  Close TFormDetachedTab
+[5:59:09 PM]          CloseTab: Cts1.BeginUpdate;
+[5:59:09 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:59:09 PM]          Cts1ActiveTabChanged: New index = 0
+[5:59:09 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:59:09 PM]          (SSH-Browser) TabSFTP[1].Free;
+[5:59:09 PM]          Freeing object TMobaThread
+[5:59:09 PM]          Freeing object TElSftpClient
+[5:59:09 PM]          Freeing object TElSSHClient
+[5:59:09 PM]          Freeing object TElSocket
+[5:59:09 PM]          Freeing object TListView
+[5:59:09 PM]          Freeing object TElSSHTunnelList
+[5:59:09 PM]          Freeing object TElSubsystemSSHTunnel
+[5:59:09 PM]          Freeing object TList
+[5:59:09 PM]          Freeing object TTimer
+[5:59:09 PM]          BEGIN DisplayCurrentTab
+[5:59:09 PM]              DisplayCurrentTab: FormClick
+[5:59:09 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[5:59:09 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:59:09 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:59:09 PM]              (SSH-Browser) END DesactiverPanel14
+[5:59:09 PM]              (SSH-Browser) END ActiverPanel14;
+[5:59:09 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:59:09 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:59:09 PM]              DisplayCurrentTab: Show selected tab
+[5:59:09 PM]              BEGIN ResizeTerminal
+[5:59:09 PM]              END ResizeTerminal
+[5:59:09 PM]              DisplayCurrentTab: Hide other tabs
+[5:59:09 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:59:09 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:59:09 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:59:09 PM]              BEGIN WMNewTab: 0
+[5:59:09 PM]                  WMNewTab: FormClick
+[5:59:09 PM]                  WMNewTab: LooseFocus
+[5:59:09 PM]              END WMNewTab: 0
+[5:59:09 PM]              BEGIN WMNewTab: 0
+[5:59:09 PM]                  WMNewTab: FormClick
+[5:59:09 PM]                  WMNewTab: LooseFocus
+[5:59:09 PM]              END WMNewTab: 0
+[5:59:09 PM]              BEGIN WMNewTab: 0
+[5:59:09 PM]                  WMNewTab: FormClick
+[5:59:09 PM]                  WMNewTab: LooseFocus
+[5:59:09 PM]              END WMNewTab: 0
+[5:59:09 PM]              BEGIN WMNewTab: 0
+[5:59:09 PM]                  WMNewTab: FormClick
+[5:59:09 PM]                  WMNewTab: LooseFocus
+[5:59:09 PM]              END WMNewTab: 0
+[5:59:09 PM]          END DisplayCurrentTab
+[5:59:09 PM]      END CloseTab(1)
+[5:59:09 PM]      
+
+
+[5:59:10 PM]      BEGIN ExecuteSessionTree
+[5:59:10 PM]          ExecuteSessionTree: FormClick
+[5:59:10 PM]          BEGIN ExecuteSelectedSession
+[5:59:10 PM]              ExecuteSelectedSession: FormClick
+[5:59:10 PM]              ExecuteSelectedSession0
+[5:59:10 PM]              ExecuteSelectedSession1
+[5:59:10 PM]              ExecuteSelectedSession2
+[5:59:10 PM]              ExecuteSelectedSession3
+[5:59:10 PM]              BEGIN ChargerLaSession
+[5:59:10 PM]                  ChargerLaSession1
+[5:59:10 PM]                  ChargerLaSession2
+[5:59:10 PM]                  ChargerLaSession3
+[5:59:10 PM]                  ChargerLaSession4
+[5:59:10 PM]                  ChargerLaSession5
+[5:59:10 PM]                  ChargerLaSession6
+[5:59:10 PM]                  ChargerLaSession7
+[5:59:10 PM]                  ChargerLaSession8
+[5:59:10 PM]                  ChargerLaSession9
+[5:59:10 PM]                  ChargerLaSession10
+[5:59:10 PM]              END ChargerLaSession
+[5:59:10 PM]              ExecuteSelectedSession4
+[5:59:10 PM]              LaunchSession0
+[5:59:10 PM]              LaunchSession1
+[5:59:10 PM]              LaunchSession4
+[5:59:10 PM]              LaunchSession5
+[5:59:10 PM]              
+[5:59:10 PM]              BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:59:10 PM]                  NEWTAB: Application.ProcessMessages
+[5:59:10 PM]                  NEWTAB: Timer1_Disable
+[5:59:10 PM]                  NEWTAB: Verifying if max number of tabs has been reached...
+[5:59:10 PM]                  NEWTAB: Creating SFTPRecord...
+[5:59:10 PM]                  NEWTAB: Creating menu items and popup entries for new tab...
+[5:59:10 PM]                  NEWTAB: Trying to find OldIndice...
+[5:59:10 PM]                  NEWTAB: Cts1.BeginUpdate;
+[5:59:10 PM]                  NEWTAB: Creating new tab...
+[5:59:10 PM]                  NEWTAB:        Tab index: 1
+[5:59:10 PM]                  NEWTAB:        NumTerm  : 9
+[5:59:10 PM]                  NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:59:10 PM]                  NEWTAB:        Command  : PuCom COM6
+[5:59:10 PM]                  Cts1ActiveTabChanged: New index = 1
+[5:59:10 PM]                  NEWTAB: Cts1.EndUpdates
+[5:59:10 PM]                  NEWTAB: Changing tab index A = 1
+[5:59:10 PM]                  BEGIN WaitForAllThreads
+[5:59:10 PM]                  END WaitForAllThreads
+[5:59:10 PM]                  
+[5:59:10 PM]                  LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:59:10 PM]                  
+[5:59:10 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:10 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:59:10 PM]                  Enabling MOBANOACL
+[5:59:10 PM]                  
+[5:59:10 PM]                  ShellExecute: motty.exe
+[5:59:10 PM]                  
+[5:59:10 PM]                  CreerSessionMoTTY(9, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:59:10 PM]                  Setting LOCALE=en_CA.UTF-8
+[5:59:10 PM]                  SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:10 PM]                  SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:59:10 PM]                  Enabling MOBANOACL
+[5:59:10 PM]                  BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675509")
+[5:59:10 PM]                      ShellExecuteS: ShellExecuteEx succeeded.
+[5:59:10 PM]                      SetTitle(1, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:59:10 PM]                      ShellExecuteS: WaitForInputIdle succeeded.
+[5:59:10 PM]                  END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM675509")
+[5:59:10 PM]                  
+[5:59:10 PM]                  FindWindow(CMoTTY)
+[5:59:10 PM]                  Potential window 986468 successfully passed 2nd verification.
+[5:59:10 PM]                  --> succeeded
+[5:59:10 PM]                  Moxt2.SetParent
+[5:59:10 PM]                  NEWTAB: Application.OnMessage:=AppMessage
+[5:59:10 PM]                  NEWTAB: Changing tab index C = 1
+[5:59:10 PM]                  NEWTAB: Launching DisplayCurrentTab...
+[5:59:10 PM]                  BEGIN DisplayCurrentTab
+[5:59:10 PM]                      DisplayCurrentTab: FormClick
+[5:59:10 PM]                      (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:59:10 PM]                      (SSH-Browser) BEGIN ActiverPanel14
+[5:59:10 PM]                      (SSH-Browser) BEGIN DesactiverPanel14
+[5:59:10 PM]                      (SSH-Browser) END DesactiverPanel14
+[5:59:10 PM]                      (SSH-Browser) END ActiverPanel14;
+[5:59:10 PM]                      DisplayCurrentTab: Cts1.BeginUpdate;
+[5:59:10 PM]                      DisplayCurrentTab: Cts1.EndUpdates
+[5:59:10 PM]                      DisplayCurrentTab: Show selected tab
+[5:59:10 PM]                      DisplayCurrentTab: Hide other tabs
+[5:59:10 PM]                      DisplayCurrentTab: Adapting buttons enable/disable states
+[5:59:10 PM]                      DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:59:10 PM]                      DisplayCurrentTab: DistribuerLeFocus
+[5:59:10 PM]                  END DisplayCurrentTab
+[5:59:10 PM]                  NEWTAB: NewTab_ReEnable_Timer1
+[5:59:10 PM]                  NEWTAB: MajVerticalTabs
+[5:59:10 PM]                  NEWTAB: Cts1.Resize;
+[5:59:10 PM]              END NEWTAB(PuCom COM6, 131, 0)
+[5:59:10 PM]              
+[5:59:10 PM]              LaunchSession6
+[5:59:10 PM]              ExecuteSelectedSession5
+[5:59:10 PM]          END ExecuteSelectedSession
+[5:59:10 PM]      END ExecuteSessionTree
+
+
+[5:59:13 PM]      
+[5:59:13 PM]      BEGIN LaunchX11();
+
+[5:59:14 PM]      END LaunchX11();
+
+[5:59:15 PM]      
+[5:59:15 PM]      BEGIN LaunchX11();
+[5:59:15 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/keypad
+[5:59:15 PM]          File keypad extracted successfully.
+[5:59:15 PM]          Request for file extraction: /usr/share/X11/xkb/symbols/pc
+[5:59:15 PM]          File pc extracted successfully.
+[5:59:15 PM]          BEGIN WaitForAllThreads
+[5:59:15 PM]          END WaitForAllThreads
+[5:59:15 PM]          BEGIN WaitForAllThreads
+[5:59:15 PM]          END WaitForAllThreads
+[5:59:15 PM]          SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:15 PM]          SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:59:15 PM]          Enabling MOBANOACL
+[5:59:15 PM]          
+[5:59:15 PM]          XWin Exec: C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\bash.exe -l -i -c "XWin_MobaX.exe  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset  -fp /usr/share/fonts/misc,/usr/share/fonts/75dpi,/usr/share/fonts/100dpi,/usr/share/fonts/Speedo,/usr/share/fonts/OTF,/usr/share/fonts/TTF,/usr/share/fonts/cyrillic,/usr/share/fonts/Type1  :0"
+[5:59:15 PM]          
+[5:59:15 PM]          BEGIN ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:59:15 PM]              ShellExecuteA: ShellExecuteEx succeeded.
+[5:59:15 PM]          END ShellExecuteA(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\XWin_MobaX.exe,  -silent-dup-error -notrayicon -nolisten inet6 -hostintitle +bs  -clipboard -nowgl -multiwindow -noreset :0)
+[5:59:15 PM]      END LaunchX11();
+
+
+[5:59:17 PM]      BEGIN WMNewTab: 0
+[5:59:17 PM]          WMNewTab: FormClick
+[5:59:17 PM]          WMNewTab: LooseFocus
+[5:59:17 PM]      END WMNewTab: 0
+[5:59:17 PM]      BEGIN WMNewTab: 0
+[5:59:17 PM]          WMNewTab: FormClick
+[5:59:17 PM]          WMNewTab: LooseFocus
+[5:59:17 PM]      END WMNewTab: 0
+
+
+[5:59:24 PM]      BEGIN RecreateBookmarksMenus
+[5:59:24 PM]          RecreateBookmarksMenus: FreeBookmarksMenuItems(Form1.Xserver3)
+[5:59:24 PM]          RecreateBookmarksMenus: FreeBookmarksMenuItems(Bookmarks1)
+[5:59:24 PM]          sTreeView1.assign(Treesessions)
+[5:59:24 PM]          Detecting SheetSessions width
+[5:59:24 PM]          Create session menu items
+[5:59:24 PM]          Create aliases
+[5:59:24 PM]          TreeSessions.Expand
+[5:59:24 PM]      END RecreateBookmarksMenus
+[5:59:24 PM]      BEGIN SaveBookmarksToIni
+[5:59:24 PM]          BEGIN SaveBookmarksFromFolder(User sessions,0)
+[5:59:24 PM]              BEGIN SaveBookmarksFromFolder(PuTTY sessions,1)
+[5:59:24 PM]              END SaveBookmarksFromFolder
+[5:59:24 PM]          END SaveBookmarksFromFolder
+[5:59:24 PM]          TFormXterm.SaveBookmarksToIni: Ini36.UpdateFile(C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini)
+[5:59:25 PM]      END SaveBookmarksToIni
+
+
+[5:59:26 PM]      Cts1MouseDown: FormClick
+[5:59:26 PM]      BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[5:59:26 PM]          
+[5:59:26 PM]          BEGIN CloseTab(1)
+[5:59:26 PM]              CloseTab:  Tab is external app
+[5:59:26 PM]              CloseTab:  Send WM_CLOSE (0) to external app
+[5:59:26 PM]              Form4.Closing = false
+[5:59:26 PM]          END CloseTab(1)
+[5:59:26 PM]          
+[5:59:26 PM]      END TFormXterm.Cts1ButtonCloseTabClick
+[5:59:26 PM]      BEGIN WMNewTab: 36
+[5:59:26 PM]          WMNewTab: FormClick
+[5:59:26 PM]          WMNewTab: LooseFocus
+[5:59:26 PM]          Changing tab index G = 1
+[5:59:26 PM]      END WMNewTab: 36
+
+[5:59:27 PM]      
+[5:59:27 PM]      BEGIN Form4.FormActivate
+[5:59:27 PM]      END Form4.FormActivate
+[5:59:27 PM]      
+
+[5:59:28 PM]      
+[5:59:28 PM]      Timer1: CloseTab(1);
+[5:59:28 PM]      
+[5:59:28 PM]      BEGIN CloseTab(1)
+[5:59:28 PM]          CloseTab:  Tab is external app
+[5:59:28 PM]          CloseTab:  Delete MobaScript file
+[5:59:28 PM]          CloseTab:  Close TFormDetachedTab
+[5:59:28 PM]          CloseTab: Cts1.BeginUpdate;
+[5:59:28 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:59:28 PM]          Cts1ActiveTabChanged: New index = 0
+[5:59:28 PM]          CloseTab: Cts1.Tabs.Delete(1);
+[5:59:28 PM]          (SSH-Browser) TabSFTP[1].Free;
+[5:59:28 PM]          Freeing object TMobaThread
+[5:59:28 PM]          Freeing object TElSftpClient
+[5:59:28 PM]          Freeing object TElSSHClient
+[5:59:28 PM]          Freeing object TElSocket
+[5:59:28 PM]          Freeing object TListView
+[5:59:28 PM]          Freeing object TElSSHTunnelList
+[5:59:28 PM]          Freeing object TElSubsystemSSHTunnel
+[5:59:28 PM]          Freeing object TList
+[5:59:28 PM]          Freeing object TTimer
+[5:59:28 PM]          BEGIN DisplayCurrentTab
+[5:59:28 PM]              DisplayCurrentTab: FormClick
+[5:59:28 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[5:59:28 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[5:59:28 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[5:59:28 PM]              (SSH-Browser) END DesactiverPanel14
+[5:59:28 PM]              (SSH-Browser) END ActiverPanel14;
+[5:59:28 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[5:59:28 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[5:59:28 PM]              DisplayCurrentTab: Show selected tab
+[5:59:28 PM]              BEGIN ResizeTerminal
+[5:59:28 PM]              END ResizeTerminal
+[5:59:28 PM]              DisplayCurrentTab: Hide other tabs
+[5:59:28 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[5:59:28 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:59:28 PM]              DisplayCurrentTab: DistribuerLeFocus
+[5:59:28 PM]              BEGIN WMNewTab: 0
+[5:59:28 PM]                  WMNewTab: FormClick
+[5:59:28 PM]                  WMNewTab: LooseFocus
+[5:59:28 PM]              END WMNewTab: 0
+[5:59:28 PM]              BEGIN WMNewTab: 0
+[5:59:28 PM]                  WMNewTab: FormClick
+[5:59:28 PM]                  WMNewTab: LooseFocus
+[5:59:28 PM]              END WMNewTab: 0
+[5:59:28 PM]              BEGIN WMNewTab: 0
+[5:59:28 PM]                  WMNewTab: FormClick
+[5:59:28 PM]                  WMNewTab: LooseFocus
+[5:59:28 PM]              END WMNewTab: 0
+[5:59:28 PM]              BEGIN WMNewTab: 0
+[5:59:28 PM]                  WMNewTab: FormClick
+[5:59:28 PM]                  WMNewTab: LooseFocus
+[5:59:28 PM]              END WMNewTab: 0
+[5:59:28 PM]          END DisplayCurrentTab
+[5:59:28 PM]      END CloseTab(1)
+[5:59:28 PM]      
+
+
+[5:59:29 PM]      BEGIN BtnNewSessionClick
+[5:59:29 PM]          BtnNewSessionClick: FormClick
+[5:59:29 PM]          BEGIN ChargerLaSession
+[5:59:29 PM]              ChargerLaSession1
+[5:59:29 PM]              ChargerLaSession2
+
+[5:59:30 PM]              BEGIN FormSessions.Btn0Click: 8
+[5:59:30 PM]                  BEGIN LockControl(FormSessionEdit, Btn0Click)
+[5:59:30 PM]                  END LockControl(FormSessionEdit, Btn0Click)
+[5:59:30 PM]                  BEGIN UnlockControl(FormSessionEdit, Btn0Click)
+[5:59:30 PM]                  END UnlockControl(FormSessionEdit, Btn0Click)
+[5:59:30 PM]              END FormSessions.Btn0Click
+
+
+
+[5:59:42 PM]              BEGIN SessionCLickOK
+[5:59:42 PM]                  BEGIN SauverSession
+[5:59:42 PM]                      During SauverSession
+[5:59:42 PM]                      BEGIN RecreateBookmarksMenus
+[5:59:42 PM]                          RecreateBookmarksMenus: FreeBookmarksMenuItems(Form1.Xserver3)
+[5:59:42 PM]                          RecreateBookmarksMenus: FreeBookmarksMenuItems(Bookmarks1)
+[5:59:42 PM]                          sTreeView1.assign(Treesessions)
+[5:59:42 PM]                          Detecting SheetSessions width
+[5:59:42 PM]                          Create session menu items
+[5:59:42 PM]                          Create aliases
+[5:59:42 PM]                          TreeSessions.Expand
+[5:59:42 PM]                      END RecreateBookmarksMenus
+[5:59:42 PM]                      BEGIN SaveBookmarksToIni
+[5:59:42 PM]                          BEGIN SaveBookmarksFromFolder(User sessions,0)
+[5:59:42 PM]                              BEGIN SaveBookmarksFromFolder(PuTTY sessions,1)
+[5:59:42 PM]                              END SaveBookmarksFromFolder
+[5:59:42 PM]                          END SaveBookmarksFromFolder
+[5:59:42 PM]                          TFormXterm.SaveBookmarksToIni: Ini36.UpdateFile(C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\MobaXterm_Portable_v10.9\MobaXterm.ini)
+[5:59:42 PM]                      END SaveBookmarksToIni
+[5:59:42 PM]                  END SauverSession
+[5:59:42 PM]                  LaunchSession0
+[5:59:42 PM]                  LaunchSession1
+[5:59:42 PM]                  LaunchSession4
+[5:59:42 PM]                  LaunchSession5
+[5:59:42 PM]                  
+[5:59:42 PM]                  BEGIN NEWTAB(PuCom COM6, 131, 0)
+[5:59:42 PM]                      NEWTAB: Application.ProcessMessages
+[5:59:42 PM]                      NEWTAB: Timer1_Disable
+[5:59:42 PM]                      NEWTAB: Verifying if max number of tabs has been reached...
+[5:59:42 PM]                      NEWTAB: Creating SFTPRecord...
+[5:59:42 PM]                      NEWTAB: Creating menu items and popup entries for new tab...
+[5:59:42 PM]                      NEWTAB: Trying to find OldIndice...
+[5:59:42 PM]                      NEWTAB: Cts1.BeginUpdate;
+[5:59:42 PM]                      NEWTAB: Creating new tab...
+[5:59:42 PM]                      NEWTAB:        Tab index: 1
+[5:59:42 PM]                      NEWTAB:        NumTerm  : 10
+[5:59:42 PM]                      NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[5:59:42 PM]                      NEWTAB:        Command  : PuCom COM6
+[5:59:42 PM]                      Cts1ActiveTabChanged: New index = 1
+[5:59:42 PM]                      NEWTAB: Cts1.EndUpdates
+[5:59:42 PM]                      NEWTAB: Changing tab index A = 1
+[5:59:42 PM]                      BEGIN WaitForAllThreads
+[5:59:42 PM]                      END WaitForAllThreads
+[5:59:42 PM]                      
+[5:59:42 PM]                      LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:59:42 PM]                      
+[5:59:42 PM]                      SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:42 PM]                      SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[5:59:42 PM]                      Enabling MOBANOACL
+[5:59:42 PM]                      
+[5:59:42 PM]                      ShellExecute: motty.exe
+[5:59:42 PM]                      
+[5:59:42 PM]                      CreerSessionMoTTY(10, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[5:59:42 PM]                      Setting LOCALE=en_CA.UTF-8
+[5:59:42 PM]                      SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[5:59:42 PM]                      SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[5:59:42 PM]                      Enabling MOBANOACL
+[5:59:42 PM]                      BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM6755010")
+[5:59:42 PM]                          ShellExecuteS: ShellExecuteEx succeeded.
+[5:59:42 PM]                          SetTitle(1, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[5:59:42 PM]                          ShellExecuteS: WaitForInputIdle succeeded.
+[5:59:42 PM]                      END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM6755010")
+[5:59:42 PM]                      
+[5:59:42 PM]                      FindWindow(CMoTTY)
+[5:59:42 PM]                      Potential window 658812 successfully passed 2nd verification.
+[5:59:42 PM]                      --> succeeded
+[5:59:42 PM]                      Moxt2.SetParent
+[5:59:42 PM]                      NEWTAB: Application.OnMessage:=AppMessage
+[5:59:42 PM]                      
+[5:59:42 PM]                      BEGIN Form4.FormActivate
+[5:59:42 PM]                      END Form4.FormActivate
+[5:59:42 PM]                      
+[5:59:42 PM]                      NEWTAB: Changing tab index C = 1
+[5:59:42 PM]                      NEWTAB: Launching DisplayCurrentTab...
+[5:59:42 PM]                      BEGIN DisplayCurrentTab
+[5:59:42 PM]                          DisplayCurrentTab: FormClick
+[5:59:42 PM]                          (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[5:59:42 PM]                          (SSH-Browser) BEGIN ActiverPanel14
+[5:59:42 PM]                          (SSH-Browser) BEGIN DesactiverPanel14
+[5:59:42 PM]                          (SSH-Browser) END DesactiverPanel14
+[5:59:42 PM]                          (SSH-Browser) END ActiverPanel14;
+[5:59:42 PM]                          DisplayCurrentTab: Cts1.BeginUpdate;
+[5:59:42 PM]                          DisplayCurrentTab: Cts1.EndUpdates
+[5:59:42 PM]                          DisplayCurrentTab: Show selected tab
+[5:59:42 PM]                          DisplayCurrentTab: Hide other tabs
+[5:59:42 PM]                          DisplayCurrentTab: Adapting buttons enable/disable states
+[5:59:42 PM]                          DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[5:59:42 PM]                          DisplayCurrentTab: DistribuerLeFocus
+[5:59:42 PM]                      END DisplayCurrentTab
+[5:59:42 PM]                      NEWTAB: NewTab_ReEnable_Timer1
+[5:59:42 PM]                      NEWTAB: MajVerticalTabs
+[5:59:42 PM]                      NEWTAB: Cts1.Resize;
+[5:59:42 PM]                  END NEWTAB(PuCom COM6, 131, 0)
+[5:59:42 PM]                  
+[5:59:42 PM]                  LaunchSession6
+[5:59:42 PM]              END SessionCLickOK
+[5:59:42 PM]              BEGIN TFormSessionEdit.FormClose
+[5:59:42 PM]              END TFormSessionEdit.FormClose
+[5:59:43 PM]          END BtnNewSessionClick
+
+
+
+[5:59:55 PM]          BEGIN WMNewTab: 0
+[5:59:55 PM]              WMNewTab: FormClick
+[5:59:55 PM]              WMNewTab: LooseFocus
+[5:59:55 PM]          END WMNewTab: 0
+[5:59:55 PM]          BEGIN WMNewTab: 0
+[5:59:55 PM]              WMNewTab: FormClick
+[5:59:55 PM]              WMNewTab: LooseFocus
+[5:59:55 PM]          END WMNewTab: 0
+
+
+
+[6:00:09 PM]          BtnSplitVertClick: FormClick
+[6:00:09 PM]          BEGIN LockControl(sPanel1, BtnSplitVertClick)
+[6:00:09 PM]          END LockControl(sPanel1, BtnSplitVertClick)
+[6:00:09 PM]          BEGIN ResizeTerminal
+[6:00:09 PM]          END ResizeTerminal
+[6:00:09 PM]          BEGIN ResizeTerminal
+[6:00:09 PM]          END ResizeTerminal
+[6:00:09 PM]          BEGIN TFormXterm.FormResize
+[6:00:09 PM]              TFormXterm.FormResize: CenterBtnReattachTab
+[6:00:09 PM]              TFormXterm.FormResize: SplitModeResize
+[6:00:09 PM]              BEGIN ResizeTerminal
+[6:00:09 PM]              END ResizeTerminal
+[6:00:09 PM]              BEGIN ResizeTerminal
+[6:00:09 PM]              END ResizeTerminal
+[6:00:09 PM]              TFormXterm.FormResize: AdaptSidebarArrows;
+[6:00:09 PM]              BEGIN AdaptSidebarArrows
+[6:00:09 PM]              END AdaptSidebarArrows
+[6:00:09 PM]          END TFormXterm.FormResize
+[6:00:09 PM]          Changing tab index L = 0
+[6:00:09 PM]          BEGIN DisplayCurrentTab
+[6:00:09 PM]              DisplayCurrentTab: FormClick
+[6:00:09 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[6:00:09 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[6:00:09 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:09 PM]              (SSH-Browser) END DesactiverPanel14
+[6:00:09 PM]              (SSH-Browser) END ActiverPanel14;
+[6:00:09 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:09 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:09 PM]              DisplayCurrentTab: DistribuerLeFocus
+[6:00:09 PM]          END DisplayCurrentTab
+[6:00:09 PM]          ReEnable_Timer1_8
+[6:00:09 PM]          BEGIN UnlockControl(sPanel1, BtnSplitVertClick)
+[6:00:09 PM]          END UnlockControl(sPanel1, BtnSplitVertClick)
+
+
+[6:00:13 PM]          BtnSplitNoClick: FormClick
+[6:00:13 PM]          BEGIN LockControl(sPanel1, BtnSplitNoClick)
+[6:00:13 PM]          END LockControl(sPanel1, BtnSplitNoClick)
+[6:00:13 PM]          Changing tab index K = 0
+[6:00:13 PM]          BEGIN DisplayCurrentTab
+[6:00:13 PM]              DisplayCurrentTab: FormClick
+[6:00:13 PM]              (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[6:00:13 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[6:00:13 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:13 PM]              (SSH-Browser) END DesactiverPanel14
+[6:00:13 PM]              (SSH-Browser) END ActiverPanel14;
+[6:00:13 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[6:00:13 PM]              Cts1ActiveTabChanged: New index = 0
+[6:00:13 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[6:00:13 PM]              DisplayCurrentTab: Show selected tab
+[6:00:13 PM]              BEGIN ResizeTerminal
+[6:00:13 PM]              END ResizeTerminal
+[6:00:13 PM]              DisplayCurrentTab: Hide other tabs
+[6:00:13 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:13 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:13 PM]              DisplayCurrentTab: DistribuerLeFocus
+[6:00:13 PM]              BEGIN WMNewTab: 0
+[6:00:13 PM]                  WMNewTab: FormClick
+[6:00:13 PM]                  WMNewTab: LooseFocus
+[6:00:13 PM]              END WMNewTab: 0
+[6:00:13 PM]              BEGIN WMNewTab: 0
+[6:00:13 PM]                  WMNewTab: FormClick
+[6:00:13 PM]                  WMNewTab: LooseFocus
+[6:00:13 PM]              END WMNewTab: 0
+[6:00:13 PM]              BEGIN WMNewTab: 0
+[6:00:13 PM]                  WMNewTab: FormClick
+[6:00:13 PM]                  WMNewTab: LooseFocus
+[6:00:13 PM]              END WMNewTab: 0
+[6:00:13 PM]              BEGIN WMNewTab: 0
+[6:00:13 PM]                  WMNewTab: FormClick
+[6:00:13 PM]                  WMNewTab: LooseFocus
+[6:00:13 PM]              END WMNewTab: 0
+[6:00:13 PM]          END DisplayCurrentTab
+[6:00:13 PM]          BEGIN TFormXterm.FormResize
+[6:00:13 PM]              TFormXterm.FormResize: CenterBtnReattachTab
+[6:00:13 PM]              TFormXterm.FormResize: SplitModeResize
+[6:00:13 PM]              TFormXterm.FormResize: BtnSplitNo.Down
+[6:00:13 PM]              TFormXterm.FormResize: ResizeTerminal(Indice,Panel1);
+[6:00:13 PM]              BEGIN ResizeTerminal
+[6:00:13 PM]              END ResizeTerminal
+[6:00:13 PM]              TFormXterm.FormResize: AdaptSidebarArrows;
+[6:00:13 PM]              BEGIN AdaptSidebarArrows
+[6:00:13 PM]              END AdaptSidebarArrows
+[6:00:13 PM]          END TFormXterm.FormResize
+[6:00:13 PM]          ReEnable_Timer1_7
+[6:00:13 PM]          BEGIN UnlockControl(sPanel1, BtnSplitNoClick)
+[6:00:13 PM]          END UnlockControl(sPanel1, BtnSplitNoClick)
+
+[6:00:14 PM]          Cts1MouseDown: FormClick
+[6:00:14 PM]          Cts1ActiveTabChanged: New index = 1
+[6:00:14 PM]          BEGIN DisplayCurrentTab
+[6:00:14 PM]              DisplayCurrentTab: FormClick
+[6:00:14 PM]              (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[6:00:14 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[6:00:14 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:14 PM]              (SSH-Browser) END DesactiverPanel14
+[6:00:14 PM]              (SSH-Browser) END ActiverPanel14;
+[6:00:14 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[6:00:14 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[6:00:14 PM]              DisplayCurrentTab: Show selected tab
+[6:00:14 PM]              DisplayCurrentTab: Hide other tabs
+[6:00:14 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:14 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:14 PM]              DisplayCurrentTab: DistribuerLeFocus
+[6:00:14 PM]          END DisplayCurrentTab
+
+
+[6:00:16 PM]          BEGIN WMNewTab: 0
+[6:00:16 PM]              WMNewTab: FormClick
+[6:00:16 PM]              WMNewTab: LooseFocus
+[6:00:16 PM]          END WMNewTab: 0
+[6:00:16 PM]          BEGIN WMNewTab: 0
+[6:00:16 PM]              WMNewTab: FormClick
+[6:00:16 PM]              WMNewTab: LooseFocus
+[6:00:16 PM]          END WMNewTab: 0
+
+
+[6:00:18 PM]          BEGIN ExecuteSessionTree
+[6:00:18 PM]              ExecuteSessionTree: FormClick
+[6:00:18 PM]              BEGIN ExecuteSelectedSession
+[6:00:18 PM]                  ExecuteSelectedSession: FormClick
+[6:00:18 PM]                  ExecuteSelectedSession0
+[6:00:18 PM]                  ExecuteSelectedSession1
+[6:00:18 PM]                  ExecuteSelectedSession2
+[6:00:18 PM]                  ExecuteSelectedSession3
+[6:00:18 PM]                  BEGIN ChargerLaSession
+[6:00:18 PM]                      ChargerLaSession1
+[6:00:18 PM]                      ChargerLaSession2
+[6:00:18 PM]                      ChargerLaSession3
+[6:00:18 PM]                      ChargerLaSession4
+[6:00:18 PM]                      ChargerLaSession5
+[6:00:18 PM]                      ChargerLaSession6
+[6:00:18 PM]                      ChargerLaSession7
+[6:00:18 PM]                      ChargerLaSession8
+[6:00:18 PM]                      ChargerLaSession9
+[6:00:18 PM]                      ChargerLaSession10
+[6:00:18 PM]                  END ChargerLaSession
+[6:00:18 PM]                  ExecuteSelectedSession4
+[6:00:18 PM]                  LaunchSession0
+[6:00:18 PM]                  LaunchSession1
+[6:00:18 PM]                  LaunchSession4
+[6:00:18 PM]                  LaunchSession5
+[6:00:18 PM]                  
+[6:00:18 PM]                  BEGIN NEWTAB(PuCom COM6, 131, 0)
+[6:00:18 PM]                      NEWTAB: Application.ProcessMessages
+[6:00:18 PM]                      NEWTAB: Timer1_Disable
+[6:00:18 PM]                      NEWTAB: Verifying if max number of tabs has been reached...
+[6:00:18 PM]                      NEWTAB: Creating SFTPRecord...
+[6:00:18 PM]                      NEWTAB: Creating menu items and popup entries for new tab...
+[6:00:18 PM]                      NEWTAB: Trying to find OldIndice...
+[6:00:18 PM]                      NEWTAB: Cts1.BeginUpdate;
+[6:00:18 PM]                      NEWTAB: Creating new tab...
+[6:00:18 PM]                      NEWTAB:        Tab index: 2
+[6:00:18 PM]                      NEWTAB:        NumTerm  : 11
+[6:00:18 PM]                      NEWTAB:        Title    : COM6  (STMicroelectronics STLink Virtual COM Port (COM6))
+[6:00:18 PM]                      NEWTAB:        Command  : PuCom COM6
+[6:00:18 PM]                      Cts1ActiveTabChanged: New index = 2
+[6:00:18 PM]                      NEWTAB: Cts1.EndUpdates
+[6:00:18 PM]                      NEWTAB: Changing tab index A = 2
+[6:00:18 PM]                      BEGIN WaitForAllThreads
+[6:00:18 PM]                      END WaitForAllThreads
+[6:00:18 PM]                      
+[6:00:18 PM]                      LaunchTabContent(PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)));
+[6:00:18 PM]                      
+[6:00:18 PM]                      SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[6:00:18 PM]                      SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\)
+[6:00:18 PM]                      Enabling MOBANOACL
+[6:00:18 PM]                      
+[6:00:18 PM]                      ShellExecute: motty.exe
+[6:00:18 PM]                      
+[6:00:18 PM]                      CreerSessionMoTTY(11, PuCom COM6, COM6  (STMicroelectronics STLink Virtual COM Port (COM6)))
+[6:00:18 PM]                      Setting LOCALE=en_CA.UTF-8
+[6:00:18 PM]                      SetEnvironmentVariable(LOCALE, en_CA.UTF-8)
+[6:00:18 PM]                      SetEnvironmentVariable(PATH, C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin;C:\Windows\;C:\Windows\system32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Cadence\SPB_16.5\tools\pcb\bin;C:\Cadence\SPB_16.5\tools\bin;C:\Cadence\SPB_16.5\tools\libutil\bin;C:\Cadence\SPB_16.5\tools\fet\bin;C:\Cadence\SPB_16.5\tools\specctra\bin;C:\Cadence\SPB_16.5\tools\PSpice;C:\Cadence\SPB_16.5\tools\PSpice\Library;C:\Cadence\SPB_16.5\tools\Capture;C:\Cadence\SPB_16.5\OpenAccess\bin\win32\opt;C:\Program Files (x86)\National Instruments\Motion Assistant\bin\mxwplugins;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files\doxygen\bin;C:\Program Files\MATLAB\R2017a\bin;C:\PROGRA~2\IVIFOU~1\VISA\WinNT\Bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\vim\vim80;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\leJOS EV3\bin;C:\opscode\chef\bin\;C:\Users\ifaruk\AppData\Local\Microsoft\WindowsApps)
+[6:00:18 PM]                      Enabling MOBANOACL
+[6:00:18 PM]                      BEGIN ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM6755011")
+[6:00:18 PM]                          ShellExecuteS: ShellExecuteEx succeeded.
+[6:00:18 PM]                          ShellExecuteS: WaitForInputIdle succeeded.
+[6:00:18 PM]                      END ShellExecuteS(C:\Users\ifaruk\AppData\Local\Temp\Mxt109\bin\motty.exe, -load "C:\Users\ifaruk\AppData\Local\Temp\Mxt109\tmp\sessions\TERM6755011")
+[6:00:18 PM]                      
+[6:00:18 PM]                      FindWindow(CMoTTY)
+[6:00:18 PM]                      Potential window 133542 successfully passed 2nd verification.
+[6:00:18 PM]                      --> succeeded
+[6:00:18 PM]                      Moxt2.SetParent
+[6:00:18 PM]                      NEWTAB: Application.OnMessage:=AppMessage
+[6:00:18 PM]                      NEWTAB: Changing tab index C = 2
+[6:00:18 PM]                      NEWTAB: Launching DisplayCurrentTab...
+[6:00:18 PM]                      BEGIN DisplayCurrentTab
+[6:00:18 PM]                          DisplayCurrentTab: FormClick
+[6:00:18 PM]                          (SSH-Browser) DisplayCurrentTab(2): ActiverPanel14
+[6:00:18 PM]                          (SSH-Browser) BEGIN ActiverPanel14
+[6:00:18 PM]                          (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:18 PM]                          (SSH-Browser) END DesactiverPanel14
+[6:00:18 PM]                          (SSH-Browser) END ActiverPanel14;
+[6:00:18 PM]                          DisplayCurrentTab: Cts1.BeginUpdate;
+[6:00:18 PM]                          DisplayCurrentTab: Cts1.EndUpdates
+[6:00:18 PM]                          DisplayCurrentTab: Show selected tab
+[6:00:18 PM]                          DisplayCurrentTab: Hide other tabs
+[6:00:18 PM]                          DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:18 PM]                          DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:18 PM]                          DisplayCurrentTab: DistribuerLeFocus
+[6:00:18 PM]                      END DisplayCurrentTab
+[6:00:18 PM]                      NEWTAB: NewTab_ReEnable_Timer1
+[6:00:18 PM]                      NEWTAB: MajVerticalTabs
+[6:00:18 PM]                      NEWTAB: Cts1.Resize;
+[6:00:18 PM]                  END NEWTAB(PuCom COM6, 131, 0)
+[6:00:18 PM]                  
+[6:00:18 PM]                  LaunchSession6
+[6:00:18 PM]                  ExecuteSelectedSession5
+[6:00:18 PM]              END ExecuteSelectedSession
+[6:00:18 PM]          END ExecuteSessionTree
+
+
+[6:00:20 PM]          Cts1MouseDown: FormClick
+[6:00:20 PM]          Cts1ActiveTabChanged: New index = 1
+[6:00:20 PM]          BEGIN DisplayCurrentTab
+[6:00:20 PM]              DisplayCurrentTab: FormClick
+[6:00:20 PM]              (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[6:00:20 PM]              (SSH-Browser) BEGIN ActiverPanel14
+[6:00:20 PM]              (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:20 PM]              (SSH-Browser) END DesactiverPanel14
+[6:00:20 PM]              (SSH-Browser) END ActiverPanel14;
+[6:00:20 PM]              DisplayCurrentTab: Cts1.BeginUpdate;
+[6:00:20 PM]              DisplayCurrentTab: Cts1.EndUpdates
+[6:00:20 PM]              DisplayCurrentTab: Show selected tab
+[6:00:20 PM]              DisplayCurrentTab: Hide other tabs
+[6:00:20 PM]              DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:20 PM]              DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:20 PM]              DisplayCurrentTab: DistribuerLeFocus
+[6:00:20 PM]          END DisplayCurrentTab
+
+[6:00:21 PM]          Cts1MouseDown: FormClick
+[6:00:21 PM]          BEGIN TFormXterm.Cts1ButtonCloseTabClick
+[6:00:21 PM]              
+[6:00:21 PM]              BEGIN CloseTab(1)
+[6:00:21 PM]                  CloseTab:  Tab is external app
+[6:00:21 PM]                  CloseTab:  Send WM_CLOSE (0) to external app
+[6:00:21 PM]                  Form4.Closing = false
+[6:00:21 PM]              END CloseTab(1)
+[6:00:21 PM]              
+[6:00:21 PM]          END TFormXterm.Cts1ButtonCloseTabClick
+[6:00:21 PM]          BEGIN WMNewTab: 36
+[6:00:21 PM]              WMNewTab: FormClick
+[6:00:21 PM]              WMNewTab: LooseFocus
+[6:00:21 PM]              Changing tab index G = 1
+[6:00:21 PM]          END WMNewTab: 36
+
+[6:00:22 PM]          
+[6:00:22 PM]          Timer1: CloseTab(2);
+[6:00:22 PM]          
+[6:00:22 PM]          BEGIN CloseTab(2)
+[6:00:22 PM]              CloseTab:  Tab is external app
+[6:00:22 PM]              CloseTab:  Delete MobaScript file
+[6:00:22 PM]              CloseTab:  Close TFormDetachedTab
+[6:00:22 PM]              CloseTab: Cts1.BeginUpdate;
+[6:00:22 PM]              CloseTab: Cts1.Tabs.Delete(2);
+[6:00:22 PM]              CloseTab: Cts1.Tabs.Delete(2);
+[6:00:22 PM]              (SSH-Browser) TabSFTP[2].Free;
+[6:00:22 PM]              Freeing object TMobaThread
+[6:00:22 PM]              Freeing object TElSftpClient
+[6:00:22 PM]              Freeing object TElSSHClient
+[6:00:22 PM]              Freeing object TElSocket
+[6:00:22 PM]              Freeing object TListView
+[6:00:22 PM]              Freeing object TElSSHTunnelList
+[6:00:22 PM]              Freeing object TElSubsystemSSHTunnel
+[6:00:22 PM]              Freeing object TList
+[6:00:22 PM]              Freeing object TTimer
+[6:00:22 PM]              BEGIN DisplayCurrentTab
+[6:00:22 PM]                  DisplayCurrentTab: FormClick
+[6:00:22 PM]                  (SSH-Browser) DisplayCurrentTab(1): ActiverPanel14
+[6:00:22 PM]                  (SSH-Browser) BEGIN ActiverPanel14
+[6:00:22 PM]                  (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:22 PM]                  (SSH-Browser) END DesactiverPanel14
+[6:00:22 PM]                  (SSH-Browser) END ActiverPanel14;
+[6:00:22 PM]                  DisplayCurrentTab: Cts1.BeginUpdate;
+[6:00:22 PM]                  DisplayCurrentTab: Cts1.EndUpdates
+[6:00:22 PM]                  DisplayCurrentTab: Show selected tab
+[6:00:22 PM]                  DisplayCurrentTab: Hide other tabs
+[6:00:22 PM]                  DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:22 PM]                  
+[6:00:22 PM]                  BEGIN Form4.FormActivate
+[6:00:22 PM]                  END Form4.FormActivate
+[6:00:22 PM]                  
+[6:00:22 PM]                  DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:22 PM]                  DisplayCurrentTab: DistribuerLeFocus
+[6:00:22 PM]              END DisplayCurrentTab
+[6:00:22 PM]          END CloseTab(2)
+[6:00:22 PM]          
+
+[6:00:23 PM]          
+[6:00:23 PM]          Timer1: CloseTab(1);
+[6:00:23 PM]          
+[6:00:23 PM]          BEGIN CloseTab(1)
+[6:00:23 PM]              CloseTab:  Tab is external app
+[6:00:23 PM]              CloseTab:  Delete MobaScript file
+[6:00:23 PM]              CloseTab:  Close TFormDetachedTab
+[6:00:23 PM]              CloseTab: Cts1.BeginUpdate;
+[6:00:23 PM]              CloseTab: Cts1.Tabs.Delete(1);
+[6:00:23 PM]              Cts1ActiveTabChanged: New index = 0
+[6:00:23 PM]              CloseTab: Cts1.Tabs.Delete(1);
+[6:00:23 PM]              (SSH-Browser) TabSFTP[1].Free;
+[6:00:23 PM]              Freeing object TMobaThread
+[6:00:23 PM]              Freeing object TElSftpClient
+[6:00:23 PM]              Freeing object TElSSHClient
+[6:00:23 PM]              Freeing object TElSocket
+[6:00:23 PM]              Freeing object TListView
+[6:00:23 PM]              Freeing object TElSSHTunnelList
+[6:00:23 PM]              Freeing object TElSubsystemSSHTunnel
+[6:00:23 PM]              Freeing object TList
+[6:00:23 PM]              Freeing object TTimer
+[6:00:23 PM]              BEGIN DisplayCurrentTab
+[6:00:23 PM]                  DisplayCurrentTab: FormClick
+[6:00:23 PM]                  (SSH-Browser) DisplayCurrentTab(0): ActiverPanel14
+[6:00:23 PM]                  (SSH-Browser) BEGIN ActiverPanel14
+[6:00:23 PM]                  (SSH-Browser) BEGIN DesactiverPanel14
+[6:00:23 PM]                  (SSH-Browser) END DesactiverPanel14
+[6:00:23 PM]                  (SSH-Browser) END ActiverPanel14;
+[6:00:23 PM]                  DisplayCurrentTab: Cts1.BeginUpdate;
+[6:00:23 PM]                  DisplayCurrentTab: Cts1.EndUpdates
+[6:00:23 PM]                  DisplayCurrentTab: Show selected tab
+[6:00:23 PM]                  BEGIN ResizeTerminal
+[6:00:23 PM]                  END ResizeTerminal
+[6:00:23 PM]                  DisplayCurrentTab: Hide other tabs
+[6:00:23 PM]                  DisplayCurrentTab: Adapting buttons enable/disable states
+[6:00:23 PM]                  DisplayCurrentTab: DeterminerBoutonDetachOuReattach
+[6:00:23 PM]                  DisplayCurrentTab: DistribuerLeFocus
+[6:00:23 PM]                  BEGIN WMNewTab: 0
+[6:00:23 PM]                      WMNewTab: FormClick
+[6:00:23 PM]                      WMNewTab: LooseFocus
+[6:00:23 PM]                  END WMNewTab: 0
+[6:00:23 PM]                  BEGIN WMNewTab: 0
+[6:00:23 PM]                      WMNewTab: FormClick
+[6:00:23 PM]                      WMNewTab: LooseFocus
+[6:00:23 PM]                  END WMNewTab: 0
+[6:00:23 PM]                  BEGIN WMNewTab: 0
+[6:00:23 PM]                      WMNewTab: FormClick
+[6:00:23 PM]                      WMNewTab: LooseFocus
+[6:00:23 PM]                  END WMNewTab: 0
+[6:00:23 PM]                  BEGIN WMNewTab: 0
+[6:00:23 PM]                      WMNewTab: FormClick
+[6:00:23 PM]                      WMNewTab: LooseFocus
+[6:00:23 PM]                  END WMNewTab: 0
+[6:00:23 PM]              END DisplayCurrentTab
+[6:00:23 PM]          END CloseTab(1)
+[6:00:23 PM]          
+[6:00:23 PM]          Cts1MouseDown: FormClick
+
+
+[6:00:25 PM]          BEGIN ExecuteSessionTree
+[6:00:25 PM]              ExecuteSessionTree: FormClick
+[6:00:25 PM]          END ExecuteSessionTree
+[6:00:25 PM]          !!!! EXCEPTION EAccessViolation:  Access violation at address 00457B38 in module 'MobaXterm_Personal_10.9.exe'. Read of address 00000024

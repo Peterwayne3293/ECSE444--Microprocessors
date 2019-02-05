@@ -9,11 +9,12 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size);
-
+static void MX_ADC_Init(void);
 int main(void)
 {
 	char ch[5] = {'j','o','b','s','\n'};
-	char out[5];
+	char x[1];
+	char y[1] = {'Y'};
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
@@ -22,25 +23,89 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
+	MX_ADC_Init();
 
   /* Infinite loop */
   while (1)
   {
-		HAL_Delay(100);
+		HAL_Delay(100);	//delays 100 ms
 		
-		HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
+		/*
+		//------receive 'X', transmit 'Y'------//
+		HAL_UART_Receive (&huart1, (uint8_t *)&x[0], 1, 30000);
+		if (x[0] == 'X'){
+			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
+		}
+		*/
 		
-		HAL_UART_Receive (&huart1, (uint8_t *)&out[0], 5, 30000);
+		//HAL_ADC_Start();
+		//HAL_ADC_PollForConversion();
+		//HAL_ADC_GetValue();
+		//AADC_CHANNEL_TEMPSENSOR //ADC temperature sensor channel 
+		UART_Print_String(&huart1, (uint8_t *)&ch[0], 5);		//returns 1 if transmission successful, else returns 0
 		
-		//UART_Print_String(&huart1, (uint8_t *)&out[0], 5);
+		
 	}
 }
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
-	HAL_UART_Transmit(huart, pData, size, 30000);
+	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
+	status = HAL_UART_Transmit(huart, pData, size, 30000);		//status stores HAL_Status
+	if (status == HAL_OK)
+		return 1;
+	else
+		return 0;
+}
+
+void MX_ADC_Init(void){
+
+  ADC_MultiModeTypeDef multimode;
+  ADC_ChannelConfTypeDef sConfig;
+	__HAL_RCC_ADC_CLK_ENABLE();
 	
-	
-} 
+    /**Common config 
+    */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the ADC multi-mode 
+    */
+  multimode.Mode = ADC_MODE_INDEPENDENT;
+  if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure Regular Channel 
+    */
+  sConfig.Channel = ADC_CHANNEL_TEMPSENSOR;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+}
+}
 
 void SystemClock_Config(void)
 {
@@ -92,6 +157,8 @@ void SystemClock_Config(void)
   PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
   PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_ADC1CLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+		
+	
   {
     _Error_Handler(__FILE__, __LINE__);
   }
