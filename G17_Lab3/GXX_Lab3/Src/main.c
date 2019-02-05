@@ -1,5 +1,7 @@
 #include "main.h"
 #include "stm32l4xx_hal.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 ADC_HandleTypeDef hadc1;
 UART_HandleTypeDef huart1;
@@ -12,6 +14,7 @@ static void MX_USART1_UART_Init(void);
 //-------------Implicit function declaration-------------------
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size);
 static void MX_ADC1_ADC_Init(void);
+int flag;
 
 int main(void)
 {	
@@ -19,7 +22,7 @@ int main(void)
 	char x[1];
 	char y[1] = {'Y'};
 	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','1','1',' ','C','\n'};
-	uint8_t tempVoltage;
+	uint32_t tempVoltage;
 	int tempCelcius;
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -44,31 +47,31 @@ int main(void)
 		*/
 		
 		
-		HAL_Delay(100);	//delays 100 ms
+		//HAL_Delay(100);	//delays 100 ms
+		
+		if (flag == 1){
+			flag = 0;
+		
 		HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
-		HAL_ADC_PollForConversion(&hadc1, 100000);	//checks if conversion is done
+		HAL_ADC_PollForConversion(&hadc1, 10000);	//checks if conversion is done
 		tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
-		tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3400, tempVoltage, ADC_RESOLUTION_10B);	//VREF = 3 V //does linear interpolation
+		tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3300, tempVoltage, ADC_RESOLUTION_10B);	//VREF = 3.3 V //does linear interpolation
 		
-		
-		if (tempCelcius < 10){
-			tempArray[14] = '0';
-			tempArray[15] = (char)tempCelcius;
-		}
-		else{
-		tempArray[14] = (char)tempCelcius/10;
-		tempArray[15] = (char)tempCelcius%10;
-		
-		
+		//itoa((tempCelcius/10), tempArray[14], 10);
+		//itoa((tempCelcius%10), tempArray[15], 10);
+	
+		tempArray[14] = (tempCelcius/10) + '0';
+		tempArray[15] = (tempCelcius%10) + '0';
+		//sprintf(
 		//AADC_CHANNEL_TEMPSENSOR //ADC temperature sensor channel 
-		UART_Print_String(&huart1, (uint8_t *)&tempArray[0], 19);		//returns 1 if transmission successful, else returns 0
+		UART_Print_String(&huart1, (uint8_t *)tempArray, 19);		//returns 1 if transmission successful, else returns 0
 		}
 	}
 }
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
-	status = HAL_UART_Transmit(huart, pData, size, 50000);		//status stores HAL_Status
+	status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
 	if (status == HAL_OK)
 		return 1;
 	else
@@ -92,7 +95,7 @@ void MX_ADC1_ADC_Init(void){
 	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV; //End of unitary conversion flag 
 	hadc1.Init.LowPowerAutoWait = DISABLE;	//new conversion start only when the previous conversion has been retrieved by user software
 	hadc1.Init.ContinuousConvMode = DISABLE;	//the conversion is performed in single mode, maybe redundant
-	hadc1.Init.ExternalTrigConv = ADC_OVR_DATA_OVERWRITTEN;	//software trigger is used to trigger ADC group regular conversion
+	hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;	//software trigger is used to trigger ADC group regular conversion
 	
 	//ExternalTrigConv (external event source used to trigger ADC) is set to ADC_SOFTWARE_START, this parameter is discarded
 	//hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;	//Regular conversions hardware trigger detection disabled, maybe redudant
@@ -193,7 +196,7 @@ void SystemClock_Config(void)
 
     /**Configure the Systick interrupt time 
     */
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/20);
 
     /**Configure the Systick 
     */
