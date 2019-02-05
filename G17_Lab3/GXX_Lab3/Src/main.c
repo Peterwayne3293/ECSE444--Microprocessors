@@ -24,7 +24,9 @@ int main(void)
 	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','1','1',' ','C','\n'};
 	uint32_t tempVoltage;
 	int tempCelcius;
-
+	//int delayType;
+	
+	
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
   /* Configure the system clock */
@@ -34,39 +36,53 @@ int main(void)
   MX_USART1_UART_Init();
 	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
 
-	//HAL_ADC_Start(&hadc1);	//Enable ADC, start conversion of regular group
   /* Infinite loop */
   while (1)
   {
+		//if (delayType == 0){
+		HAL_Delay(100);	//delays 100 ms
+		//}
+		//elseif(delayType
+		
+		//----------------UART Transmission Test--------------
+		//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
+		
 		/*
 		//------receive 'X', transmit 'Y'------//
 		HAL_UART_Receive (&huart1, (uint8_t *)&x[0], 1, 30000);
 		if (x[0] == 'X'){
 			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
-		}
-		*/
+		}*/
 		
 		
-		HAL_Delay(100);	//delays 100 ms
 		
-		//if (flag == 1){
+		//---------------SysTick flag--------------
+		
+		//if (flag == 1){	//20 samples 20Hz
 		//	flag = 0;
 		
+		//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
 		HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
-		HAL_ADC_PollForConversion(&hadc1, 10000);	//checks if conversion is done
-		tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
-		tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3300, tempVoltage, ADC_RESOLUTION_10B);	//VREF = 3.3 V //does linear interpolation
-		
-		//itoa((tempCelcius/10), tempArray[14], 10);
-		//itoa((tempCelcius%10), tempArray[15], 10);
-	
-		tempArray[14] = (tempCelcius/10) + '0';
-		tempArray[15] = (tempCelcius%10) + '0';
-		
-		UART_Print_String(&huart1, (uint8_t *)tempArray, 19);		//returns 1 if transmission successful, else returns 0
+			
+		if(HAL_ADC_PollForConversion(&hadc1, 10000) == HAL_OK){	//checks if conversion is done
+			tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
+			tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3300, tempVoltage, ADC_RESOLUTION_12B);	//VREF = 3.3 V //does linear interpolation
+			
+		//---------Temperature casted to character-----------	
+			tempArray[14] = (tempCelcius/10) + '0';
+			tempArray[15] = (tempCelcius%10) + '0';
+					
+			UART_Print_String(&huart1, (uint8_t *)tempArray, 19);		//returns 1 if transmission successful, else returns 0
 		}
+		
+		
+		else{	
+			_Error_Handler(__FILE__, __LINE__);
+		}
+	
+		//}
 	}
-//}
+}
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
@@ -88,7 +104,7 @@ void MX_ADC1_ADC_Init(void){
 																										//ADC asynchronous clock not divided
 	
 	//-------ADC and regular group parameters configuration------
-	hadc1.Init.Resolution = ADC_RESOLUTION_10B;	//ADC 10-bit resolution 
+	hadc1.Init.Resolution = ADC_RESOLUTION_12B;	//ADC 10-bit resolution 
 	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;	//MSB is left most bit in Right alligned
 	hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;	//Scan mode disabled, Conversion is performed in single mode
 	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV; //End of unitary conversion flag 
@@ -195,7 +211,7 @@ void SystemClock_Config(void)
 
     /**Configure the Systick interrupt time 
     */
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/20);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
 
     /**Configure the Systick 
     */
