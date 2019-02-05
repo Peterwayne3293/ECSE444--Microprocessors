@@ -47,10 +47,10 @@ int main(void)
 		*/
 		
 		
-		//HAL_Delay(100);	//delays 100 ms
+		HAL_Delay(100);	//delays 100 ms
 		
-		if (flag == 1){
-			flag = 0;
+		//if (flag == 1){
+		//	flag = 0;
 		
 		HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
 		HAL_ADC_PollForConversion(&hadc1, 10000);	//checks if conversion is done
@@ -62,12 +62,11 @@ int main(void)
 	
 		tempArray[14] = (tempCelcius/10) + '0';
 		tempArray[15] = (tempCelcius%10) + '0';
-		//sprintf(
-		//AADC_CHANNEL_TEMPSENSOR //ADC temperature sensor channel 
+		
 		UART_Print_String(&huart1, (uint8_t *)tempArray, 19);		//returns 1 if transmission successful, else returns 0
 		}
 	}
-}
+//}
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
