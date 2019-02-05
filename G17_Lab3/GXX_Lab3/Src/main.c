@@ -1,6 +1,5 @@
 #include "main.h"
 #include "stm32l4xx_hal.h"
-#include "stdio.h"
 
 ADC_HandleTypeDef hadc1;
 UART_HandleTypeDef huart1;
@@ -19,7 +18,7 @@ int main(void)
 	char ch[5] = {'j','o','b','s','\n'};
 	char x[1];
 	char y[1] = {'Y'};
-	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','0','0',' ','C','\n'};
+	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','1','1',' ','C','\n'};
 	uint8_t tempVoltage;
 	int tempCelcius;
 
@@ -31,7 +30,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
 	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
-	
+
 	//HAL_ADC_Start(&hadc1);	//Enable ADC, start conversion of regular group
   /* Infinite loop */
   while (1)
@@ -43,31 +42,33 @@ int main(void)
 			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
 		}
 		*/
+		
+		
 		HAL_Delay(100);	//delays 100 ms
-		HAL_ADC_Start(&hadc1);
-		HAL_ADC_PollForConversion(&hadc1, 1000000);
-		tempVoltage = HAL_ADC_GetValue(&hadc1);
+		HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
+		HAL_ADC_PollForConversion(&hadc1, 100000);	//checks if conversion is done
+		tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
 		tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3400, tempVoltage, ADC_RESOLUTION_10B);	//VREF = 3 V //does linear interpolation
 		
-		printf("%d\n",tempCelcius);
-		if (tempCelcius<10){
+		
+		if (tempCelcius < 10){
 			tempArray[14] = '0';
 			tempArray[15] = (char)tempCelcius;
 		}
 		else{
-		tempArray[14] = tempCelcius/10;
-		tempArray[15] = tempCelcius%10;
-		}
-
+		tempArray[14] = (char)tempCelcius/10;
+		tempArray[15] = (char)tempCelcius%10;
+		
+		
 		//AADC_CHANNEL_TEMPSENSOR //ADC temperature sensor channel 
 		UART_Print_String(&huart1, (uint8_t *)&tempArray[0], 19);		//returns 1 if transmission successful, else returns 0
 		}
 	}
-
+}
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
-	status = HAL_UART_Transmit(huart, pData, size, 30000);		//status stores HAL_Status
+	status = HAL_UART_Transmit(huart, pData, size, 50000);		//status stores HAL_Status
 	if (status == HAL_OK)
 		return 1;
 	else
@@ -89,9 +90,9 @@ void MX_ADC1_ADC_Init(void){
 	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;	//MSB is left most bit in Right alligned
 	hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;	//Scan mode disabled, Conversion is performed in single mode
 	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV; //End of unitary conversion flag 
-	hadc1.Init.LowPowerAutoWait = ENABLE;	//new conversion start only when the previous conversion has been retrieved by user software
+	hadc1.Init.LowPowerAutoWait = DISABLE;	//new conversion start only when the previous conversion has been retrieved by user software
 	hadc1.Init.ContinuousConvMode = DISABLE;	//the conversion is performed in single mode, maybe redundant
-	hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;	//software trigger is used to trigger ADC group regular conversion
+	hadc1.Init.ExternalTrigConv = ADC_OVR_DATA_OVERWRITTEN;	//software trigger is used to trigger ADC group regular conversion
 	
 	//ExternalTrigConv (external event source used to trigger ADC) is set to ADC_SOFTWARE_START, this parameter is discarded
 	//hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;	//Regular conversions hardware trigger detection disabled, maybe redudant
@@ -99,7 +100,7 @@ void MX_ADC1_ADC_Init(void){
 	hadc1.Init.DMAContinuousRequests = DISABLE;
 	hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;	//Data overwritten in case of overrun
 																									//user can willingly not read all the converted data, this is not considered as an erroneous case
-	hadc1.Init.OversamplingMode = DISABLE;	//There is no Oversampling
+	//hadc1.Init.OversamplingMode = DISABLE;	//There is no Oversampling
 	
 	//Oversampling Mode is already disabled. Thus no Oversampling.
 	//hadc1.Init.Oversampling = 0;	//thus no Oversampling value, maybe redundant
@@ -116,7 +117,7 @@ void MX_ADC1_ADC_Init(void){
 	
 	channelConfig.Channel = ADC_CHANNEL_TEMPSENSOR; //ADC temperature sensor channel 
   channelConfig.Rank = ADC_REGULAR_RANK_1;	//The only ADC being used
-	channelConfig.SamplingTime = ADC_SAMPLETIME_24CYCLES_5;	//refer to temp sensor
+	channelConfig.SamplingTime = ADC_SAMPLETIME_47CYCLES_5;	//refer to temp sensor
 	channelConfig.SingleDiff = ADC_SINGLE_ENDED;	//ADC channel set in single-ended input mode 
 	channelConfig.OffsetNumber = ADC_OFFSET_NONE;	//No offset correction 
 	channelConfig.Offset = 0;	//Zero Offset, maybe redundant
