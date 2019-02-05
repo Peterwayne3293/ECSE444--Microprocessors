@@ -8,8 +8,11 @@ DMA_HandleTypeDef hdma_usart1_tx;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
+
+//-------------Implicit function declaration-------------------
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size);
-static void MX_ADC_Init(void);
+static void MX_ADC1_ADC_Init(void);
+
 int main(void)
 {
 	char ch[5] = {'j','o','b','s','\n'};
@@ -23,7 +26,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-	MX_ADC_Init();
+	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
 
   /* Infinite loop */
   while (1)
@@ -57,54 +60,57 @@ int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size
 		return 0;
 }
 
-void MX_ADC_Init(void){
-
-  ADC_MultiModeTypeDef multimode;
-  ADC_ChannelConfTypeDef sConfig;
-	__HAL_RCC_ADC_CLK_ENABLE();
+//----ADC initialization function------
+void MX_ADC1_ADC_Init(void){
 	
-    /**Common config 
-    */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
-  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-  hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
-  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
-  hadc1.Init.OversamplingMode = DISABLE;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+	//---------ADC clock configuration-------------
+	//ADC clock must be configured at RCC top level
+	__HAL_RCC_ADC_CLK_ENABLE(); //mandatory clock setting
+															//function call of ADC clock from RCC library
+	hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;	//asynchronous clock derived from system clock 
+																										//ADC asynchronous clock not divided
+	
+	//-------ADC and regular group parameters configuration------
+	hadc1.Init.Resolution = ADC_RESOLUTION_10B;	//ADC 10-bit resolution 
+	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;	//MSB is left most bit in Right alligned
+	hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;	//Scan mode disabled, Conversion is performed in single mode
+	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV; //End of unitary conversion flag 
+	hadc1.Init.LowPowerAutoWait = ENABLE;	//new conversion start only when the previous conversion has been retrieved by user software
+	hadc1.Init.ContinuousConvMode = DISABLE;	//the conversion is performed in single mode, maybe redundant
+	hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;	//software trigger is used to trigger ADC group regular conversion
+	
+	//ExternalTrigConv (external event source used to trigger ADC) is set to ADC_SOFTWARE_START, this parameter is discarded
+	//hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;	//Regular conversions hardware trigger detection disabled, maybe redudant
+	
+	hadc1.Init.DMAContinuousRequests = DISABLE;
+	hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;	//Data overwritten in case of overrun
+																									//user can willingly not read all the converted data, this is not considered as an erroneous case
+	hadc1.Init.OversamplingMode = DISABLE;	//There is no Oversampling
+	
+	//Oversampling Mode is already disabled. Thus no Oversampling.
+	//hadc1.Init.Oversampling = 0;	//thus no Oversampling value, maybe redundant
 
-    /**Configure the ADC multi-mode 
-    */
-  multimode.Mode = ADC_MODE_INDEPENDENT;
-  if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-    /**Configure Regular Channel 
-    */
-  sConfig.Channel = ADC_CHANNEL_TEMPSENSOR;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
-  sConfig.SingleDiff = ADC_SINGLE_ENDED;
-  sConfig.OffsetNumber = ADC_OFFSET_NONE;
-  sConfig.Offset = 0;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-}
+	hadc1.Instance = ADC1;		//Choosing ADC1 for using on internal temperature data, ADC1 or ADC3 can be used
+	
+	//Initialize the ADC peripheral and regular group according to parameters specified in structure "ADC_InitTypeDef"
+	if (HAL_ADC_Init(&hadc1) != HAL_OK){
+		_Error_Handler(__FILE__, __LINE__);
+	}
+	
+	//-------channel configuration for regular group parameters------
+	ADC_ChannelConfTypeDef channelConfig;	//instantiation of a sub
+	
+	channelConfig.Channel = ADC_CHANNEL_TEMPSENSOR; //ADC temperature sensor channel 
+  channelConfig.Rank = ADC_REGULAR_RANK_1;	//The only ADC being used
+	//channelConfig.SamplingTime = //refer to temp sensor
+	channelConfig.SingleDiff = ADC_SINGLE_ENDED;	//ADC channel set in single-ended input mode 
+	channelConfig.OffsetNumber = ADC_OFFSET_NONE;	//No offset correction 
+	channelConfig.Offset = 0;	//Zero Offset, maybe redundant
+	
+	//Configure a channel to be assigned to ADC group regular, initialize the sub-modules/sub-instances
+	if (HAL_ADC_ConfigChannel(&hadc1, &channelConfig) != HAL_OK){
+		_Error_Handler(__FILE__, __LINE__);
+	}
 }
 
 void SystemClock_Config(void)
