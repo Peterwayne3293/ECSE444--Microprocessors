@@ -1,5 +1,6 @@
 #include "main.h"
 #include "stm32l4xx_hal.h"
+#include "stdio.h"
 
 ADC_HandleTypeDef hadc1;
 UART_HandleTypeDef huart1;
@@ -18,8 +19,9 @@ int main(void)
 	char ch[5] = {'j','o','b','s','\n'};
 	char x[1];
 	char y[1] = {'Y'};
-	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ',' ',' ',' ','C','\n'};
-	uint32_t temp;
+	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','0','0',' ','C','\n'};
+	uint8_t tempVoltage;
+	int tempCelcius;
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
@@ -30,7 +32,7 @@ int main(void)
   MX_USART1_UART_Init();
 	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
 	
-	HAL_ADC_Start(&hadc1);	//Enable ADC, start conversion of regular group
+	//HAL_ADC_Start(&hadc1);	//Enable ADC, start conversion of regular group
   /* Infinite loop */
   while (1)
   {
@@ -42,18 +44,26 @@ int main(void)
 		}
 		*/
 		HAL_Delay(100);	//delays 100 ms
+		HAL_ADC_Start(&hadc1);
+		HAL_ADC_PollForConversion(&hadc1, 1000000);
+		tempVoltage = HAL_ADC_GetValue(&hadc1);
+		tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3400, tempVoltage, ADC_RESOLUTION_10B);	//VREF = 3 V //does linear interpolation
 		
-		HAL_ADC_PollForConversion(&hadc1, 30000);
-		
-		temp = HAL_ADC_GetValue(&hadc1);
-		
-		//tempArray[15] = (char)temp/10;
-		tempArray[16] = (char)temp%10;
-		
+		printf("%d\n",tempCelcius);
+		if (tempCelcius<10){
+			tempArray[14] = '0';
+			tempArray[15] = (char)tempCelcius;
+		}
+		else{
+		tempArray[14] = tempCelcius/10;
+		tempArray[15] = tempCelcius%10;
+		}
+
 		//AADC_CHANNEL_TEMPSENSOR //ADC temperature sensor channel 
 		UART_Print_String(&huart1, (uint8_t *)&tempArray[0], 19);		//returns 1 if transmission successful, else returns 0
+		}
 	}
-}
+
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
