@@ -17,13 +17,15 @@ int flag;
 
 int main(void)
 {	
+	char f[7] = {'f','*','*','k','e','d','\n'};
 	char ch[5] = {'j','o','b','s','\n'};
 	char x[1];
 	char y[1] = {'Y'};
 	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','1','1',' ','C','\n'};
 	uint32_t tempVoltage;
 	int tempCelcius;
-	char printTemp[30]; //Array to pass to DMA
+	char srcTemp[30]; //Array to pass from ADC to DMA
+	char desTemp[30];	//Array to pass from DMA to UART
   int arrayCount; //
   arrayCount = 0;
 	
@@ -35,10 +37,12 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
 	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
-
+	
+	HAL_DMA_Start(&hdma_usart1_tx,(uint32_t)srcTemp,(uint32_t)desTemp, 30);	//srcTemp points to ADC write address and desTemp points to UART read address
   /* Infinite loop */
   while (1){
-    
+    //HAL_Delay(100);	//delays 100 ms
+		
 		//----------------UART Transmission Test--------------
 		//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
 		
@@ -49,47 +53,59 @@ int main(void)
 			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
 		}*/
 		
+		
 		//---------------SysTick flag--------------
-		arrayCount = 0; //define arrayCount -> 0 after every DMA transmission
-		if (flag == 1 && arrayCount==10){	//20 samples 20Hz
+		if(flag == 1){
 			flag = 0;
 		
-		//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
-		
+			//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
+			
       HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
-        
+      
       if(HAL_ADC_PollForConversion(&hadc1, 10000) == HAL_OK){	//checks if conversion is done
         tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
         tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3300, tempVoltage, ADC_RESOLUTION_12B);	//VREF = 3.3 V //does linear interpolation
 
-      /*	
-      //---------Temperature casted to character-----------	
-        tempArray[14] = (tempCelcius/10) + '0';
-        tempArray[15] = (tempCelcius%10) + '0';
-      */
+        /*
+        //---------Temperature casted to character-----------	
+          tempArray[14] = (tempCelcius/10) + '0';
+          tempArray[15] = (tempCelcius%10) + '0';
 
-      //--------Accumulate temperature values every 10ms---------		
-      printTemp[arrayCount] = (tempCelcius/10) + '0';
-      printTemp[arrayCount+1] = (tempCelcius%10) + '0';
-      printTemp[arrayCount+2] = '\n';
-      arrayCount++;
-      }
+        UART_Print_String(&huart1, (uint8_t *)tempArray, 30);		//returns 1 if transmission successful, else returns 0
+        */
+
+        //--------Accumulate temperature values in array, every 10ms---------		
+			  if(arrayCount<30){		//until 10 values are obtained
+				srcTemp[arrayCount] = (tempCelcius/10) + '0';
+				srcTemp[arrayCount+1] = (tempCelcius%10) + '0';
+				srcTemp[arrayCount+2] = '\n';
+				arrayCount = arrayCount + 3;
+				}
+				
+        //----------Print when 10 values are obtained
+				else{
+					//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);  //test function
+					arrayCount = 0; //reset arrayPointer
+					UART_Print_String(&huart1, (uint8_t *)desTemp, 30);
+				}
+			}
+			else{
+			//	HAL_UART_Transmit(&huart1,	(uint8_t *)f, 7, 3000); 
+				_Error_Handler(__FILE__, __LINE__);
+			}
 		}
 		
-		else{
-			_Error_Handler(__FILE__, __LINE__);
-		}
-
-    UART_Print_String(&huart1, (uint8_t *)printTemp, 30);		//returns 1 if transmission successful, else returns 0
-
-   
+    //UART_Print_String(&huart1, (uint8_t *)printTemp, 30);		//returns 1 if transmission successful, else returns 0 
 	}
 }
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
-	//status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
-  status = HAL_UART_Transmit_DMA(huart, pData, size); 
+  //----------UART Transmit with timeout-------------
+  status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
+
+  //-----------UART Transmit with DMA-----------------
+  //status = HAL_UART_Transmit_DMA(huart, pData, size); 
 	if (status == HAL_OK)
 		return 1;
 	else
@@ -149,9 +165,10 @@ void MX_ADC1_ADC_Init(void){
 	}
 }
 
-void MX_DMA_ADC(void){
+
+//-------------DMA Configuration------------------
+void MX_DMA_Init(void){
 	__HAL_RCC_DMA1_CLK_ENABLE();
-	//__HAL_RCC_DMAMUX1_CLK_ENABLE();
 	
 	//hdma_usart1_tx.Init.Request = DMA_REQUEST_USART1_TX; //the source of DMA requests that trigger the DMA transfers
   hdma_usart1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH; //direction of 
@@ -161,8 +178,8 @@ void MX_DMA_ADC(void){
   hdma_usart1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE; //Memory data alignment: Byte, Char data is of byte size
   hdma_usart1_tx.Init.Mode = DMA_NORMAL; //DMA_NORMAL
   hdma_usart1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;  //Priority level: Very_High
-
-  //hdma_usart1_tx.Instance = DMA1;
+	
+	hdma_usart1_tx.Instance = DMA1_Channel4;	//DMA channel x peripheral address register
 	
 	if (HAL_DMA_Init(&hdma_usart1_tx) != HAL_OK){
 		_Error_Handler(__FILE__, __LINE__);
@@ -234,7 +251,7 @@ void SystemClock_Config(void)
 
     /**Configure the Systick interrupt time 
     */
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/100);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/10);
 
     /**Configure the Systick 
     */

@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include
+-I C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\GXX_Lab3\MDK-ARM\RTE
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
+-I C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include
+-D__UVISION_VERSION="515" -D_RTE_ -DSTM32L475xx -DUSE_HAL_DRIVER -DSTM32L475xx
+-o gxx_lab3\stm32l4xx_hal_uart.o --omf_browse gxx_lab3\stm32l4xx_hal_uart.crf --depend gxx_lab3\stm32l4xx_hal_uart.d "../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c"
