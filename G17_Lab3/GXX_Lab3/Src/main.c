@@ -1,7 +1,5 @@
 #include "main.h"
 #include "stm32l4xx_hal.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 ADC_HandleTypeDef hadc1;
 UART_HandleTypeDef huart1;
@@ -14,6 +12,7 @@ static void MX_USART1_UART_Init(void);
 //-------------Implicit function declaration-------------------
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size);
 static void MX_ADC1_ADC_Init(void);
+static void MX_DMA_Init(void);
 int flag;
 
 int main(void)
@@ -24,8 +23,9 @@ int main(void)
 	char tempArray[19] = {'T','e','m','p','e','r','a','t','u','r','e',' ','=',' ','1','1',' ','C','\n'};
 	uint32_t tempVoltage;
 	int tempCelcius;
-	//int delayType;
-	
+	char printTemp[30]; //Array to pass to DMA
+  int arrayCount; //
+  arrayCount = 0;
 	
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
@@ -37,13 +37,8 @@ int main(void)
 	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
 
   /* Infinite loop */
-  while (1)
-  {
-		//if (delayType == 0){
-		HAL_Delay(100);	//delays 100 ms
-		//}
-		//elseif(delayType
-		
+  while (1){
+    
 		//----------------UART Transmission Test--------------
 		//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
 		
@@ -54,39 +49,47 @@ int main(void)
 			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
 		}*/
 		
-		
-		
 		//---------------SysTick flag--------------
-		
-		//if (flag == 1){	//20 samples 20Hz
-		//	flag = 0;
+		arrayCount = 0; //define arrayCount -> 0 after every DMA transmission
+		if (flag == 1 && arrayCount==10){	//20 samples 20Hz
+			flag = 0;
 		
 		//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
-		HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
-			
-		if(HAL_ADC_PollForConversion(&hadc1, 10000) == HAL_OK){	//checks if conversion is done
-			tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
-			tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3300, tempVoltage, ADC_RESOLUTION_12B);	//VREF = 3.3 V //does linear interpolation
-			
-		//---------Temperature casted to character-----------	
-			tempArray[14] = (tempCelcius/10) + '0';
-			tempArray[15] = (tempCelcius%10) + '0';
-					
-			UART_Print_String(&huart1, (uint8_t *)tempArray, 19);		//returns 1 if transmission successful, else returns 0
+		
+      HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
+        
+      if(HAL_ADC_PollForConversion(&hadc1, 10000) == HAL_OK){	//checks if conversion is done
+        tempVoltage = HAL_ADC_GetValue(&hadc1);	//gets value
+        tempCelcius = __HAL_ADC_CALC_TEMPERATURE(3300, tempVoltage, ADC_RESOLUTION_12B);	//VREF = 3.3 V //does linear interpolation
+
+      /*	
+      //---------Temperature casted to character-----------	
+        tempArray[14] = (tempCelcius/10) + '0';
+        tempArray[15] = (tempCelcius%10) + '0';
+      */
+
+      //--------Accumulate temperature values every 10ms---------		
+      printTemp[arrayCount] = (tempCelcius/10) + '0';
+      printTemp[arrayCount+1] = (tempCelcius%10) + '0';
+      printTemp[arrayCount+2] = '\n';
+      arrayCount++;
+      }
 		}
 		
-		
-		else{	
+		else{
 			_Error_Handler(__FILE__, __LINE__);
 		}
-	
-		//}
+
+    UART_Print_String(&huart1, (uint8_t *)printTemp, 30);		//returns 1 if transmission successful, else returns 0
+
+   
 	}
 }
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
-	status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
+	//status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
+  status = HAL_UART_Transmit_DMA(huart, pData, size); 
 	if (status == HAL_OK)
 		return 1;
 	else
@@ -104,7 +107,7 @@ void MX_ADC1_ADC_Init(void){
 																										//ADC asynchronous clock not divided
 	
 	//-------ADC and regular group parameters configuration------
-	hadc1.Init.Resolution = ADC_RESOLUTION_12B;	//ADC 10-bit resolution 
+	hadc1.Init.Resolution = ADC_RESOLUTION_12B;	//ADC 12-bit resolution 
 	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;	//MSB is left most bit in Right alligned
 	hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;	//Scan mode disabled, Conversion is performed in single mode
 	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV; //End of unitary conversion flag 
@@ -142,6 +145,26 @@ void MX_ADC1_ADC_Init(void){
 	
 	//Configure a channel to be assigned to ADC group regular, initialize the sub-modules/sub-instances
 	if (HAL_ADC_ConfigChannel(&hadc1, &channelConfig) != HAL_OK){
+		_Error_Handler(__FILE__, __LINE__);
+	}
+}
+
+void MX_DMA_ADC(void){
+	__HAL_RCC_DMA1_CLK_ENABLE();
+	//__HAL_RCC_DMAMUX1_CLK_ENABLE();
+	
+	//hdma_usart1_tx.Init.Request = DMA_REQUEST_USART1_TX; //the source of DMA requests that trigger the DMA transfers
+  hdma_usart1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH; //direction of 
+  hdma_usart1_tx.Init.PeriphInc = DMA_PINC_DISABLE; //Peripheral increment mode Disable
+  hdma_usart1_tx.Init.MemInc = DMA_MINC_DISABLE;  //Memory increment mode Enable 
+  hdma_usart1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;  ///Peripheral data alignment:Byte, UART data is byte size
+  hdma_usart1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE; //Memory data alignment: Byte, Char data is of byte size
+  hdma_usart1_tx.Init.Mode = DMA_NORMAL; //DMA_NORMAL
+  hdma_usart1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;  //Priority level: Very_High
+
+  //hdma_usart1_tx.Instance = DMA1;
+	
+	if (HAL_DMA_Init(&hdma_usart1_tx) != HAL_OK){
 		_Error_Handler(__FILE__, __LINE__);
 	}
 }
@@ -211,7 +234,7 @@ void SystemClock_Config(void)
 
     /**Configure the Systick interrupt time 
     */
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/100);
 
     /**Configure the Systick 
     */
