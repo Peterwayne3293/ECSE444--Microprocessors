@@ -17,7 +17,6 @@ int flag;
 
 int main(void)
 {	
-	char f[7] = {'f','*','*','k','e','d','\n'};
 	char ch[5] = {'j','o','b','s','\n'};
 	char x[1];
 	char y[1] = {'Y'};
@@ -26,7 +25,7 @@ int main(void)
 	int tempCelcius;
 	char srcTemp[30]; //Array to pass from ADC to DMA
 	char desTemp[30];	//Array to pass from DMA to UART
-  int arrayCount; //
+  int arrayCount; //	
   arrayCount = 0;
 	
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -36,9 +35,9 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-	MX_ADC1_ADC_Init();		//ADC1_initialization function call to enable ADC interface
-	
-	HAL_DMA_Start(&hdma_usart1_tx,(uint32_t)srcTemp,(uint32_t)desTemp, 30);	//srcTemp points to ADC write address and desTemp points to UART read address
+	MX_ADC1_ADC_Init();		//ADC1 initialization function call to enable ADC 
+	MX_DMA_Init();	//DMA initialization function call to enable DMA 
+		
   /* Infinite loop */
   while (1){
     //HAL_Delay(100);	//delays 100 ms
@@ -52,14 +51,10 @@ int main(void)
 		if (x[0] == 'X'){
 			HAL_UART_Transmit(&huart1, (uint8_t *)&y[0], 1, 30000);
 		}*/
-		
-		
+				
 		//---------------SysTick flag--------------
-		if(flag == 1){
+		if (flag == 1){ 												//&& (uart_state == 0)){
 			flag = 0;
-		
-			//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);
-			
       HAL_ADC_Start(&hadc1);		//Enable ADC, start conversion of regular group
       
       if(HAL_ADC_PollForConversion(&hadc1, 10000) == HAL_OK){	//checks if conversion is done
@@ -82,32 +77,29 @@ int main(void)
 				arrayCount = arrayCount + 3;
 				}
 				
-        //----------Print when 10 values are obtained
+        //----------Print the values are obtained--------------
 				else{
-					//HAL_UART_Transmit(&huart1, (uint8_t *)&ch[0], 5, 30000);  //test function
 					arrayCount = 0; //reset arrayPointer
-					UART_Print_String(&huart1, (uint8_t *)desTemp, 30);
+					UART_Print_String(&huart1, (uint8_t *)srcTemp, 30);					
 				}
 			}
 			else{
-			//	HAL_UART_Transmit(&huart1,	(uint8_t *)f, 7, 3000); 
 				_Error_Handler(__FILE__, __LINE__);
 			}
 		}
-		
-    //UART_Print_String(&huart1, (uint8_t *)printTemp, 30);		//returns 1 if transmission successful, else returns 0 
 	}
 }
 
 int UART_Print_String(UART_HandleTypeDef * huart, uint8_t * pData, uint16_t size){
 	HAL_StatusTypeDef status;		//HAL_UART_Transmit returns value of HAL_StatusTypeDef
+	
   //----------UART Transmit with timeout-------------
-  status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
+  //status = HAL_UART_Transmit(huart, pData, size, 3000);		//status stores HAL_Status
 
   //-----------UART Transmit with DMA-----------------
-  //status = HAL_UART_Transmit_DMA(huart, pData, size); 
-	if (status == HAL_OK)
-		return 1;
+  status = HAL_UART_Transmit_DMA(huart, pData, size); 
+	if (status == HAL_OK){
+		return 1;}
 	else
 		return 0;
 }
@@ -168,15 +160,16 @@ void MX_ADC1_ADC_Init(void){
 
 //-------------DMA Configuration------------------
 void MX_DMA_Init(void){
+	
 	__HAL_RCC_DMA1_CLK_ENABLE();
 	
-	//hdma_usart1_tx.Init.Request = DMA_REQUEST_USART1_TX; //the source of DMA requests that trigger the DMA transfers
+	hdma_usart1_tx.Init.Request = DMA_REQUEST_2; //the source of DMA requests that trigger the DMA transfers
   hdma_usart1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH; //direction of 
   hdma_usart1_tx.Init.PeriphInc = DMA_PINC_DISABLE; //Peripheral increment mode Disable
-  hdma_usart1_tx.Init.MemInc = DMA_MINC_DISABLE;  //Memory increment mode Enable 
+  hdma_usart1_tx.Init.MemInc = DMA_MINC_ENABLE;  //Memory increment mode Enable 
   hdma_usart1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;  ///Peripheral data alignment:Byte, UART data is byte size
   hdma_usart1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE; //Memory data alignment: Byte, Char data is of byte size
-  hdma_usart1_tx.Init.Mode = DMA_NORMAL; //DMA_NORMAL
+  hdma_usart1_tx.Init.Mode = DMA_CIRCULAR; //DMA operates in circular mode, to refresh DMA counter restart when called
   hdma_usart1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;  //Priority level: Very_High
 	
 	hdma_usart1_tx.Instance = DMA1_Channel4;	//DMA channel x peripheral address register
@@ -184,6 +177,8 @@ void MX_DMA_Init(void){
 	if (HAL_DMA_Init(&hdma_usart1_tx) != HAL_OK){
 		_Error_Handler(__FILE__, __LINE__);
 	}
+	
+	__HAL_LINKDMA(&huart1,hdmatx,hdma_usart1_tx);	//to link the DMA handle with the peripheral handle
 }
 
 void SystemClock_Config(void)
@@ -285,7 +280,6 @@ static void MX_GPIO_Init(void)
 {
   __HAL_RCC_GPIOB_CLK_ENABLE();
 }
-
 
 void _Error_Handler(char *file, int line)
 {

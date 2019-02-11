@@ -1,6 +1,0 @@
---cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"
--I C:\Users\ifaruk\Downloads\ECSE444\G17_Lab3\GXX_Lab3\MDK-ARM\RTE
--I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
--I C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include
---pd "__UVISION_VERSION SETA 515" --pd "_RTE_ SETA 1" --pd "STM32L475xx SETA 1"
---list startup_stm32l475xx.lst --xref -o gxx_lab3\startup_stm32l475xx.o --depend gxx_lab3\startup_stm32l475xx.d "startup_stm32l475xx.s"
