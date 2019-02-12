@@ -169,7 +169,7 @@ void MX_DMA_Init(void){
   hdma_usart1_tx.Init.MemInc = DMA_MINC_ENABLE;  //Memory increment mode Enable 
   hdma_usart1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;  ///Peripheral data alignment:Byte, UART data is byte size
   hdma_usart1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE; //Memory data alignment: Byte, Char data is of byte size
-  hdma_usart1_tx.Init.Mode = DMA_CIRCULAR; //DMA operates in circular mode, to refresh DMA counter restart when called
+  hdma_usart1_tx.Init.Mode = DMA_NORMAL; //DMA operates in circular mode, to refresh DMA counter restart when called
   hdma_usart1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;  //Priority level: Very_High
 	
 	hdma_usart1_tx.Instance = DMA1_Channel4;	//DMA channel x peripheral address register
@@ -179,6 +179,9 @@ void MX_DMA_Init(void){
 	}
 	
 	__HAL_LINKDMA(&huart1,hdmatx,hdma_usart1_tx);	//to link the DMA handle with the peripheral handle
+	
+	HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
 }
 
 void SystemClock_Config(void)
@@ -273,7 +276,9 @@ static void MX_USART1_UART_Init(void)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
-
+	
+	HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(USART1_IRQn);
 }
 
 static void MX_GPIO_Init(void)
