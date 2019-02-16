@@ -38,7 +38,7 @@ int main(void)
 	int semaphore;
 
 	
-	maxValue = 4095;	//max Value is 4095 or 255, depending on whether 8 or 12 bit precision was chosen, 4200
+	maxValue = 4095;	//max Value is 4095 or 255, depending on whether 8 or 12 bit precision was chosen
 	/* Turn on LED */
 	//HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
 	
