@@ -708,18 +708,18 @@ ARM Macro Assembler    Page 11
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=lab6_baseproject\startup_stm32l475xx.d -olab6_baseproject\start
-up_stm32l475xx.o -IC:\Users\User\Documents\test\test\MDK-ARM\RTE -IC:\Keil_v5\A
-RM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32L4x
-x_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include --predefine="__EVAL SETA 
-1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 517" --p
-redefine="_RTE_ SETA 1" --predefine="STM32L475xx SETA 1" --list=startup_stm32l4
+up_stm32l475xx.o -IC:\Users\ifaruk\Downloads\ECSE444\G17_Lab6\LAB6_baseProject\
+MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include -IC:\Keil_v5\AR
+M\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include --pre
+define="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_V
+ERSION SETA 515" --predefine="_RTE_ SETA 1" --predefine="STM32L475xx SETA 1" --
 
 
 
 ARM Macro Assembler    Page 12 
 
 
-75xx.lst startup_stm32l475xx.s
+list=startup_stm32l475xx.lst startup_stm32l475xx.s
 
 
 
