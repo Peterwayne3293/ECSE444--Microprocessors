@@ -289,7 +289,7 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_channel1.Instance = DFSDM1_Channel1;
   hdfsdm1_channel1.Init.OutputClock.Activation = ENABLE;
   hdfsdm1_channel1.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO;	//40 MHz
-  hdfsdm1_channel1.Init.OutputClock.Divider = 20;	//Microphone clock = OutputClock/Divider
+  hdfsdm1_channel1.Init.OutputClock.Divider = 20;	//Microphone clock = OutputClock/Divider = 2 MHz
   hdfsdm1_channel1.Init.Input.Multiplexer = DFSDM_CHANNEL_EXTERNAL_INPUTS;
   hdfsdm1_channel1.Init.Input.DataPacking = DFSDM_CHANNEL_STANDARD_MODE;
   hdfsdm1_channel1.Init.Input.Pins = DFSDM_CHANNEL_FOLLOWING_CHANNEL_PINS;
