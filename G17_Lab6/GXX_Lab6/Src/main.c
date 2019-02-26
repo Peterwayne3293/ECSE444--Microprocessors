@@ -61,10 +61,8 @@ TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 #define BufferSize  8000
-int bufferSize = 1024;
-int audioBufferLeft[BufferSize];
-int audioBufferRight[BufferSize];
-int samplePointer = 0;
+int audioBufferLeft[BufferSize];	//audio buffer for left output
+int audioBufferRight[BufferSize];	//audio buffer for right output
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -123,11 +121,13 @@ int main(void)
   HAL_DFSDM_FilterRegularStart_DMA(&hdfsdm1_filter0, audioBufferRight, BufferSize);
   HAL_DFSDM_FilterRegularStart_DMA(&hdfsdm1_filter1, audioBufferLeft, BufferSize);
 	
-	HAL_Delay(500);
 	//Starting DAC Channel 1 and DAC Channel 2 DMA mode
   HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize, DAC_ALIGN_12B_R);
 	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);
 
+	HAL_Delay(500);	//500 ms delay
+	
+	//Timer6 start to trigger DAC output
 	HAL_TIM_Base_Start(&htim6);
   /* USER CODE END 2 */
 
@@ -267,7 +267,7 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_filter0.Init.RegularParam.FastMode = ENABLE;
   hdfsdm1_filter0.Init.RegularParam.DmaMode = ENABLE;
   hdfsdm1_filter0.Init.FilterParam.SincOrder = DFSDM_FILTER_SINC4_ORDER;
-  hdfsdm1_filter0.Init.FilterParam.Oversampling = 128;
+  hdfsdm1_filter0.Init.FilterParam.Oversampling = 128;	//Oversampling ~= Microphone Clock Frequency/Output Frequency
   hdfsdm1_filter0.Init.FilterParam.IntOversampling = 1;
   if (HAL_DFSDM_FilterInit(&hdfsdm1_filter0) != HAL_OK)
   {
@@ -279,7 +279,7 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_filter1.Init.RegularParam.FastMode = ENABLE;
   hdfsdm1_filter1.Init.RegularParam.DmaMode = ENABLE;
   hdfsdm1_filter1.Init.FilterParam.SincOrder = DFSDM_FILTER_SINC4_ORDER;
-  hdfsdm1_filter1.Init.FilterParam.Oversampling = 128;
+  hdfsdm1_filter1.Init.FilterParam.Oversampling = 128;	//Oversampling ~= Microphone Clock Frequency/Output Frequency
   hdfsdm1_filter1.Init.FilterParam.IntOversampling = 1;
   if (HAL_DFSDM_FilterInit(&hdfsdm1_filter1) != HAL_OK)
   {
@@ -289,15 +289,15 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_channel1.Instance = DFSDM1_Channel1;
   hdfsdm1_channel1.Init.OutputClock.Activation = ENABLE;
   hdfsdm1_channel1.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO;	//40 MHz
-  hdfsdm1_channel1.Init.OutputClock.Divider = 20;
+  hdfsdm1_channel1.Init.OutputClock.Divider = 20;	//Microphone clock = OutputClock/Divider
   hdfsdm1_channel1.Init.Input.Multiplexer = DFSDM_CHANNEL_EXTERNAL_INPUTS;
   hdfsdm1_channel1.Init.Input.DataPacking = DFSDM_CHANNEL_STANDARD_MODE;
   hdfsdm1_channel1.Init.Input.Pins = DFSDM_CHANNEL_FOLLOWING_CHANNEL_PINS;
   hdfsdm1_channel1.Init.SerialInterface.Type = DFSDM_CHANNEL_SPI_FALLING;
   hdfsdm1_channel1.Init.SerialInterface.SpiClock = DFSDM_CHANNEL_SPI_CLOCK_INTERNAL;
   hdfsdm1_channel1.Init.Awd.FilterOrder = DFSDM_CHANNEL_FASTSINC_ORDER;
-  hdfsdm1_channel1.Init.Awd.Oversampling = 1;	//1
-  hdfsdm1_channel1.Init.Offset = 0;	//6 bits
+  hdfsdm1_channel1.Init.Awd.Oversampling = 1;
+  hdfsdm1_channel1.Init.Offset = 0;	
   hdfsdm1_channel1.Init.RightBitShift = 22;
   if (HAL_DFSDM_ChannelInit(&hdfsdm1_channel1) != HAL_OK)
   {
@@ -306,16 +306,16 @@ static void MX_DFSDM1_Init(void)
 
   hdfsdm1_channel2.Instance = DFSDM1_Channel2;
   hdfsdm1_channel2.Init.OutputClock.Activation = ENABLE;
-  hdfsdm1_channel2.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO;	//40 MHz	//DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO
-  hdfsdm1_channel2.Init.OutputClock.Divider = 20;
+  hdfsdm1_channel2.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO;	//40 MHz
+  hdfsdm1_channel2.Init.OutputClock.Divider = 20;	//Microphone clock = OutputClock/Divider
   hdfsdm1_channel2.Init.Input.Multiplexer = DFSDM_CHANNEL_EXTERNAL_INPUTS;
   hdfsdm1_channel2.Init.Input.DataPacking = DFSDM_CHANNEL_STANDARD_MODE;
   hdfsdm1_channel2.Init.Input.Pins = DFSDM_CHANNEL_SAME_CHANNEL_PINS;
   hdfsdm1_channel2.Init.SerialInterface.Type = DFSDM_CHANNEL_SPI_RISING;
   hdfsdm1_channel2.Init.SerialInterface.SpiClock = DFSDM_CHANNEL_SPI_CLOCK_INTERNAL;
   hdfsdm1_channel2.Init.Awd.FilterOrder = DFSDM_CHANNEL_FASTSINC_ORDER;
-  hdfsdm1_channel2.Init.Awd.Oversampling = 1;	//1
-  hdfsdm1_channel2.Init.Offset = 0;	//6 bits
+  hdfsdm1_channel2.Init.Awd.Oversampling = 1;
+  hdfsdm1_channel2.Init.Offset = 0;
   hdfsdm1_channel2.Init.RightBitShift = 22;
   if (HAL_DFSDM_ChannelInit(&hdfsdm1_channel2) != HAL_OK)
   {
@@ -395,27 +395,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-void HAL_DFSDM_FilterRegConvHalfCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filter){
-	//for(samplePointer = 0; samplePointer < BufferSize/2; samplePointer++){
-	//	audioBufferLeft[samplePointer] = audioBufferLeft[samplePointer] >> 8;
-	//	audioBufferRight[samplePointer] = audioBufferRight[samplePointer] >> 8;
-	//}
-	//HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize/2, DAC_ALIGN_12B_R);
-	//HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize/2, DAC_ALIGN_12B_R);
-
-}
-
-void HAL_DFSDM_FilterRegConvCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filter){
-/*	for(samplePointer = BufferSize/2; samplePointer < BufferSize; samplePointer++){
-		audioBufferLeft[samplePointer] = audioBufferLeft[samplePointer] >> 8;
-		audioBufferRight[samplePointer] = audioBufferRight[samplePointer] >> 8;
-	}
-	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize, DAC_ALIGN_12B_R);
-	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);*/
-	//HAL_TIM_Base_Start(&htim6);
-}
-
 
 /* USER CODE END 4 */
 
