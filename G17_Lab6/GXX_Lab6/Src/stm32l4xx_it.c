@@ -40,19 +40,12 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern DMA_HandleTypeDef hdma_dac_ch1;
+extern DMA_HandleTypeDef hdma_dac_ch2;
 extern DAC_HandleTypeDef hdac1;
 extern DMA_HandleTypeDef hdma_dfsdm1_flt0;
 extern DMA_HandleTypeDef hdma_dfsdm1_flt1;
 extern TIM_HandleTypeDef htim6;
-extern uint8_t halfDone;
-extern uint8_t fullDone;
-extern int32_t audioBufferRight[];
-extern int32_t audioBufferLeft[];
-extern int bufferSize;
-int32_t audioSampleRight;
-int32_t audioSampleLeft;
-int samplePointer = 0;
-int timerFlag = 0;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Interruption and Exception Handlers         */ 
@@ -243,24 +236,36 @@ void TIM6_DAC_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim6);
   HAL_DAC_IRQHandler(&hdac1);
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
-	timerFlag = 1;
-	if (halfDone){
-      audioSampleLeft = audioBufferLeft[samplePointer] >> 20;
-			audioSampleRight = audioBufferRight[samplePointer]>> 20;
-      HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_L, audioSampleLeft);
-      HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_L, audioSampleRight);
-			samplePointer = (samplePointer + 1) % bufferSize;
-   }  
-
-  else if (fullDone){
-		  audioSampleLeft = audioBufferLeft[samplePointer]>> 20;
-			audioSampleRight = audioBufferRight[samplePointer]>> 20;
-      HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_L, audioSampleLeft);
-      HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_L, audioSampleRight);
-			samplePointer = (samplePointer + 1) % bufferSize;
-  }
-
+	
   /* USER CODE END TIM6_DAC_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 channel4 global interrupt.
+*/
+void DMA2_Channel4_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Channel4_IRQn 0 */
+
+  /* USER CODE END DMA2_Channel4_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_dac_ch1);
+  /* USER CODE BEGIN DMA2_Channel4_IRQn 1 */
+
+  /* USER CODE END DMA2_Channel4_IRQn 1 */
+}
+
+/**
+* @brief This function handles DMA2 channel5 global interrupt.
+*/
+void DMA2_Channel5_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Channel5_IRQn 0 */
+
+  /* USER CODE END DMA2_Channel5_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_dac_ch2);
+  /* USER CODE BEGIN DMA2_Channel5_IRQn 1 */
+
+  /* USER CODE END DMA2_Channel5_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
