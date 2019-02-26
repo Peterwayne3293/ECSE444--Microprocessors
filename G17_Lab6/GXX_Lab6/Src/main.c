@@ -276,7 +276,7 @@ static void MX_DFSDM1_Init(void)
 
   hdfsdm1_filter1.Instance = DFSDM1_Filter1;
   hdfsdm1_filter1.Init.RegularParam.Trigger = DFSDM_FILTER_SW_TRIGGER;
-  hdfsdm1_filter1.Init.RegularParam.FastMode = ENABLE;
+  hdfsdm1_filter1.Init.RegularParam.FastMode = ENABLE;	//
   hdfsdm1_filter1.Init.RegularParam.DmaMode = ENABLE;
   hdfsdm1_filter1.Init.FilterParam.SincOrder = DFSDM_FILTER_SINC4_ORDER;
   hdfsdm1_filter1.Init.FilterParam.Oversampling = 128;	//Oversampling ~= Microphone Clock Frequency/Output Frequency
