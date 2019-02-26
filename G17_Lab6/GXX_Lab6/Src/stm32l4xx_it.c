@@ -48,7 +48,7 @@ extern uint8_t halfDone;
 extern uint8_t fullDone;
 extern int32_t audioBufferRight[];
 extern int32_t audioBufferLeft[];
-int BufferSize = 10000;
+extern int bufferSize;
 int32_t audioSampleRight;
 int32_t audioSampleLeft;
 int samplePointer = 0;
@@ -121,22 +121,23 @@ void TIM6_DAC_IRQHandler(void)
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 	timerFlag = 1;
 	if (halfDone){
-      audioSampleLeft = audioBufferRight[samplePointer%BufferSize] >> 12;
+      audioSampleLeft = audioBufferRight[samplePointer%bufferSize] >> 12;
       HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, audioSampleLeft);
-      audioSampleRight = audioBufferLeft[samplePointer&BufferSize] >> 12;
+      audioSampleRight = audioBufferLeft[samplePointer&bufferSize] >> 12;
       HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, audioSampleRight);
-			samplePointer++;
+			samplePointer = (samplePointer + 40) % bufferSize;
    }  
-/*
-  if (fullDone && timerFlag){
-    for(samplePointer = BufferSize/2; samplePointer<BufferSize; samplePointer++){
+
+  else if (fullDone){
+    for(samplePointer = bufferSize/2; samplePointer<bufferSize; samplePointer++){
       audioSampleLeft = audioBufferRight[samplePointer] >> 12;
       HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, audioSampleLeft);
       audioSampleRight = audioBufferLeft[samplePointer] >> 12;
       HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, audioSampleRight);
+			samplePointer = samplePointer + 40;
     }
   }
-*/
+
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 

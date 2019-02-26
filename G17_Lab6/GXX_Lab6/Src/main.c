@@ -59,6 +59,7 @@ TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 #define BufferSize  10000
+int bufferSize = 10000;
 int32_t audioBufferLeft[BufferSize];
 int32_t audioBufferRight[BufferSize];
 uint8_t halfDone = 0;
@@ -124,7 +125,8 @@ int main(void)
   //Starting DFSDM DMA mode
   HAL_DFSDM_FilterRegularStart_DMA(&hdfsdm1_filter0, audioBufferRight, BufferSize);
   HAL_DFSDM_FilterRegularStart_DMA(&hdfsdm1_filter1, audioBufferLeft, BufferSize);
-
+	
+	HAL_TIM_Base_Start_IT(&htim6);
   /* USER CODE END 2 */
   
   /* Infinite loop */
@@ -284,7 +286,7 @@ static void MX_DFSDM1_Init(void)
 
   hdfsdm1_channel1.Instance = DFSDM1_Channel1;
   hdfsdm1_channel1.Init.OutputClock.Activation = ENABLE;
-  hdfsdm1_channel1.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO;
+  hdfsdm1_channel1.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO; //set at 40MHz
   hdfsdm1_channel1.Init.OutputClock.Divider = 20;
   hdfsdm1_channel1.Init.Input.Multiplexer = DFSDM_CHANNEL_EXTERNAL_INPUTS;
   hdfsdm1_channel1.Init.Input.DataPacking = DFSDM_CHANNEL_STANDARD_MODE;
@@ -302,7 +304,7 @@ static void MX_DFSDM1_Init(void)
 
   hdfsdm1_channel2.Instance = DFSDM1_Channel2;
   hdfsdm1_channel2.Init.OutputClock.Activation = ENABLE;
-  hdfsdm1_channel2.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO;
+  hdfsdm1_channel2.Init.OutputClock.Selection = DFSDM_CHANNEL_OUTPUT_CLOCK_AUDIO; //set at 40MHz
   hdfsdm1_channel2.Init.OutputClock.Divider = 20;
   hdfsdm1_channel2.Init.Input.Multiplexer = DFSDM_CHANNEL_EXTERNAL_INPUTS;
   hdfsdm1_channel2.Init.Input.DataPacking = DFSDM_CHANNEL_STANDARD_MODE;
@@ -399,8 +401,8 @@ void HAL_DFSDM_FilterRegConvHalfCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_
 }
 
 void HAL_DFSDM_FilterRegConvCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filter){
-	//fullDone = 1;
-	//halfDone = 0;
+	fullDone = 1;
+	halfDone = 0;
 }
 
 /* USER CODE END 4 */
