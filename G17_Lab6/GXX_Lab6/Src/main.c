@@ -128,7 +128,7 @@ int main(void)
   HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize, DAC_ALIGN_12B_R);
 	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);
 
-	HAL_TIM_Base_Start(&htim6);
+	//HAL_TIM_Base_Start(&htim6);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -267,7 +267,7 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_filter0.Init.RegularParam.FastMode = ENABLE;
   hdfsdm1_filter0.Init.RegularParam.DmaMode = ENABLE;
   hdfsdm1_filter0.Init.FilterParam.SincOrder = DFSDM_FILTER_SINC4_ORDER;
-  hdfsdm1_filter0.Init.FilterParam.Oversampling = 125;
+  hdfsdm1_filter0.Init.FilterParam.Oversampling = 128;
   hdfsdm1_filter0.Init.FilterParam.IntOversampling = 1;
   if (HAL_DFSDM_FilterInit(&hdfsdm1_filter0) != HAL_OK)
   {
@@ -279,7 +279,7 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_filter1.Init.RegularParam.FastMode = ENABLE;
   hdfsdm1_filter1.Init.RegularParam.DmaMode = ENABLE;
   hdfsdm1_filter1.Init.FilterParam.SincOrder = DFSDM_FILTER_SINC4_ORDER;
-  hdfsdm1_filter1.Init.FilterParam.Oversampling = 125;
+  hdfsdm1_filter1.Init.FilterParam.Oversampling = 128;
   hdfsdm1_filter1.Init.FilterParam.IntOversampling = 1;
   if (HAL_DFSDM_FilterInit(&hdfsdm1_filter1) != HAL_OK)
   {
@@ -297,8 +297,8 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_channel1.Init.SerialInterface.SpiClock = DFSDM_CHANNEL_SPI_CLOCK_INTERNAL;
   hdfsdm1_channel1.Init.Awd.FilterOrder = DFSDM_CHANNEL_FASTSINC_ORDER;
   hdfsdm1_channel1.Init.Awd.Oversampling = 1;	//1
-  hdfsdm1_channel1.Init.Offset = -64;	//6 bits
-  hdfsdm1_channel1.Init.RightBitShift = 1;
+  hdfsdm1_channel1.Init.Offset = -256;	//6 bits
+  hdfsdm1_channel1.Init.RightBitShift = 16;
   if (HAL_DFSDM_ChannelInit(&hdfsdm1_channel1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -316,7 +316,7 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_channel2.Init.Awd.FilterOrder = DFSDM_CHANNEL_FASTSINC_ORDER;
   hdfsdm1_channel2.Init.Awd.Oversampling = 1;	//1
   hdfsdm1_channel2.Init.Offset = -64;	//6 bits
-  hdfsdm1_channel2.Init.RightBitShift = 1;
+  hdfsdm1_channel2.Init.RightBitShift = 18;
   if (HAL_DFSDM_ChannelInit(&hdfsdm1_channel2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -341,9 +341,9 @@ static void MX_TIM6_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 1;
+  htim6.Init.Prescaler = 100;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 5000;
+  htim6.Init.Period = 50;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
@@ -395,16 +395,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/*
+
 void HAL_DFSDM_FilterRegConvHalfCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filter){
-	for(samplePointer = 0; samplePointer < BufferSize/2; samplePointer++){
-		audioBufferLeft[samplePointer] = audioBufferLeft[samplePointer] >> 8;
-		audioBufferRight[samplePointer] = audioBufferRight[samplePointer] >> 8;
-	}
+	//for(samplePointer = 0; samplePointer < BufferSize/2; samplePointer++){
+	//	audioBufferLeft[samplePointer] = audioBufferLeft[samplePointer] >> 8;
+	//	audioBufferRight[samplePointer] = audioBufferRight[samplePointer] >> 8;
+	//}
 	//HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize/2, DAC_ALIGN_12B_R);
 	//HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize/2, DAC_ALIGN_12B_R);
+	HAL_TIM_Base_Start(&htim6);
 }
-
+/*
 void HAL_DFSDM_FilterRegConvCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filter){
 	for(samplePointer = BufferSize/2; samplePointer < BufferSize; samplePointer++){
 		audioBufferLeft[samplePointer] = audioBufferLeft[samplePointer] >> 8;
@@ -412,8 +413,12 @@ void HAL_DFSDM_FilterRegConvCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filt
 	}
 	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize, DAC_ALIGN_12B_R);
 	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);
+}*/
+
+void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac){
+	HAL_TIM_Base_Stop(&htim6);
 }
-*/
+
 /* USER CODE END 4 */
 
 /**
