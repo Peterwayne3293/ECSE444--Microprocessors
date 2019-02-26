@@ -128,7 +128,7 @@ int main(void)
   HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize, DAC_ALIGN_12B_R);
 	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);
 
-	//HAL_TIM_Base_Start(&htim6);
+	HAL_TIM_Base_Start(&htim6);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -297,8 +297,8 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_channel1.Init.SerialInterface.SpiClock = DFSDM_CHANNEL_SPI_CLOCK_INTERNAL;
   hdfsdm1_channel1.Init.Awd.FilterOrder = DFSDM_CHANNEL_FASTSINC_ORDER;
   hdfsdm1_channel1.Init.Awd.Oversampling = 1;	//1
-  hdfsdm1_channel1.Init.Offset = -256;	//6 bits
-  hdfsdm1_channel1.Init.RightBitShift = 16;
+  hdfsdm1_channel1.Init.Offset = 0;	//6 bits
+  hdfsdm1_channel1.Init.RightBitShift = 22;
   if (HAL_DFSDM_ChannelInit(&hdfsdm1_channel1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -315,8 +315,8 @@ static void MX_DFSDM1_Init(void)
   hdfsdm1_channel2.Init.SerialInterface.SpiClock = DFSDM_CHANNEL_SPI_CLOCK_INTERNAL;
   hdfsdm1_channel2.Init.Awd.FilterOrder = DFSDM_CHANNEL_FASTSINC_ORDER;
   hdfsdm1_channel2.Init.Awd.Oversampling = 1;	//1
-  hdfsdm1_channel2.Init.Offset = -64;	//6 bits
-  hdfsdm1_channel2.Init.RightBitShift = 18;
+  hdfsdm1_channel2.Init.Offset = 0;	//6 bits
+  hdfsdm1_channel2.Init.RightBitShift = 22;
   if (HAL_DFSDM_ChannelInit(&hdfsdm1_channel2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -403,21 +403,19 @@ void HAL_DFSDM_FilterRegConvHalfCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_
 	//}
 	//HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize/2, DAC_ALIGN_12B_R);
 	//HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize/2, DAC_ALIGN_12B_R);
-	HAL_TIM_Base_Start(&htim6);
+
 }
-/*
+
 void HAL_DFSDM_FilterRegConvCpltCallback(DFSDM_Filter_HandleTypeDef *hdfsdm_filter){
-	for(samplePointer = BufferSize/2; samplePointer < BufferSize; samplePointer++){
+/*	for(samplePointer = BufferSize/2; samplePointer < BufferSize; samplePointer++){
 		audioBufferLeft[samplePointer] = audioBufferLeft[samplePointer] >> 8;
 		audioBufferRight[samplePointer] = audioBufferRight[samplePointer] >> 8;
 	}
 	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_1, (uint32_t *) audioBufferLeft, BufferSize, DAC_ALIGN_12B_R);
-	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);
-}*/
-
-void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac){
-	HAL_TIM_Base_Stop(&htim6);
+	HAL_DAC_Start_DMA (&hdac1, DAC_CHANNEL_2, (uint32_t *) audioBufferRight, BufferSize, DAC_ALIGN_12B_R);*/
+	//HAL_TIM_Base_Start(&htim6);
 }
+
 
 /* USER CODE END 4 */
 
