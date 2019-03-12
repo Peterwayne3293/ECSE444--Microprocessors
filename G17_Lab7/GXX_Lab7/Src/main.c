@@ -83,7 +83,9 @@ int chooseThread = 0;
 int isInitialized = 0;
 char buffer[100];
 
-enum state{ON, OFF};
+enum state{ON, OFF} usart_state;
+enum state button_state;
+
 enum sensor{MAGNETOMETER = 0, PRESSURE = 1, TEMPERATURE = 2, ACCELOROMETER = 3, HUMIDITY = 4, GYROSCOPE = 5} sensorThread;
 
 /* USER CODE BEGIN PV */
@@ -334,7 +336,6 @@ void usartTransmitThread(void const *str){
 	while(1){
 		osMutexWait(mutex_id, osWaitForever);
 		HAL_UART_Transmit(&handle, (uint8_t *) buffer, strlen(buffer), 30000);
-		//HAL_UART_Transmit(&handle, (uint8_t *) "\n", 1, 30000);
 		osMutexRelease(mutex_id);
 		osDelay(200);
 	}
@@ -473,10 +474,8 @@ void humidityThread(void const * argument){
 }
 
 void StartDefaultTask(void const * argument){
-	
-	enum state usart_state;
-	enum state system_State;
-	enum state button_state;
+	button_state = OFF;
+	usart_state = OFF;
 	
 	//Define All Threads
 	osThreadDef(magnetoTask, magnetoThread, osPriorityNormal, 0, 128);
@@ -489,9 +488,9 @@ void StartDefaultTask(void const * argument){
 	
 	while(1){
 		if(!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)){	//if Blue button is pressed
-			buttonPressed = 1;
+			button_state = ON;
 			while(!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)){}
-			buttonPressed = 0;
+			button_state = OFF;
 			if(timer>= 3000){
 				
 				//Sensors off
@@ -501,8 +500,10 @@ void StartDefaultTask(void const * argument){
 				osThreadTerminate(currentThreadId);	//Current Thread off
 				osThreadTerminate(usartThreadId);	//USART thrad off
 				usart_state = OFF;
-				sensorThread = MAGNETOMETER;			
+				sensorThread = MAGNETOMETER;
+				timer = 0;
 			}
+			
 			
 			//Working with threads
 			else{
@@ -514,20 +515,18 @@ void StartDefaultTask(void const * argument){
 						//STOP GYROSCOPE THREAD
 						BSP_GYRO_DeInit();
 						osThreadTerminate(gyroThreadId);
-						BSP_GYRO_DeInit();
-						osThreadTerminate(gyroThreadId);
 					} 
 					
 					else{
 						//START USART THREAD
-						usart_state = 1;
+						usart_state = ON;
 						usartThreadId = osThreadCreate(osThread(usartTransmit), NULL);
 					}
 	
 					//STOP MAGNETOMETER THREAD
 					magnetoThreadId = osThreadCreate(osThread(magnetoTask), NULL);
 					currentThreadId = magnetoThreadId;
-					sensorThread++;
+					sensorThread = PRESSURE;
 				}
 				
 				else if(sensorThread == PRESSURE) {
@@ -539,7 +538,7 @@ void StartDefaultTask(void const * argument){
 					//START PRESSURE THREAD
 					pressureThreadId = osThreadCreate(osThread(pressureTask), NULL);
 					currentThreadId = pressureThreadId;
-					sensorThread++;
+					sensorThread = TEMPERATURE;
 				} 
 			
 				else if(sensorThread == TEMPERATURE) {
@@ -550,7 +549,7 @@ void StartDefaultTask(void const * argument){
 					//START TEMPERATURE THREAD
 					tempThreadId = osThreadCreate(osThread(tempTask), NULL);
 					currentThreadId = tempThreadId;
-					sensorThread++;
+					sensorThread = ACCELOROMETER;
 				} 
 				
 				else if(sensorThread == ACCELOROMETER) {
@@ -561,7 +560,7 @@ void StartDefaultTask(void const * argument){
 					//START ACCELOROMETER THREAD
 					accThreadId = osThreadCreate(osThread(accTask), NULL);
 					currentThreadId = accThreadId;
-					sensorThread++;
+					sensorThread = HUMIDITY;
 				} 
 				
 				else if(sensorThread == HUMIDITY) {
@@ -573,7 +572,7 @@ void StartDefaultTask(void const * argument){
 					//START HUMIDITY THREAD
 					humidityThreadId = osThreadCreate(osThread(humidityTask), NULL);
 					currentThreadId = humidityThreadId;
-					sensorThread++;
+					sensorThread = GYROSCOPE;
 				} 
 				
 				else if(sensorThread == GYROSCOPE) {
@@ -587,7 +586,6 @@ void StartDefaultTask(void const * argument){
 					sensorThread = MAGNETOMETER;
 				}
 			}
-			timer = 0;
 		}
 	}
 }
@@ -603,8 +601,8 @@ void StartDefaultTask(void const * argument){
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
-	if(buttonPressed == 1){
-		timer++;
+	if(button_state == ON){
+		timer++; 
 	}
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM17) {
