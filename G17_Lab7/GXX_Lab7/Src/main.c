@@ -513,7 +513,7 @@ void StartDefaultTask(void const * argument){
 					if(usart_state == ON) {
 						
 						//STOP GYROSCOPE THREAD
-						//BSP_GYRO_DeInit();
+						BSP_GYRO_DeInit();
 						osThreadTerminate(gyroThreadId);
 					} 
 					
@@ -532,7 +532,7 @@ void StartDefaultTask(void const * argument){
 				else if(sensorThread == PRESSURE) {
 					
 					//STOP MAGNETOMETER THREAD
-					//BSP_MAGNETO_DeInit();
+					BSP_MAGNETO_DeInit();
 					osThreadTerminate(magnetoThreadId);
 					
 					//START PRESSURE THREAD
@@ -566,7 +566,7 @@ void StartDefaultTask(void const * argument){
 				else if(sensorThread == HUMIDITY) {
 					
 					//STOP ACCELOROMETER THREAD
-					//BSP_ACCELERO_DeInit();
+					BSP_ACCELERO_DeInit();
 					osThreadTerminate(accThreadId);
 					
 					//START HUMIDITY THREAD
