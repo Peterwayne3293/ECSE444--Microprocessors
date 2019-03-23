@@ -104,7 +104,48 @@ void signalMixer(void){
 	/*--------------------------------------------------------------*/
 }
 
+// Enumerator for system state
+enum inputState{OK, NOT_OK};
+
+
 int main (void){
+
+	/*---------------------------------------------------------------------------------------------------------------------*/
+		//Character	0		1		2		3		4		5		6		7		8		9
+	//ASCII			48	49	50	51	52	53	54	55	56	57
+	//--------------Take input from UART for mixerArray---------------
+	
+	//Input Arrays
+	char input[4][5] = {{0,0,'.',0,0},
+										{0,0,'.',0,0},
+										{0,0,'.',0,0},
+										{0,0,'.',0,0}};
+	
+	char comfirmInput[2];
+	
+	//Output Message Arrays
+	char linearCoefficients[33] = {'\n','L','i','n','e','a','r',' ','C','o','m','b','i','n','a','t','i','o','n',' ','C','o','e','f','f','i','c','i','e','n','t','s','\n'};
+	
+	char mixerExampleMessage[65] = {'E','n','t','e','r',' ','t','o','t','a','l',' ','4',' ','d','i','g','i','t','s',',',' ','w','i','t',
+																'h',' ','2',' ','d','e','c','i','m','a','l',' ','p','l','a','c','e','s',' ','a','c','c','u','r','a','c','y',
+																'\n','L','i','k','e',' ','5','5','.','7','7','\n'};
+	
+	char mixerVarMessage[4][13] = {
+		{'\n','E','n','t','e','r',' ','a','0','0', ' ', ':', ' '},
+		{'\n','E','n','t','e','r',' ','a','0','1', ' ', ':', ' '},
+		{'\n','E','n','t','e','r',' ','a','1','0', ' ', ':', ' '},
+		{'\n','E','n','t','e','r',' ','a','1','1', ' ', ':', ' '}
+		};
+	char toConfirmMessage[42] = {'\n','A','r','e',' ','y','o','u',' ','s','u','r','e',' ','t','h','e',' ',
+															'v','a','l','u','e','s',' ','a','r','e',' ','c','o','r','r','e','c','t',
+															'?','(','y','/','n',')'};
+	
+	char confirmation[3] = {'O','K','\n'};
+	
+	char tryAgain[10] = {'T','r','y',' ','a','g','a','i','n','\n'};
+	char nextLine[1] = {'\n'};
+	/*---------------------------------------------------------------------------------------------------------------------*/
+
 	float32_t frequency1 = 440;
 	float32_t frequency2 = 440;
 
@@ -112,9 +153,45 @@ int main (void){
 	generateSineWave(frequency1, frequency2);
 
 	//take input for mixerArray from UART
+	
+
+
+	/*---------------------------------------------------------------------------------------------------------------------*/
+			//Transmit message and receive mixerValue through UART
+		enum inputState mixerFlag;
+		mixerFlag = NOT_OK;
+		while(mixerFlag == NOT_OK){
+			int i;
+			int j;
+			HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficients, 33, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)mixerExampleMessage, 65, 30000);
+			for(i=0; i<4; i++){
+				HAL_UART_Transmit(&huart1, (uint8_t *)mixerVarMessage[i], 13, 30000);
+				for(j=0; j<5;j++){
+					if (input[i][j] == '.'){}
+					else {while(HAL_UART_Receive (&huart1, (uint8_t *)&input[i][j], 1, 30000) != HAL_OK){}}
+					HAL_UART_Transmit(&huart1, (uint8_t *)&input[i][j], 1, 30000);
+				}
+			}
+			HAL_UART_Transmit(&huart1, (uint8_t *)toConfirmMessage, 42, 30000);
+			while(HAL_UART_Receive(&huart1, (uint8_t *)comfirmInput, 1, 30000) != HAL_OK){}
+			HAL_UART_Transmit(&huart1, (uint8_t *)comfirmInput, 1, 30000);
+			while(HAL_UART_Receive(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000) != HAL_OK){}
+			HAL_UART_Transmit(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)nextLine, 1, 30000);
+			if (comfirmInput[1] == 'c'){
+				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
+			}
+			else if (comfirmInput[0] == 'y'){
+					mixerFlag = OK;
+					HAL_UART_Transmit(&huart1, (uint8_t *)confirmation, 3, 30000);
+			}
+			else {
+				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
+			}
+		}
+
+
+	/*---------------------------------------------------------------------------------------------------------------------*/
 	signalMixer();
 }
-
-
-
-#include "arm_math.h"
