@@ -110,54 +110,61 @@ enum inputState{OK, NOT_OK};
 
 int main (void){
 
-	/*---------------------------------------------------------------------------------------------------------------------*/
-		//Character	0		1		2		3		4		5		6		7		8		9
-	//ASCII			48	49	50	51	52	53	54	55	56	57
-	//--------------Take input from UART for mixerArray---------------
-	
 	//Input Arrays
 	char inputCoeff[4][5] = {
-							{0,0,'.',0,0},
-							{0,0,'.',0,0},
-							{0,0,'.',0,0},
-							{0,0,'.',0,0}
-							};
+													{0,0,'.',0,0},
+													{0,0,'.',0,0},
+													{0,0,'.',0,0},
+													{0,0,'.',0,0}
+													};
 	
 	char inputFreq[2][6] = {
-							{0,0,'.',0,0},
-							{0,0,'.',0,0},
-							};
+													{0,0,0,'.',0,0},
+													{0,0,0,'.',0,0},
+													};
 							
 	
 	char comfirmInput[2];
 	
 	//Output Message Arrays
-	char linearCoefficients[33] = {'\n','L','i','n','e','a','r',' ','C','o','m','b','i','n','a','t','i','o','n',' ','C','o','e','f','f','i','c','i','e','n','t','s','\n'};
+														
+	char frequencyValuesMessage[18] = {'\n','S','i','g','n','a','l',' ',
+															'F','r','e','q','u','e','n','c','y','\n'};
+
+	char frequencyExampleMessage[66] = {'\n','E','n','t','e','r',' ','t','o','t','a','l',
+																			' ','5',' ','d','i','g','i','t','s',',',' ',
+																			'w','i','t','h',' ','2',' ','d','e','c','i',
+																			'm','a','l',' ','p','l','a','c','e','s',' ',
+																			'a','c','c','u','r','a','c','y','\n','L','i',
+																			'k','e',' ','5','5','5','.','7','7','\n'};
 	
-	char mixerExampleMessage[65] = {'E','n','t','e','r',' ','t','o','t','a','l',' ','4',' ','d','i','g','i','t','s',',',' ','w','i','t',
-									'h',' ','2',' ','d','e','c','i','m','a','l',' ','p','l','a','c','e','s',' ','a','c','c','u','r','a','c','y',
-									'\n','L','i','k','e',' ','5','5','.','7','7','\n'};
+	char frequencyVarMessage[2][12] = {
+																		{'\n','E','n','t','e','r',' ','f','0',' ',':',' '},
+																		{'\n','E','n','t','e','r',' ','f','1',' ',':',' '},
+																		};
+	
+													
+	char linearCoefficientsMessage[33] = {'\n','L','i','n','e','a','r',' ','C','o','m','b',
+																'i','n','a','t','i','o','n',' ','C','o','e','f','f',
+																'i','c','i','e','n','t','s','\n'};
+	
+	char mixerExampleMessage[65] = {'E','n','t','e','r',' ','t','o','t','a','l',' ',
+																	'4',' ','d','i','g','i','t','s',',',' ','w','i','t',
+																	'h',' ','2',' ','d','e','c','i','m','a','l',' ','p','l',
+																	'a','c','e','s',' ','a','c','c','u','r','a','c','y',
+																	'\n','L','i','k','e',' ','5','5','.','7','7','\n'};
 	
 	char mixerVarMessage[4][13] = {
-		{'\n','E','n','t','e','r',' ','a','0','0', ' ', ':', ' '},
-		{'\n','E','n','t','e','r',' ','a','0','1', ' ', ':', ' '},
-		{'\n','E','n','t','e','r',' ','a','1','0', ' ', ':', ' '},
-		{'\n','E','n','t','e','r',' ','a','1','1', ' ', ':', ' '}
-		};
+																{'\n','E','n','t','e','r',' ','a','0','0', ' ', ':', ' '},
+																{'\n','E','n','t','e','r',' ','a','0','1', ' ', ':', ' '},
+																{'\n','E','n','t','e','r',' ','a','1','0', ' ', ':', ' '},
+																{'\n','E','n','t','e','r',' ','a','1','1', ' ', ':', ' '}
+																};
 
-	char frequencyValues[16] = {'\n','S','i','g','n','a','l',' ','F','r','e','q','u','e','n','c','y'};
 
-	char frequencyExampleMessage[66] = {'E','n','t','e','r',' ','t','o','t','a','l',' ','5',' ','d','i','g','i','t','s',',',' ','w','i','t',
-										'h',' ','2',' ','d','e','c','i','m','a','l',' ','p','l','a','c','e','s',' ','a','c','c','u','r','a','c','y',
-										'\n','L','i','k','e',' ','5','5','5','.','7','7','\n'};
-	char frequencyVarMessage[2][12] = {
-		{'\n','E','n','t','e','r',' ','f','0', ' ', ':', ' '},
-		{'\n','E','n','t','e','r',' ','f','1', ' ', ':', ' '},
-		};
-
-	char toConfirmMessage[42] = {'\n','A','r','e',' ','y','o','u',' ','s','u','r','e',' ','t','h','e',' ',
-								'v','a','l','u','e','s',' ','a','r','e',' ','c','o','r','r','e','c','t',
-								'?','(','y','/','n',')'};
+	char toConfirmMessage[42] = {'\n','A','r','e',' ','y','o','u',' ','s','u','r','e',
+															' ','t','h','e',' ','v','a','l','u','e','s',' ','a','r',
+															'e',' ','c','o','r','r','e','c','t','?','(','y','/','n',')'};
 	
 	char confirmation[3] = {'O','K','\n'};
 	
@@ -175,22 +182,22 @@ int main (void){
 	
 
 
-	/*------------------------------------------UI to input signal frequency --------------------------------*/
-		// Flag to define if frequency input is correct
-		enum inputstate freqFlag;
+	/*------------------------------------------UI to input signal frequency --------------------------------------------*/
+		// Flag used to define if frequency input is correct
+		enum inputState freqFlag;
 		freqFlag = NOT_OK;
 
 		int i;
 		int j;
 		while(freqFlag == NOT_OK){
 			/*-----------Transmits generic explanation and example for frequency to user--------------*/
-			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyValues, 33, 30000);
-			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyExampleMessage, 65, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyValuesMessage, 18, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyExampleMessage, 66, 30000);
 			/*-----------------------------------------------------------------------------------------*/
 
 			/*-------------------------Receivies and transmits frequency values-------------------------*/
-			for(i=0; i<4; i++){
-				HAL_UART_Transmit(&huart1, (uint8_t *)frequencyVarMessage[i], 13, 30000);
+			for(i=0; i<2; i++){
+				HAL_UART_Transmit(&huart1, (uint8_t *)frequencyVarMessage[i], 12, 30000);
 				for(j=0; j<6;j++){
 					if (inputFreq[i][j] == '.'){}
 					else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputFreq[i][j], 1, 30000) != HAL_OK){}}
@@ -216,17 +223,18 @@ int main (void){
 			else {
 				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
 			}
-			/*--------------------------------------------------------------------------------------*/
+			
 		}
+	/*----------------------------------------------------------------------------------------------------------------------*/
 
 
-		/*--------------------------------UI to input matrix coefficients------------------------------*/
-
+	/*-------------------------------------------------UI to input matrix coefficients---------------------------------------*/
+		// Flag used to define if matrix coefficient input is correct
 		enum inputState mixerFlag;
 		mixerFlag = NOT_OK;
 		while(mixerFlag == NOT_OK){
 			/*-----------Transmits generic explanation and example for matrix coefficients to user--------------*/
-			HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficients, 33, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficientsMessage, 33, 30000);
 			HAL_UART_Transmit(&huart1, (uint8_t *)mixerExampleMessage, 65, 30000);
 			/*--------------------------------------------------------------------------------------------------*/
 
@@ -260,8 +268,6 @@ int main (void){
 			}
 			/*--------------------------------------------------------------------------------------*/
 		}
-
-
-	/*---------------------------------------------------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------------------------------------------------------*/
 	signalMixer();
 }
