@@ -98,14 +98,12 @@ void userInterfaceWelcome(void){
 	/*-----------------------------------------------------Output Message Arrays---------------------------------------------------------------*/
 
 	//Welcome Messages
-	char welcomeMessage[41] = {'\n','-','-','-','-','W','e','l','c','o','m','e',' ','t','o',' ',
-														'D','I','Y',' ','S','o','u','n','d',' ','G','e','n',
-														'e','r','a','t','o','r',' ','2','0','1','9',' '};
+	char welcomeMessage[] = {"\n----Welcome to DIY Sound Generator 2019 "};
 
-	char welcomeMessage2[16] = {'A','K','A',' ','E','C','S','E','4','4','4','-','-','-','-','\n'};
+	char welcomeMessage2[] = {"AKA ECSE444----\n"};
 	
-	HAL_UART_Transmit(&huart1, (uint8_t *)welcomeMessage, 41, 30000);
-	HAL_UART_Transmit(&huart1, (uint8_t *)welcomeMessage2, 16, 30000);
+	HAL_UART_Transmit(&huart1, (uint8_t *)welcomeMessage, sizeof(welcomeMessage), 30000);
+	HAL_UART_Transmit(&huart1, (uint8_t *)welcomeMessage2, sizeof(welcomeMessage2), 30000);
 
 	/*-----------------------------------------------------------------------------------------------------------------------------------------*/
 }
@@ -118,18 +116,17 @@ void userInterfaceOptions(void){
 	/*------------------------------------------Output Message Arrays------------------------------------------*/	
 
 	//Asking for system function, i.e. what should the the system do
-	char systemStateMessage[29] = {'\n','W','h','a','t',' ','w','o','u','l','d',' ','y','o',
-																'u',' ','l','i','k','e',' ','t','o',' ','y','o','u','?','\n'};
+	char systemStateMessage[] = {"\nWhat would you like to do?\n"};
 	
 	//Showing input format and example for option values
-	char optionsExampleMessage[103] = {'1',' ','G','e','n','e','r','a','t','e',' ','S','i','g','n','a','l','s','\n',
-																		'2',' ','M','i','x',' ','S','i','g','n','a','l','s','\n',
-																		'3',' ','P','l','a','y',' ','U','n','m','i','x','e','d',' ','S','i','g','n','a','l','s','\n',
-																		'4',' ','P','l','a','y',' ','M','i','x','e','d',' ','S','i','g','n','a','l','s','\n','\n',
-																		'I','n','p','u','t',' ','o','p','t','i','o','n',' ','n','u','m','b','e','r',' ','o','n','l','y','\n'};
+	char optionsExampleMessage[] = {"1 Generate Signals\n"
+										"2 Mix Signals\n"
+										"3 Play Unmixed Signals\n"
+										"4 Play Mixed Signals\n\n"
+										"Input option number only\n"};
 
 	//Showing the label for option value being input
-	char optionVarMessage[8] = {'O','p','t','i','o','n',':',' '};
+	char optionVarMessage[] = {"Option: "};
 
 	/*--------------------------------------------------------------------------------------------------------*/
 	#pragma endregion OutputMessageArrays
@@ -154,14 +151,14 @@ void userInterfaceOptions(void){
 
 		/*-----------Transmits generic explanation and example for frequency to user-------------*/
 		
-		HAL_UART_Transmit(&huart1, (uint8_t *)systemStateMessage, 29, 30000);
-		HAL_UART_Transmit(&huart1, (uint8_t *)optionsExampleMessage, 103, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)systemStateMessage, sizeof(systemStateMessage), 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)optionsExampleMessage, sizeof(optionsExampleMessage), 30000);
 
 		/*---------------------------------------------------------------------------------------*/
 
 		/*-------------------------Receivies and transmits frequency values----------------------*/
 		
-		HAL_UART_Transmit(&huart1, (uint8_t *)optionVarMessage, 8, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)optionVarMessage, sizeof(optionVarMessage), 30000);
 		while(HAL_UART_Receive (&huart1, (uint8_t *)&inputOption, 1, 30000) != HAL_OK){}
 		HAL_UART_Transmit(&huart1, (uint8_t *)&inputOption[0], 1, 30000);
 			
@@ -199,7 +196,6 @@ void userInterfaceOptions(void){
 	/*--------------------------------------------------------------------------------------------------------*/
 	#pragma endregion StateChange
 }
-/*----------------------------------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------UI function to input signal frequency --------------------------------------------*/
 void userInterfaceGenerateSignal(){
@@ -208,22 +204,15 @@ void userInterfaceGenerateSignal(){
 	/*------------------------------------------Output Message Arrays------------------------------------------*/	
 	
 	//Function Introduction 
-	char frequencyValuesMessage[34] = {'\n','-','-','-','-','-','-','-','-','S','i','g','n','a','l',' ',
-															'F','r','e','q','u','e','n','c','y','-','-','-','-','-','-','-','-','\n'};
+	char frequencyValuesMessage[] = {"\n--------Signal Frequency--------\n"};
 
 	//Showing input format and example for frequency values
-	char frequencyExampleMessage[66] = {'\n','E','n','t','e','r',' ','t','o','t','a','l',
-																			' ','5',' ','d','i','g','i','t','s',',',' ',
-																			'w','i','t','h',' ','2',' ','d','e','c','i',
-																			'm','a','l',' ','p','l','a','c','e','s',' ',
-																			'a','c','c','u','r','a','c','y','\n','L','i',
-																			'k','e',' ','5','5','5','.','7','7','\n'};
+	char frequencyExampleMessage[] = {"\nEnter total 5 digits, with 2 decimal places accuracy\nLike 555.77\n"};
 	
 	//Showing the label for frequency values being input
-	char frequencyVarMessage[2][12] = {
-																		{'\n','E','n','t','e','r',' ','f','0',' ',':',' '},
-																		{'\n','E','n','t','e','r',' ','f','1',' ',':',' '},
-																		};
+	char frequencyVarMessage[2][12] = {{"\nEnter f1 : "},
+										{"\nEnter f2 : "},
+										};
 
 	/*--------------------------------------------------------------------------------------------------------*/
 	#pragma endregion OutputMessageArrays
@@ -232,10 +221,9 @@ void userInterfaceGenerateSignal(){
 	/*------------------------------------------Input Storing Arrays------------------------------------------*/	
 
 	//Array for storing frequency value characters
-	char inputFreq[2][6] = {
-												{0,0,0,'.',0,0},
-												{0,0,0,'.',0,0},
-												};
+	char inputFreq[2][6] = {{0,0,0,'.',0,0},
+							{0,0,0,'.',0,0},
+							};
 
 	/*--------------------------------------------------------------------------------------------------------*/
 	#pragma endregion InputMessageArrays
@@ -252,8 +240,8 @@ void userInterfaceGenerateSignal(){
 		/*-----------Transmits generic explanation and example for frequency to user--------------*/
 		
 		
-		HAL_UART_Transmit(&huart1, (uint8_t *)frequencyValuesMessage, 34, 30000);
-		HAL_UART_Transmit(&huart1, (uint8_t *)frequencyExampleMessage, 66, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)frequencyValuesMessage, sizeof(frequencyValuesMessage), 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)frequencyExampleMessage, sizeof(frequencyExampleMessage), 30000);
 
 		/*-----------------------------------------------------------------------------------------*/
 
@@ -262,7 +250,7 @@ void userInterfaceGenerateSignal(){
 		int i;
 		int j;
 		for(i=0; i<2; i++){
-			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyVarMessage[i], 12, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyVarMessage[i], sizeof(frequencyVarMessage[i]), 30000);
 			for(j=0; j<6;j++){
 				if (inputFreq[i][j] == '.'){}
 				else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputFreq[i][j], 1, 30000) != HAL_OK){}}
@@ -286,13 +274,13 @@ void userInterfaceGenerateSignal(){
 	int i;
 	int j;
 	for(i=0; i<2; i++){
-		for(j=5; j>=0;j--){
+		for(j=0; j<5; j++){
 			if(inputFreq[i][j] == '.'){}
 			else{
-				frequencyVal[i] = frequencyVal[i] + ((float32_t)inputFreq[i][j])*10;
+				frequencyVal[i] = frequencyVal[i]*10 + (float32_t)(inputFreq[i][j] - '0');
 			}
 		}
-		frequencyVal[i] = frequencyVal[i]/1000;
+		frequencyVal[i] = frequencyVal[i]/100.0;
 	}
 
 	/*----------------------------------------------------------------------------------------*/
@@ -307,33 +295,26 @@ void userInterfaceMixer(void){
 	/*------------------------------------------Output Message Arrays------------------------------------------*/
 
 	//Function Introduction
-	char linearCoefficientsMessage[49] = {'\n','-','-','-','-','-','-','-','-','L','i','n','e','a','r',' ','C','o','m','b',
-																			'i','n','a','t','i','o','n',' ','C','o','e','f','f',
-																			'i','c','i','e','n','t','s','-','-','-','-','-','-','-','-','\n'};
+	char linearCoefficientsMessage[] = {"\n--------Linear Combination Coefficients--------\n"};
 	
 	//Showing placement of mixer values in matrix
-	char mixerMatrix[198] = {'\n',' ','_',' ',' ','_',' ',' ',' ',' ',' ','_','_',' ',' ',' ',' ',' ',' ',' ',' ','_','_',' ',' ',' ',' ','_',' ',' ','_','\n',
-												'|',' ',' ',' ',' ','|',' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','|',' ',' ','|',' ',' ',' ',' ','|',' ','\n',
-												'|',' ','x','1',' ','|',' ',' ',' ','|',' ',' ','a','0','0',' ',' ','a','1','2',' ',' ','|',' ',' ','|',' ','s','1',' ','|',' ','\n',
-												'|',' ',' ',' ',' ','|',' ','=',' ','|',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','|',' ',' ','|',' ',' ',' ',' ','|',' ','\n',
-												'|',' ','x','2',' ','|',' ',' ',' ','|',' ',' ','a','2','1',' ',' ','a','1','1',' ',' ','|',' ',' ','|',' ','s','2',' ','|',' ','\n',
-												'|','_',' ',' ','_','|',' ',' ',' ','|','_','_',' ',' ',' ',' ',' ',' ',' ',' ','_','_','|',' ',' ','|','_',' ',' ','_','|',' ','\n','\n'};
-																																							
+	char mixerMatrix[] = {"\n _  _     __        __    _  _\n"
+							"|    |   |            |  |    |\n"
+							"| x1 |   |  a11  a12  |  | s1 |\n"
+							"|    | = |            |  |    |\n"
+							"| x2 |   |  a21  a22  |  | s2 |\n"
+							"|_  _|   |__        __|  |_  _|\n\n"};
+																																					
 	//Showing input format and example for mixer values
-	char mixerExampleMessage[66] = {'\n','E','n','t','e','r',' ','t','o','t','a','l',' ',
-																	'4',' ','d','i','g','i','t','s',',',' ','w','i','t',
-																	'h',' ','2',' ','d','e','c','i','m','a','l',' ','p','l',
-																	'a','c','e','s',' ','a','c','c','u','r','a','c','y',
-																	'\n','L','i','k','e',' ','5','5','.','7','7','\n'};
+	char mixerExampleMessage[] = {"\nEnter total 4 digits, with 2 decimal places accuracy\nLike 55.77\n"};
 
 
 	//Showing the label for frequency values being input
-	char mixerVarMessage[4][13] = {
-																{'\n','E','n','t','e','r',' ','a','0','0', ' ', ':', ' '},
-																{'\n','E','n','t','e','r',' ','a','0','1', ' ', ':', ' '},
-																{'\n','E','n','t','e','r',' ','a','1','0', ' ', ':', ' '},
-																{'\n','E','n','t','e','r',' ','a','1','1', ' ', ':', ' '}
-																};
+	char mixerVarMessage[4][13] = {{"\nEnter a11 : "},
+									{"\nEnter a12 : "},
+									{"\nEnter a21 : "},
+									{"\nEnter a22 : "}
+									};
 	
 	/*--------------------------------------------------------------------------------------------------------*/
 	#pragma endregion OutputMessageArrays
@@ -342,12 +323,11 @@ void userInterfaceMixer(void){
 	/*------------------------------------------Input Storing Arrays------------------------------------------*/
 	
 	//Array for storing mixer value characters
-	char inputCoeff[4][5] = {
-													{0,0,'.',0,0},
-													{0,0,'.',0,0},
-													{0,0,'.',0,0},
-													{0,0,'.',0,0}
-													};
+	char inputCoeff[4][5] = {{0,0,'.',0,0},
+							{0,0,'.',0,0},
+							{0,0,'.',0,0},
+							{0,0,'.',0,0}
+							};
 	
 	/*---------------------------------------------------------------------------------------------------------*/
 	#pragma endregion InputMessageArrays
@@ -363,9 +343,9 @@ void userInterfaceMixer(void){
 		
 		/*---------------Transmits generic explanation and example for matrix coefficients to user--------------*/
 		
-		HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficientsMessage, 49, 30000);
-		HAL_UART_Transmit(&huart1, (uint8_t *)mixerMatrix, 198, 30000);
-		HAL_UART_Transmit(&huart1, (uint8_t *)mixerExampleMessage, 66, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficientsMessage, sizeof(linearCoefficientsMessage), 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)mixerMatrix, sizeof(mixerMatrix), 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)mixerExampleMessage, sizeof(mixerExampleMessage), 30000);
 		
 		/*------------------------------------------------------------------------------------------------------*/
 
@@ -374,7 +354,7 @@ void userInterfaceMixer(void){
 		int i;
 		int j;
 		for(i=0; i<4; i++){
-			HAL_UART_Transmit(&huart1, (uint8_t *)mixerVarMessage[i], 13, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)mixerVarMessage[i], sizeof(mixerVarMessage[i]), 30000);
 			for(j=0; j<5;j++){
 				if (inputCoeff[i][j] == '.'){}
 				else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputCoeff[i][j], 1, 30000) != HAL_OK){}}
@@ -396,17 +376,16 @@ void userInterfaceMixer(void){
 	/*------------------------Converting Frequency Char to Float values------------------------*/
 
 	int i;
-	int j;
+	int j;	
 	for(i=0; i<4; i++){
-		for(j=4; j>=0;j--){
+		for(j=0; j<6; j++){
 			if(inputCoeff[i][j] == '.'){}
 			else{
-				mixerVal[i] = mixerVal[i] + ((float32_t)inputCoeff[i][j])*10;
+				mixerVal[i] = mixerVal[i]*10 + (float32_t)(inputCoeff[i][j]-'0');
 			}
-		mixerVal[i] = mixerVal[i]/1000;
+		mixerVal[i] = mixerVal[i]/100.0;
 		}
 	}
-
 	/*----------------------------------------------------------------------------------------*/
 	#pragma endregion
 }
@@ -419,15 +398,13 @@ int isCorrect(){
 	/*------------------------------------------Output Message Arrays------------------------------------------*/
 	
 	//Confimation query
-	char toConfirmMessage[43] = {'\n','\n','A','r','e',' ','y','o','u',' ','s','u','r','e',
-															' ','t','h','e',' ','i','n','p','u','t',' ','i','s',
-															' ','c','o','r','r','e','c','t','?','(','y','/','n',')'};
+	char toConfirmMessage[] = {"\n\nAre you sure the input is correct?(y/n)"};
 	
 	//Confirmation granted
-	char confirmation[3] = {'O','K','\n'};
+	char confirmation[] = {"OK\n"};
 	
 	//Confirmation rejected
-	char tryAgain[10] = {'T','r','y',' ','a','g','a','i','n','\n'};
+	char tryAgain[] = {"Try again\n"};
 
 	//Input Next Line
 	char nextLine[1] = {'\n'};
@@ -451,42 +428,41 @@ int isCorrect(){
 	//Polling the user to get a desired response
 	while(1){
 		//Ask if input frequency values are correct
-		HAL_UART_Transmit(&huart1, (uint8_t *)toConfirmMessage, 43, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)toConfirmMessage, sizeof(toConfirmMessage), 30000);
 		
 		//Wait for response
 		while(HAL_UART_Receive(&huart1, (uint8_t *)comfirmInput, 1, 30000) != HAL_OK){}
 		
 		//Show reponse
-		HAL_UART_Transmit(&huart1, (uint8_t *)comfirmInput, 1, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)comfirmInput, sizeof(comfirmInput), 30000);
 		
 		//Wait for Enter button press
 		while(HAL_UART_Receive(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000) != HAL_OK){}
 		
 		//Go to next line
-		HAL_UART_Transmit(&huart1, (uint8_t *)nextLine, 1, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)nextLine, sizeof(nextLine), 30000);
 		
 		//Positive response, exit current loop, call function to store char as float
 		if (comfirmInput[0] == 'y'){
-			HAL_UART_Transmit(&huart1, (uint8_t *)confirmation, 3, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)confirmation, sizeof(confirmation), 30000);
 			return 1;
 		}
 
 		//Negative response, exit current loop, repeat loop with asking for frequency values
 		else if (comfirmInput[0] == 'n'){
-			HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, sizeof(tryAgain), 30000);
 			return 0;
 		}
 
 		//Repeat loop with asking for confirmation message
 		else {
-			HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
+			HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, sizeof(tryAgain), 30000);
 		}
 	}
 	/*-------------------------------------------------------------------------------------*/
 	#pragma endregion
 }
 /*---------------------------------------------------------------------------------------------------------*/
-
 
 // Generates two signals based on the frequency given
 void generateSineWave(void){
