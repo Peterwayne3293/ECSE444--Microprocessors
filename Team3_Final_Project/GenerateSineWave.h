@@ -11,7 +11,7 @@ enum inputState{OK, NOT_OK};
 
 //External Variable
 extern UART_HandleTypeDef huart1;
-extern enum systemOption optionState;
+enum systemOption optionState;
 
 //Function Declarations
 void userInterfaceWelcome(void);//UI function to show welcome message 
