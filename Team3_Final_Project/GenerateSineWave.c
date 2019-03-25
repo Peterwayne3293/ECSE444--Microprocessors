@@ -289,7 +289,7 @@ void userInterfaceGenerateSignal(){
 		for(j=5; j>=0;j--){
 			if(inputFreq[i][j] == '.'){}
 			else{
-				frequencyVal[i] = frequencyVal[i] + (float32_t)inputFreq[i][j]*10;
+				frequencyVal[i] = frequencyVal[i] + ((float32_t)inputFreq[i][j])*10;
 			}
 		}
 		frequencyVal[i] = frequencyVal[i]/1000;
@@ -401,7 +401,7 @@ void userInterfaceMixer(void){
 		for(j=4; j>=0;j--){
 			if(inputCoeff[i][j] == '.'){}
 			else{
-				mixerVal[i] = mixerVal[i] + (float32_t)inputCoeff[i][j]*10;
+				mixerVal[i] = mixerVal[i] + ((float32_t)inputCoeff[i][j])*10;
 			}
 		mixerVal[i] = mixerVal[i]/1000;
 		}
