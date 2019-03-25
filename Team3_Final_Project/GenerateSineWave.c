@@ -37,13 +37,18 @@ void signalMixer(float_32 *mixCoef);
 #define SignalTime 2				//2 seconds
 #define SampleSize SamplingFrequency*SignalTime
 
+//User input values
+//
+
+//Signal arrays
 float32_t signal1Array[SampleSize];	//most probably will not need
 float32_t signal2Array[SampleSize];	//most probably will not need
 float32_t signalContainer[2][SampleSize];	//consider using 2-D array
 
-float32_t mixedSignal1[SampleSize];
-float32_t mixedSignal2[SampleSize];
-float32_t mixerArray[2][2];
+//Mixed Signal arrays
+float32_t mixedSignal1[SampleSize];	//most probably will not need
+float32_t mixedSignal2[SampleSize];	//most probably will not need
+float32_t mixerArray[2][2];	//consider using 2-D array 
 float32_t mixedSignalContainer[2][SampleSize];	//consider using 2-D array 
 
 //array definitions
@@ -58,7 +63,7 @@ arm_matrix_instance_f32 mixedSignal;
 
 
 // Enumerator for system state
-enum systemFunction{None, GenerateWaves, MixWaves, PlayUnmixed, PlayMixed} systemState;
+enum systemOption{None, GenerateWaves, MixWaves, PlayUnmixed, PlayMixed} optionState;
 enum inputState{OK, NOT_OK};
 
 int main (void){
@@ -66,10 +71,12 @@ int main (void){
 	//General UI function call
 	userInterfaceWelcome();
 
-	//System options
-	userInterfaceOptions();
+	/*-------------------------Inside While Loop-----------------------------------*/
 
-	if (systemState == GenerateWaves){
+	//System options
+	char[] optionstate = userInterfaceOptions();
+
+	if (optionState == GenerateWaves){
 		//UI for input of frequency value
 		userInterafaceFrequency();
 		//take input for frequency from UART
@@ -77,26 +84,26 @@ int main (void){
 		//store to SRAM
 	}
 
-	if (systemstate == MixWaves){
+	if (optionState == MixWaves){
 		//UI for input of mixer values
 		userInterfaceMixer();
 		//take input for mixerArray from UART
-		signalMixer();
 		//store to SRAM
 	}
 
-	if (systemState == PlayUnmixed){
+	if (optionState == PlayUnmixed){
 		//DAC(s1);
 		//DAC(s2);
 	}
 
-	if (systemState == PlayMixed){
+	if (optionState == PlayMixed){
 		//DAC(x1);
 		//DAC(x2);
 	}
 
 }
 
+/*------------------------------------------UI function to show welcome message --------------------------------------------*/
 void userInterfaceWelcome(void){
 	/*-----------------------------------------------------Output Message Arrays---------------------------------------------------------------*/
 
@@ -108,60 +115,108 @@ void userInterfaceWelcome(void){
 	char WelcomeMessage2[] = {'A','K','A',' ','E','C','S','E','4','4','4','\n'};
 	/*-----------------------------------------------------------------------------------------------------------------------------------------*/
 }
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
+/*------------------------------------------UI function to input option state-----------------------------------------------*/
 void userInterfaceOptions(void){
-	/*-----------------------------------------------------Output Message Arrays---------------------------------------------------------------*/	
-	//Asking for system function, i.e. what would the 
+	
+	#pragma region OutputMessageArrays
+	/*------------------------------------------Output Message Arrays------------------------------------------*/	
+
+	//Asking for system function, i.e. what should the the system do
 	char systemStateMessage[] = {'\n','W','h','a','t',' ','w','o','u','l','d',' ','y','o',
 								'u',' ','l','i','k','e',' ','t','o',' ','y','o','u','?','\n'};
 	
-	//Showing the system options available
-	char optionsMessage[] = {'1',' ','G','e','n','e','r','a','t','e',' ','S','i','g','n','a','l','s','\n',
+	//Showing input format and example for option values
+	char optionsExampleMessage[] = {'1',' ','G','e','n','e','r','a','t','e',' ','S','i','g','n','a','l','s','\n',
 							'2',' ','M','i','x',' ','S','i','g','n','a','l','s','\n',
 							'3',' ','P','l','a','y',' ','U','n','m','i','x','e','d',' ','S','i','g','n','a','l','s','\n',
-							'4',' ','P','l','a','y',' ','M','i','x','e','d',' ','S','i','g','n','a','l','s','\n'}
+							'4',' ','P','l','a','y',' ','M','i','x','e','d',' ','S','i','g','n','a','l','s','\n',
+							'I','n','p','u','t',' ','o','p','t','i','o','n',' ','n','u','m','b','e','r',' ','o','n','l','y','\n'};
+
+	//Showing the label for option value being input
+	char optionVarMessage[] = {'O','p','t','i','o','n',':',' '};
+
+	/*--------------------------------------------------------------------------------------------------------*/
+	#pragma endregion OutputMessageArrays
+
+	#pragma region InputMessageArrays
+	/*------------------------------------------Input Storing Arrays------------------------------------------*/	
 	
-	//Confimation query
-	char toConfirmMessage[42] = {'\n','A','r','e',' ','y','o','u',' ','s','u','r','e',
-															' ','t','h','e',' ','o','p','t','i','o','n',' ','i','s',
-															' ','c','o','r','r','e','c','t','?','(','y','/','n',')'};
+	//Array for storing system option
+	char inputOption[1];
+
+	/*---------------------------------------------------------------------------------------------------------*/
+	#pragma endregion InputMessageArrays
+
+	#pragma region USART_Implementation
+	/*--------------------------------------USART implementation of UI--------------------------------------------------------*/
+
+	// Flag used to determine if option input is correct
+	enum inputState systemOption;
+	systemOption = NOT_OK;
+
+	while(systemOption == NOT_OK){
+
+		/*-----------Transmits generic explanation and example for frequency to user-------------*/
 		
-	//Confirmation granted
-	char confirmation[3] = {'O','K','\n'};
-	
-	//Confirmation rejected
-	char tryAgain[10] = {'T','r','y',' ','a','g','a','i','n','\n'};
+		HAL_UART_Transmit(&huart1, (uint8_t *)systemStateMessage, 18, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)optionsExampleMessage, 66, 30000);
 
-	//Input Next Line
-	char nextLine[1] = {'\n'};
+		/*---------------------------------------------------------------------------------------*/
 
-	//Input Message Arrays
-	char inputFunction[1];
+		/*-------------------------Receivies and transmits frequency values----------------------*/
+		
+		HAL_UART_Transmit(&huart1, (uint8_t *)optionVarMessage 12, 30000);
+		while(HAL_UART_Receive (&huart1, (uint8_t *)&inputOption, 1, 30000) != HAL_OK){}
+		HAL_UART_Transmit(&huart1, (uint8_t *)&inputOption[0], 1, 30000);
+			
+		/*---------------------------------------------------------------------------------------*/
+
+		//Call function to verify input
+		int returnValue = isCorrect();
+		if (returnValue = 1) {
+			systemOption = OK;
+		}
+
+	}
+	/*-------------------------------------------------------------------------------------------------------*/
+	#pragma endregion USART_Implementation
+
+	/*-------------------------------------Setting optionState to User input----------------------------------*/
+
+	if (inputOption[0] == '1'){
+		optionState = GenerateWaves;
+	}
+	else if (inputOption[0] == '2'){
+		optionState = MixWaves;
+	}
+	else if (inputOption[0] == '3') {
+		optionState = PlayUnmixed;
+	}
+	else if (inputOption[0] == '4') {
+		optionState = PlayMixed;
+	}
+	else
+	{
+		optionState = None;
+	}
+		
+	/*--------------------------------------------------------------------------------------------------------*/
 }
+/*----------------------------------------------------------------------------------------------------------------------------*/
 
-void userInterface(void){
+/*------------------------------------------UI function to input signal frequency --------------------------------------------*/
+void userInterfaceGenerateSignal(){
 
-	//Input Arrays
-	char inputCoeff[4][5] = {
-													{0,0,'.',0,0},
-													{0,0,'.',0,0},
-													{0,0,'.',0,0},
-													{0,0,'.',0,0}
-													};
+	#pragma region OutputMessageArrays
+	/*------------------------------------------Output Message Arrays------------------------------------------*/	
 	
-	char inputFreq[2][6] = {
-													{0,0,0,'.',0,0},
-													{0,0,0,'.',0,0},
-													};
-							
-	
-	char comfirmInput[2];
-	
-	//Output Message Arrays
-														
+	//Function Introduction 
 	char frequencyValuesMessage[18] = {'\n','S','i','g','n','a','l',' ',
 															'F','r','e','q','u','e','n','c','y','\n'};
 
+	//Showing input format and example for frequency values
 	char frequencyExampleMessage[66] = {'\n','E','n','t','e','r',' ','t','o','t','a','l',
 																			' ','5',' ','d','i','g','i','t','s',',',' ',
 																			'w','i','t','h',' ','2',' ','d','e','c','i',
@@ -169,33 +224,168 @@ void userInterface(void){
 																			'a','c','c','u','r','a','c','y','\n','L','i',
 																			'k','e',' ','5','5','5','.','7','7','\n'};
 	
+	//Showing the label for frequency values being input
 	char frequencyVarMessage[2][12] = {
 																		{'\n','E','n','t','e','r',' ','f','0',' ',':',' '},
 																		{'\n','E','n','t','e','r',' ','f','1',' ',':',' '},
 																		};
-	
-													
+
+	/*--------------------------------------------------------------------------------------------------------*/
+	#pragma endregion OutputMessageArrays
+
+	#pragma region InputMessageArrays
+	/*------------------------------------------Input Storing Arrays------------------------------------------*/	
+
+	//Array for storing frequency value characters
+	char inputFreq[2][6] = {
+												{0,0,0,'.',0,0},
+												{0,0,0,'.',0,0},
+												};
+
+	/*--------------------------------------------------------------------------------------------------------*/
+	#pragma endregion InputMessageArrays
+
+	#pragma region USART_Implementation
+	/*--------------------------------------USART implementation of UI----------------------------------------*/
+
+	// Flag used to ddetermineefine if frequency input is correct
+	enum inputState freqFlag;
+	freqFlag = NOT_OK;
+
+	while(freqFlag == NOT_OK){
+
+		/*-----------Transmits generic explanation and example for frequency to user--------------*/
+		
+		HAL_UART_Transmit(&huart1, (uint8_t *)frequencyValuesMessage, 18, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)frequencyExampleMessage, 66, 30000);
+
+		/*-----------------------------------------------------------------------------------------*/
+
+		/*-------------------------Receivies and transmits frequency values-------------------------*/
+		
+		int i;
+		int j;
+		for(i=0; i<2; i++){
+			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyVarMessage[i], 12, 30000);
+			for(j=0; j<6;j++){
+				if (inputFreq[i][j] == '.'){}
+				else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputFreq[i][j], 1, 30000) != HAL_OK){}}
+				HAL_UART_Transmit(&huart1, (uint8_t *)&inputFreq[i][j], 1, 30000);
+			}
+		}
+
+		/*---------------------------------------------------------------------------------------*/
+
+		/*------------------------Converting Frequency Char to Flag values------------------------*/
+
+		
+
+		/*----------------------------------------------------------------------------------------*/
+
+		//Call function to verify input
+		int returnValue = isCorrect();
+		if (returnValue = 1) {
+			freqFlag = OK;
+		}
+	}
+	/*-------------------------------------------------------------------------------------------------------*/
+	#pragma endregion USART_Implementation
+}
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------UI function to input matrix coefficients------------------------------------------*/
+void userInterfaceMixer(void){
+
+	#pragma region OutputMessageArrays
+	/*------------------------------------------Output Message Arrays------------------------------------------*/
+
+	//Function Introduction
 	char linearCoefficientsMessage[33] = {'\n','L','i','n','e','a','r',' ','C','o','m','b',
 																'i','n','a','t','i','o','n',' ','C','o','e','f','f',
 																'i','c','i','e','n','t','s','\n'};
 	
+	//Showing input format and example for mixer values
 	char mixerExampleMessage[65] = {'E','n','t','e','r',' ','t','o','t','a','l',' ',
 																	'4',' ','d','i','g','i','t','s',',',' ','w','i','t',
 																	'h',' ','2',' ','d','e','c','i','m','a','l',' ','p','l',
 																	'a','c','e','s',' ','a','c','c','u','r','a','c','y',
 																	'\n','L','i','k','e',' ','5','5','.','7','7','\n'};
 	
+	//Showing the label for frequency values being input
 	char mixerVarMessage[4][13] = {
 																{'\n','E','n','t','e','r',' ','a','0','0', ' ', ':', ' '},
 																{'\n','E','n','t','e','r',' ','a','0','1', ' ', ':', ' '},
 																{'\n','E','n','t','e','r',' ','a','1','0', ' ', ':', ' '},
 																{'\n','E','n','t','e','r',' ','a','1','1', ' ', ':', ' '}
 																};
+	
+	/*--------------------------------------------------------------------------------------------------------*/
+	#pragma endregion OutputMessageArrays
 
+	#pragma region InputMessageArrays
+	/*------------------------------------------Input Storing Arrays------------------------------------------*/
+	
+	//Array for storing mixer value characters
+	char inputCoeff[4][5] = {
+													{0,0,'.',0,0},
+													{0,0,'.',0,0},
+													{0,0,'.',0,0},
+													{0,0,'.',0,0}
+													};
+	
+	/*---------------------------------------------------------------------------------------------------------*/
+	#pragma endregion InputMessageArrays
+
+	#pragma region USART_Implementation
+	/*--------------------------------------USART implementation of UI--------------------------------------------------------*/
+	
+	// Flag used to determine if matrix coefficient input is correct
+	enum inputState mixerFlag;
+	mixerFlag = NOT_OK;
+
+	while(mixerFlag == NOT_OK){
+		/*---------------Transmits generic explanation and example for matrix coefficients to user--------------*/
+		
+		HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficientsMessage, 33, 30000);
+		HAL_UART_Transmit(&huart1, (uint8_t *)mixerExampleMessage, 65, 30000);
+
+		/*------------------------------------------------------------------------------------------------------*/
+
+		/*-----------------------------Receivies and transmits matrix coefficient values---------------------------*/
+		
+		int i;
+		int j;
+		for(i=0; i<4; i++){
+			HAL_UART_Transmit(&huart1, (uint8_t *)mixerVarMessage[i], 13, 30000);
+			for(j=0; j<5;j++){
+				if (inputCoeff[i][j] == '.'){}
+				else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputCoeff[i][j], 1, 30000) != HAL_OK){}}
+				HAL_UART_Transmit(&huart1, (uint8_t *)&inputCoeff[i][j], 1, 30000);
+			}
+		}
+
+		/*---------------------------------------------------------------------------------------------------------*/
+		
+		int returnValue = isCorrect();
+		if (returnValue = 1) {
+			mixerFlag = OK;
+		}
+	}
+	/*------------------------------------------------------------------------------------------------------------------------*/
+	#pragma endregion USART_Implementation
+}
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------Function to verify input with the user---------------------------------------------*/
+int isCorrect(){
+	
+	#pragma region OutputMessageArrays
+	/*------------------------------------------Output Message Arrays------------------------------------------*/
+	
 	//Confimation query
 	char toConfirmMessage[42] = {'\n','A','r','e',' ','y','o','u',' ','s','u','r','e',
-															' ','t','h','e',' ','v','a','l','u','e','s',' ','a','r',
-															'e',' ','c','o','r','r','e','c','t','?','(','y','/','n',')'};
+															' ','t','h','e',' ','i','n','p','u','t',' ','i','s',
+															' ','c','o','r','r','e','c','t','?','(','y','/','n',')'};
 	
 	//Confirmation granted
 	char confirmation[3] = {'O','K','\n'};
@@ -205,97 +395,61 @@ void userInterface(void){
 
 	//Input Next Line
 	char nextLine[1] = {'\n'};
-	/*---------------------------------------------------------------------------------------------------------------------*/
 
-	/*------------------------------------------UI to input signal frequency --------------------------------------------*/
-		// Flag used to define if frequency input is correct
-		enum inputState freqFlag;
-		freqFlag = NOT_OK;
+	/*--------------------------------------------------------------------------------------------------------*/
+	#pragma endregion OutputMessageArrays
 
-		int i;
-		int j;
-		while(freqFlag == NOT_OK){
-			/*-----------Transmits generic explanation and example for frequency to user--------------*/
-			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyValuesMessage, 18, 30000);
-			HAL_UART_Transmit(&huart1, (uint8_t *)frequencyExampleMessage, 66, 30000);
-			/*-----------------------------------------------------------------------------------------*/
+	#pragma region InputMessageArrays
+	/*------------------------------------------Input Storing Arrays------------------------------------------*/
 
-			/*-------------------------Receivies and transmits frequency values-------------------------*/
-			for(i=0; i<2; i++){
-				HAL_UART_Transmit(&huart1, (uint8_t *)frequencyVarMessage[i], 12, 30000);
-				for(j=0; j<6;j++){
-					if (inputFreq[i][j] == '.'){}
-					else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputFreq[i][j], 1, 30000) != HAL_OK){}}
-					HAL_UART_Transmit(&huart1, (uint8_t *)&inputFreq[i][j], 1, 30000);
-				}
-			}
-			/*---------------------------------------------------------------------------------------*/
+	//Array for storing confimration reply
+	char comfirmInput[1];
 
-			/*----------------Confirms with the user if the input is correct------------------------*/
-			HAL_UART_Transmit(&huart1, (uint8_t *)toConfirmMessage, 42, 30000);
-			while(HAL_UART_Receive(&huart1, (uint8_t *)comfirmInput, 1, 30000) != HAL_OK){}
-			HAL_UART_Transmit(&huart1, (uint8_t *)comfirmInput, 1, 30000);
-			while(HAL_UART_Receive(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000) != HAL_OK){}
-			HAL_UART_Transmit(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000);
-			HAL_UART_Transmit(&huart1, (uint8_t *)nextLine, 1, 30000);
-			if (comfirmInput[1] == 'n'){
-				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
-			}
-			else if (comfirmInput[0] == 'y'){
-					freqFlag = OK;
-					HAL_UART_Transmit(&huart1, (uint8_t *)confirmation, 3, 30000);
-			}
-			else {
-				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
-			}
-			
+	/*--------------------------------------------------------------------------------------------------------*/
+	#pragma endregion InputMessageArrays
+
+	#pragma region USART_Implementation
+	
+	/*--------------------------USART implementation of UI------------------------------------*/
+
+	//Polling the user to get a desired response
+	while(1){
+		//Ask if input frequency values are correct
+		HAL_UART_Transmit(&huart1, (uint8_t *)toConfirmMessage, 42, 30000);
+		
+		//Wait for response
+		while(HAL_UART_Receive(&huart1, (uint8_t *)comfirmInput, 1, 30000) != HAL_OK){}
+		
+		//Show reponse
+		HAL_UART_Transmit(&huart1, (uint8_t *)comfirmInput, 1, 30000);
+		
+		//Wait for Enter button press
+		while(HAL_UART_Receive(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000) != HAL_OK){}
+		
+		//Go to next line
+		HAL_UART_Transmit(&huart1, (uint8_t *)nextLine, 1, 30000);
+		
+		//Positive response, exit current loop, call function to store char as float
+		if (comfirmInput[0] == 'y'){
+			HAL_UART_Transmit(&huart1, (uint8_t *)confirmation, 3, 30000);
+			return 1;
 		}
-	/*----------------------------------------------------------------------------------------------------------------------*/
 
-
-	/*-------------------------------------------------UI to input matrix coefficients---------------------------------------*/
-		// Flag used to define if matrix coefficient input is correct
-		enum inputState mixerFlag;
-		mixerFlag = NOT_OK;
-		while(mixerFlag == NOT_OK){
-			/*---------------Transmits generic explanation and example for matrix coefficients to user--------------*/
-			HAL_UART_Transmit(&huart1, (uint8_t *)linearCoefficientsMessage, 33, 30000);
-			HAL_UART_Transmit(&huart1, (uint8_t *)mixerExampleMessage, 65, 30000);
-			/*------------------------------------------------------------------------------------------------------*/
-
-			/*-----------------------------Receivies and transmits matrix coefficient values---------------------------*/
-			for(i=0; i<4; i++){
-				HAL_UART_Transmit(&huart1, (uint8_t *)mixerVarMessage[i], 13, 30000);
-				for(j=0; j<5;j++){
-					if (inputCoeff[i][j] == '.'){}
-					else {while(HAL_UART_Receive (&huart1, (uint8_t *)&inputCoeff[i][j], 1, 30000) != HAL_OK){}}
-					HAL_UART_Transmit(&huart1, (uint8_t *)&inputCoeff[i][j], 1, 30000);
-				}
-			}
-			/*---------------------------------------------------------------------------------------------------------*/
-
-			/*--------------------------Confirms with the user if the input is correct----------------------------------*/
-			HAL_UART_Transmit(&huart1, (uint8_t *)toConfirmMessage, 42, 30000);
-			while(HAL_UART_Receive(&huart1, (uint8_t *)comfirmInput, 1, 30000) != HAL_OK){}
-			HAL_UART_Transmit(&huart1, (uint8_t *)comfirmInput, 1, 30000);
-			while(HAL_UART_Receive(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000) != HAL_OK){}
-			HAL_UART_Transmit(&huart1, (uint8_t *)&comfirmInput[1], 1, 30000);
-			HAL_UART_Transmit(&huart1, (uint8_t *)nextLine, 1, 30000);
-			if (comfirmInput[1] == 'n'){
-				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
-			}
-			else if (comfirmInput[0] == 'y'){
-					mixerFlag = OK;
-					HAL_UART_Transmit(&huart1, (uint8_t *)confirmation, 3, 30000);
-			}
-			else {
-				HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
-			}
-			/*----------------------------------------------------------------------------------------------------------*/
+		//Negative response, exit current loop, repeat loop with asking for frequency values
+		else if (comfirmInput[0] == 'n'){
+			HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
+			return 0;
 		}
-	/*------------------------------------------------------------------------------------------------------------------------*/
 
+		//Repeat loop with asking for confirmation message
+		else {
+			HAL_UART_Transmit(&huart1, (uint8_t *)tryAgain, 10, 30000);
+		}
+	}
+	/*-------------------------------------------------------------------------------------*/
+	#pragma endregion
 }
+/*---------------------------------------------------------------------------------------------------------*/
 
 // Generates two signals based on the frequency given
 void generateSineWave(float32_t signalFrequency1, float32_t signalFrequency2){
