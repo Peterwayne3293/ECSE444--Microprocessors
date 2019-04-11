@@ -57,6 +57,8 @@ extern "C" {
 #define WAVE_2_ADDRESS 0x7D00
 #define WAVE_MIXED_1_ADDRESS 0x1F400
 #define WAVE_MIXED_2_ADDRESS 0x27100
+#define WAVE_UNMIXED_1_ADDRESS 0x36B00
+#define WAVE_UNMIXED_2_ADDRESS 0x46500
 
 #define SAMPLING_FREQUENCY 16000
 #define DURATION_IN_SEC 2
@@ -68,13 +70,18 @@ extern "C" {
 typedef enum {
 	GenerateWaves = 1,
 	MixWaves,
+	UnmixWaves,
+	PlayGenerated,
+	PlayMixed,
 	PlayUnmixed,
-	PlayMixed
+	PlayDiff
 } MenuOption;
 
 typedef enum {
+	Generated,
 	Unmixed,
-	Mixed
+	Mixed,
+	Diff
 } PlayingMode;
 /* USER CODE END ET */
 
@@ -85,7 +92,7 @@ typedef enum {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#define UINT8_CLIP(x) ((x < 0) ? 0 : ((x > 255) ? 255 : x))
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

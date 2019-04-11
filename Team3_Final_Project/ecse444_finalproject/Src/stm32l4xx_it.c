@@ -225,10 +225,11 @@ void TIM2_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
 	uint8_t value;
+	uint8_t diff;
 	
 	// Play unmixed or mixed depending on playing mode
 	switch(playing_mode) {
-		case Unmixed:
+		case Generated:
 			BSP_QSPI_Read(&value, WAVE_1_ADDRESS + sineWaveIdx, 1);
 			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, value);
 			BSP_QSPI_Read(&value, WAVE_2_ADDRESS + sineWaveIdx++, 1);
@@ -239,6 +240,20 @@ void TIM2_IRQHandler(void)
 			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, value);
 			BSP_QSPI_Read(&value, WAVE_MIXED_2_ADDRESS + sineWaveIdx++, 1);
 			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_8B_R, value);
+			break;
+		case Unmixed:
+			BSP_QSPI_Read(&value, WAVE_UNMIXED_1_ADDRESS + sineWaveIdx, 1);
+			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, value);
+			BSP_QSPI_Read(&value, WAVE_UNMIXED_2_ADDRESS + sineWaveIdx++, 1);
+			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_8B_R, value);
+			break;
+		case Diff:
+			BSP_QSPI_Read(&diff, WAVE_1_ADDRESS + sineWaveIdx, 1);
+			BSP_QSPI_Read(&value, WAVE_UNMIXED_1_ADDRESS + sineWaveIdx, 1);
+			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, UINT8_CLIP(value - diff + 127));
+			BSP_QSPI_Read(&diff, WAVE_2_ADDRESS + sineWaveIdx++, 1);
+			BSP_QSPI_Read(&value, WAVE_UNMIXED_2_ADDRESS + sineWaveIdx, 1);
+			HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_8B_R, UINT8_CLIP(value - diff + 127));
 			break;
 	}
 	

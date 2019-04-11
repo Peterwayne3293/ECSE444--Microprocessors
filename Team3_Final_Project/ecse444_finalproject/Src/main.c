@@ -90,9 +90,14 @@ static void MX_QUADSPI_Init(void);
 int showMenuOptions(void);
 void showGenerateWavesMenu(void);
 void showMixWavesMenu(void);
-void showPlayMenu(int);
+void showUnmixWavesMenu(void);
+void showPlayMenu(PlayingMode);
 void store_sine(float frequency, int duration, int sampling_freq, uint32_t qspiStartAddress);
 void mix_waves(uint32_t input_addr_1, uint32_t input_addr_2, uint32_t output_addr_1, uint32_t output_addr_2, int size, float a11, float a12, float a21, float a22);
+void unmix_waves(int size, uint32_t input_addr_1, uint32_t input_addr_2, uint32_t output_addr_1, uint32_t output_addr_2);
+
+float32_t vec_norm_mat(arm_matrix_instance_f32 vec);
+float32_t vec_norm_arr(float32_t* vec, int size);
 
 int fputc(int ch, FILE *f) {
   while (HAL_OK != HAL_UART_Transmit(&huart1, (uint8_t *) &ch, 1, 30000));
@@ -185,6 +190,8 @@ int main(void)
 	BSP_QSPI_Erase_Block(WAVE_2_ADDRESS);
 	BSP_QSPI_Erase_Block(WAVE_MIXED_1_ADDRESS);
 	BSP_QSPI_Erase_Block(WAVE_MIXED_2_ADDRESS);
+	BSP_QSPI_Erase_Block(WAVE_UNMIXED_1_ADDRESS);
+	BSP_QSPI_Erase_Block(WAVE_UNMIXED_2_ADDRESS);
 				
   while (1)
   {
@@ -206,11 +213,24 @@ int main(void)
 			
 				showMixWavesMenu();
 				break;
-			case PlayUnmixed:
-				showPlayMenu(0);
+			case UnmixWaves:
+				// Erase previously unmixed waves
+				BSP_QSPI_Erase_Block(WAVE_UNMIXED_1_ADDRESS);
+				BSP_QSPI_Erase_Block(WAVE_UNMIXED_2_ADDRESS);
+			
+				showUnmixWavesMenu();
+				break;
+			case PlayGenerated:
+				showPlayMenu(Generated);
 				break;
 			case PlayMixed:
-				showPlayMenu(1);
+				showPlayMenu(Mixed);
+				break;
+			case PlayUnmixed:
+				showPlayMenu(Unmixed);
+				break;
+			case PlayDiff:
+				showPlayMenu(Diff);
 				break;
 			default:
 				printf("Invalid option.\n");
@@ -457,8 +477,11 @@ int showMenuOptions() {
 	printf("\r\n=== Main menu ===\r\n\r\n"
 				 "  1) Generate signals\r\n"
 				 "  2) Mix signals\r\n"
-				 "  3) Play unmixed signal\r\n"
-				 "  4) Play mixed signal\r\n\r\n"
+				 "  3) Unmix signals\r\n"
+				 "  4) Play generated signal\r\n"
+				 "  5) Play mixed signal\r\n"
+				 "  6) Play unmixed signal\r\n"
+				 "  7) Play generated-unmixed difference signal\r\n\r\n"
 				 "Enter option: ");
 	
 	char option;
@@ -540,20 +563,36 @@ void showMixWavesMenu() {
 	mix_waves(WAVE_1_ADDRESS, WAVE_2_ADDRESS, WAVE_MIXED_1_ADDRESS, WAVE_MIXED_2_ADDRESS, NUMBER_OF_SAMPLES, a11, a12, a21, a22);
 }
 
-void showPlayMenu(int mixed) {
-	if (mixed) {
-		printf("\r\n=== Mixed waves playing ===\r\n\r\n");
-		printf("Left channel: Wave 1 (x1)\r\n"
-				 "Right channel: Wave 2 (x2)\r\n");
-		
-		playing_mode = Mixed;
-	}
-	else {
-		printf("\r\n=== Unmixed waves playing ===\r\n\r\n");
-		printf("Left channel: Wave 1 (s1)\r\n"
-				 "Right channel: Wave 2 (s2)\r\n");
+void showUnmixWavesMenu(){
+	printf("\r\n=== Wave unmixing ===\r\n\r\n"
+						 "Unmixing waves...\r\n");
 
-		playing_mode = Unmixed;
+	unmix_waves(NUMBER_OF_SAMPLES, WAVE_MIXED_1_ADDRESS, WAVE_MIXED_2_ADDRESS, WAVE_UNMIXED_1_ADDRESS, WAVE_UNMIXED_2_ADDRESS);
+}
+
+void showPlayMenu(PlayingMode mode) {
+	playing_mode = mode;
+	switch(mode){
+		case Generated:
+			printf("\r\n=== Generated waves playing ===\r\n\r\n");
+			printf("Left channel: Wave 1 (s1)\r\n"
+				 "Right channel: Wave 2 (s2)\r\n");
+			break;
+		case Mixed:
+			printf("\r\n=== Mixed waves playing ===\r\n\r\n");
+			printf("Left channel: Wave 1 (x1)\r\n"
+				 "Right channel: Wave 2 (x2)\r\n");
+			break;
+		case Unmixed:
+			printf("\r\n=== Unmixed waves playing ===\r\n\r\n");
+			printf("Left channel: Wave 1 (s1')\r\n"
+				 "Right channel: Wave 2 (s2')\r\n");
+			break;
+		case Diff:
+			printf("\r\n=== Unmixed waves playing ===\r\n\r\n");
+			printf("Left channel: Wave 1 (s1 - s1')\r\n"
+				 "Right channel: Wave 2 (s2 - s2')\r\n");
+			break;
 	}
 	
 	printf("\r\nPress any character to return to main menu ...");
@@ -618,6 +657,236 @@ void mix_waves(uint32_t input_addr_1, uint32_t input_addr_2, uint32_t output_add
 		
 		BSP_QSPI_Write(tempBufferOut1, output_addr_1 + i, bytesToRead);
 		BSP_QSPI_Write(tempBufferOut2, output_addr_2 + i, bytesToRead);
+	}
+}
+
+float32_t vec_norm_mat(arm_matrix_instance_f32 vec) {
+	int size = (vec.numCols > vec.numRows) ? vec.numCols : vec.numRows;
+	
+	float32_t* data = vec.pData;
+	int i;
+	float32_t sum = 0.0;
+	for(i = 0; i < size; i++, data++) {
+		sum += (*data) * (*data);
+	}
+	
+	float32_t res;
+	arm_sqrt_f32(sum, &res);
+	
+	return res;
+}
+
+float32_t vec_norm_arr(float32_t* vec, int size) {
+	int i;
+	float32_t sum = 0.0;
+	for(i = 0; i < size; i++, vec++) {
+		sum += (*vec) * (*vec);
+	}
+	
+	float32_t res;
+	arm_sqrt_f32(sum, &res);
+	
+	return res;
+}
+
+void unmix_waves(int size, uint32_t input_addr_1, uint32_t input_addr_2, uint32_t output_addr_1, uint32_t output_addr_2){
+	// 1) Get mean for x_1 and x_2
+	float32_t mean1 = 0;
+	float32_t mean2 = 0;
+	int i;
+	for(i = 0; i < size; i += TEMP_BUFFER_SIZE){
+		int bytesToRead = (i + TEMP_BUFFER_SIZE > size) ? (i + TEMP_BUFFER_SIZE - size) : TEMP_BUFFER_SIZE;
+		
+		BSP_QSPI_Read(tempBuffer1, input_addr_1 + i, bytesToRead);
+		BSP_QSPI_Read(tempBuffer2, input_addr_2 + i, bytesToRead);
+		
+		int j;
+		for(j = 0; j < bytesToRead; j++){
+			mean1 += tempBuffer1[j];
+			mean2 += tempBuffer2[j];
+		}
+	}
+	
+	mean1 /= size;
+	mean2 /= size;
+	
+	// 2) Compute variance-covariance matrix
+	float32_t cv_mat_values[] = {0, 0, 0, 0};
+	for(i = 0; i < size; i++) {
+		uint8_t val1;
+		uint8_t val2;
+		
+		// Get values of both mixed signals
+		BSP_QSPI_Read(&val1, input_addr_1 + i, 1);
+		BSP_QSPI_Read(&val2, input_addr_2 + i, 1);
+		
+		cv_mat_values[0] += (val1 - mean1) * (val1 - mean1);
+		cv_mat_values[1] += (val1 - mean1) * (val2 - mean2);
+		cv_mat_values[2] += (val1 - mean1) * (val2 - mean2);
+		cv_mat_values[3] += (val2 - mean2) * (val2 - mean2);
+	}
+	cv_mat_values[0] /= (size - 1);
+	cv_mat_values[1] /= (size - 1);
+	cv_mat_values[2] /= (size - 1);
+	cv_mat_values[3] /= (size - 1);
+	
+	float32_t trace = cv_mat_values[0] + cv_mat_values[3];
+	float32_t det = cv_mat_values[0] * cv_mat_values[3] - cv_mat_values[1] * cv_mat_values[2];
+		
+	// 3) Compute eigenvalues and eigenvectors
+	float32_t sqrtDet;
+	arm_sqrt_f32(trace * trace - 4 * det, &sqrtDet);
+		
+	float32_t eigval1 = (trace + sqrtDet) / 2.0f;
+	float32_t eigval2 = (trace - sqrtDet) / 2.0f;
+	
+	float32_t eigvec1[] = {eigval1 - cv_mat_values[3], cv_mat_values[2]};
+	float32_t eigvec2[] = {eigval2 - cv_mat_values[3], cv_mat_values[2]};
+	
+	float32_t eigvec1_norm = vec_norm_arr(eigvec1, 2);
+	float32_t eigvec2_norm = vec_norm_arr(eigvec2, 2);
+	
+	// Normalize eigenvectors
+	eigvec1[0] = eigvec1[0] / eigvec1_norm; eigvec1[1] = eigvec1[1] / eigvec1_norm;
+	eigvec2[0] = eigvec2[0] / eigvec2_norm; eigvec2[1] = eigvec2[1] / eigvec2_norm;
+	
+	float32_t mat_E_values[] = {eigvec2[0], eigvec2[1], eigvec1[0], eigvec1[1]};
+	arm_matrix_instance_f32 mat_E = {2, 2, mat_E_values};
+	
+	// 4) Compute whitening and de-whitening matrices
+	float32_t mat_sqrt_eig_values[] = {0, 0, 0, 0};
+	arm_sqrt_f32(eigval1, &mat_sqrt_eig_values[3]);
+	arm_sqrt_f32(eigval2, &mat_sqrt_eig_values[0]);
+	arm_matrix_instance_f32 mat_sqrt_eig = {2, 2, mat_sqrt_eig_values};
+	
+	float32_t mat_whitening_values[] = {0, 0, 0, 0};
+	float32_t mat_dewhitening_values[] = {0, 0, 0, 0};
+	float32_t trans_mat_E_values[] = {0, 0, 0, 0};
+	float32_t inv_mat_sqrt_eig_values[] = {0, 0, 0, 0};
+	arm_matrix_instance_f32 mat_whitening = {2, 2, mat_whitening_values};
+	arm_matrix_instance_f32 mat_dewhitening = {2, 2, mat_dewhitening_values};
+	arm_matrix_instance_f32 trans_mat_E = {2, 2, trans_mat_E_values};
+	arm_matrix_instance_f32 inv_mat_sqrt_eig = {2, 2, inv_mat_sqrt_eig_values};
+	arm_mat_trans_f32(&mat_E, &trans_mat_E);
+	arm_mat_inverse_f32(&mat_sqrt_eig, &inv_mat_sqrt_eig);
+	
+	arm_mat_mult_f32(&inv_mat_sqrt_eig, &trans_mat_E, &mat_whitening);
+	arm_mat_mult_f32(&mat_E, &mat_sqrt_eig, &mat_dewhitening);
+	
+	// 5) Initialize "random" weight vector
+	float32_t vec_weight_values[] = {0.5, 0.5};
+	float32_t vec_weight_norm = vec_norm_arr(vec_weight_values, 2);
+	vec_weight_values[0] = vec_weight_values[0] / vec_weight_norm; vec_weight_values[1] = vec_weight_values[1] / vec_weight_norm;
+	arm_matrix_instance_f32 vec_weight = {2, 1, vec_weight_values};
+	float32_t vec_weight_values_old[] = {0.0, 0.0};
+	arm_matrix_instance_f32 vec_weight_old = {2, 1, vec_weight_values_old};
+	
+	int iteration = 0;
+	int max_iterations = 100;
+	float epsilon = 0.0001f;
+	
+	float32_t vec_weight_tmp_values[] = {0, 0};
+	arm_matrix_instance_f32 vec_weight_tmp = {2, 1, vec_weight_tmp_values};
+	
+	// 6) Run through ICA until convergence
+	while(iteration++ < max_iterations) {
+		// Test for convergence
+		arm_mat_sub_f32(&vec_weight, &vec_weight_old, &vec_weight_tmp);
+		if(vec_norm_mat(vec_weight_tmp) < epsilon)
+			break;
+		
+		arm_mat_add_f32(&vec_weight, &vec_weight_old, &vec_weight_tmp);
+		if(vec_norm_mat(vec_weight_tmp) < epsilon)
+			break;
+		
+		// Update weight
+		vec_weight_values_old[0] = vec_weight_values[0]; vec_weight_values_old[1] = vec_weight_values[1]; 
+		
+		// Whiten input matrix and compute new weights
+		// Note: matrix has to be whiten for every iteration because it "cannot" be
+		// stored in ram since it's too big and nor in flash since it uses 32bit values 
+		vec_weight_values[0] = 0.0;
+		vec_weight_values[1] = 0.0;
+		for(i = 0; i < size; i++) {
+			uint8_t in_val1, in_val2;
+			
+			BSP_QSPI_Read(&in_val1, input_addr_1 + i, 1);
+			BSP_QSPI_Read(&in_val2, input_addr_2 + i, 1);
+			
+			float32_t whitenval1, whitenval2;
+			
+			whitenval1 = mat_whitening_values[0] * (in_val1 - mean1) + mat_whitening_values[1] * (in_val2 - mean2);
+			whitenval2 = mat_whitening_values[2] * (in_val1 - mean1) + mat_whitening_values[3] * (in_val2 - mean2);
+			
+			float32_t tmp_w1 = whitenval1 * vec_weight_values_old[0] + whitenval2 * vec_weight_values_old[1];
+			float32_t tmp_w2 = whitenval1 * vec_weight_values_old[0] + whitenval2 * vec_weight_values_old[1];
+			
+			vec_weight_values[0] += whitenval1 * tmp_w1 * tmp_w1 * tmp_w1;
+			vec_weight_values[1] += whitenval2 * tmp_w2 * tmp_w2 * tmp_w2;
+		}
+		
+		vec_weight_values[0] /= size;
+		vec_weight_values[1] /= size;
+		
+		vec_weight_values[0] = vec_weight_values[0] - 3 * vec_weight_values_old[0];
+		vec_weight_values[1] = vec_weight_values[1] - 3 * vec_weight_values_old[1];
+		
+		// Normalize weight
+		vec_weight_norm = vec_norm_arr(vec_weight_values, 2);
+		vec_weight_values[0] = vec_weight_values[0] / vec_weight_norm; vec_weight_values[1] = vec_weight_values[1] / vec_weight_norm;
+	}
+	
+	// 7) Construct basis set
+	float32_t mat_basis_set_values[] = {vec_weight_values[0], -vec_weight_values[1], vec_weight_values[1], vec_weight_values[0]};
+	float32_t mat_basis_set_trans_values[] = {0, 0, 0, 0};
+	arm_matrix_instance_f32 mat_basis_set = {2, 2, mat_basis_set_values};
+	arm_matrix_instance_f32 mat_basis_set_trans = {2, 2, mat_basis_set_trans_values};
+	arm_mat_trans_f32(&mat_basis_set, &mat_basis_set_trans);
+	
+	// 8) Construct ICA filter
+	float32_t mat_ica_values[] = {0, 0, 0, 0};
+	arm_matrix_instance_f32 mat_ica = {2, 2, mat_ica_values};
+	arm_mat_mult_f32(&mat_basis_set_trans, &mat_whitening, &mat_ica);
+
+	// 9) Compute BSS signals statistics
+	float32_t min1 = 1000.0, min2 = 1000.0, max1 = -1000.0, max2 = -1000.0;
+	for(i = 0; i < size; i++) {
+		uint8_t in_val1, in_val2;
+			
+		BSP_QSPI_Read(&in_val1, input_addr_1 + i, 1);
+		BSP_QSPI_Read(&in_val2, input_addr_2 + i, 1);
+		
+		float32_t outval1, outval2;
+		outval1 = mat_ica_values[2] * in_val1 + mat_ica_values[3] * in_val2;
+		outval2 = mat_ica_values[0] * in_val1 + mat_ica_values[1] * in_val2;
+		
+		if (outval1 < min1)
+			min1 = outval1;
+		if (outval1 > max1)
+			max1 = outval1;
+		if (outval2 < min2)
+			min2 = outval2;
+		if (outval2 > max2)
+			max2 = outval2;
+	}
+	
+	// 10) Approximate original signal
+	for(i = 0; i < size; i++) {
+		uint8_t in_val1, in_val2;
+			
+		BSP_QSPI_Read(&in_val1, input_addr_1 + i, 1);
+		BSP_QSPI_Read(&in_val2, input_addr_2 + i, 1);
+		
+		float32_t outval1, outval2;
+		outval1 = mat_ica_values[2] * in_val1 + mat_ica_values[3] * in_val2;
+		outval2 = mat_ica_values[0] * in_val1 + mat_ica_values[1] * in_val2;
+		
+		// Normalize to unsigned 8 bits
+		uint8_t outval1_u8 = 255.0f * (outval1 + min1) / (max1 - min1);
+		uint8_t outval2_u8 = 255.0f * (outval2 + min2) / (max2 - min2);
+		
+		BSP_QSPI_Write(&outval1_u8, output_addr_1 + i, 1);
+		BSP_QSPI_Write(&outval2_u8, output_addr_2 + i, 1);
 	}
 }
 /* USER CODE END 4 */
